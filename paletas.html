@@ -2,44 +2,64 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Teste de Paletas - Renê</title>
+    <title>Paletas Diretor - Renê</title>
     <style>
-        body { font-family: sans-serif; background: #f4f4f5; padding: 40px; }
-        .paleta-container { display: flex; gap: 40px; flex-wrap: wrap; }
-        .paleta { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; }
-        .cor { height: 80px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        h2 { color: #333; }
+        body { font-family: 'Inter', sans-serif; background: #e5e7eb; padding: 40px; display: flex; flex-direction: column; align-items: center;}
+        .paleta-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; max-width: 1200px;}
+        .paleta { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); width: 320px; }
+        .cor { height: 70px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 5px; border-radius: 6px;}
+        h2 { color: #111827; margin-bottom: 5px;}
+        p { color: #6b7280; font-size: 14px; margin-bottom: 20px;}
+        .light-text { color: #111827 !important; text-shadow: none !important; border: 1px solid #e5e7eb; }
     </style>
 </head>
 <body>
-    <h1>Escolha sua Paleta de Cores</h1>
+    <h1>Selecione sua Identidade Visual</h1>
     <div class="paleta-container">
         
         <div class="paleta">
-            <h2>1. Executivo Moderno</h2>
-            <p>Sóbria, passa muita confiança e combina perfeitamente com o Índigo.</p>
-            <div class="cor" style="background-color: #0f172a;">Fundo/Texto (#0f172a)</div>
-            <div class="cor" style="background-color: #334155;">Secundária (#334155)</div>
-            <div class="cor" style="background-color: #4f46e5;">Destaque/Índigo (#4f46e5)</div>
-            <div class="cor" style="background-color: #f8fafc; color: #333; text-shadow: none; border: 1px solid #ddd;">Fundo Claro (#f8fafc)</div>
+            <h2>1. Trust & Tech</h2>
+            <p>Sóbria, muito azul corporativo. Passa confiança e segurança analítica.</p>
+            <div class="cor" style="background-color: #0f172a;">#0f172a (Texto Principal)</div>
+            <div class="cor" style="background-color: #1e3a8a;">#1e3a8a (Destaque Escuro)</div>
+            <div class="cor" style="background-color: #3b82f6;">#3b82f6 (Botões/Links)</div>
+            <div class="cor light-text" style="background-color: #f8fafc;">#f8fafc (Fundo do Site)</div>
         </div>
 
         <div class="paleta">
-            <h2>2. Dark & Tech</h2>
-            <p>Mais agressiva, focada em performance e tecnologia.</p>
-            <div class="cor" style="background-color: #121212;">Fundo (#121212)</div>
-            <div class="cor" style="background-color: #27272a;">Cards (#27272a)</div>
-            <div class="cor" style="background-color: #3b82f6;">Destaque Azul (#3b82f6)</div>
-            <div class="cor" style="background-color: #e4e4e7; color: #333; text-shadow: none;">Texto Claro (#e4e4e7)</div>
+            <h2>2. Executivo Agressivo</h2>
+            <p>Forte e decidida. O contraste do chumbo com o vermelho/laranja escuro indica ação e performance.</p>
+            <div class="cor" style="background-color: #18181b;">#18181b (Fundo/Texto)</div>
+            <div class="cor" style="background-color: #3f3f46;">#3f3f46 (Cards)</div>
+            <div class="cor" style="background-color: #dc2626;">#dc2626 (Cor de Ação)</div>
+            <div class="cor light-text" style="background-color: #fafafa;">#fafafa (Detalhes)</div>
         </div>
 
         <div class="paleta">
-            <h2>3. Clean & Minimalista</h2>
-            <p>Foco total no conteúdo. Visual de agência premium.</p>
-            <div class="cor" style="background-color: #ffffff; color: #333; text-shadow: none; border: 1px solid #ddd;">Fundo (#ffffff)</div>
-            <div class="cor" style="background-color: #18181b;">Texto Principal (#18181b)</div>
-            <div class="cor" style="background-color: #0a66c2;">Azul LinkedIn (#0a66c2)</div>
-            <div class="cor" style="background-color: #f3f4f6; color: #333; text-shadow: none;">Cards Claros (#f3f4f6)</div>
+            <h2>3. O Ecossistema (Índigo)</h2>
+            <p>A melhor combinação se quiser conversar diretamente com o visual do Inbound Hub.</p>
+            <div class="cor" style="background-color: #111827;">#111827 (Texto Títulos)</div>
+            <div class="cor" style="background-color: #374151;">#374151 (Texto Corpo)</div>
+            <div class="cor" style="background-color: #4f46e5;">#4f46e5 (Índigo Principal)</div>
+            <div class="cor light-text" style="background-color: #ffffff;">#ffffff (Fundo)</div>
+        </div>
+
+        <div class="paleta">
+            <h2>4. Consultoria Clássica</h2>
+            <p>Monocromática e extremamente elegante. Minimalismo puro.</p>
+            <div class="cor" style="background-color: #000000;">#000000 (Textos/Botões)</div>
+            <div class="cor" style="background-color: #525252;">#525252 (Bordas/Detalhes)</div>
+            <div class="cor" style="background-color: #a3a3a3;">#a3a3a3 (Elementos Secundários)</div>
+            <div class="cor light-text" style="background-color: #fafafa;">#fafafa (Fundo)</div>
+        </div>
+
+        <div class="paleta">
+            <h2>5. Dark Mode Premium</h2>
+            <p>Para quem quer um site escuro de alto padrão, com um tom de verde musgo/esmeralda focado em receita.</p>
+            <div class="cor" style="background-color: #09090b;">#09090b (Fundo Principal)</div>
+            <div class="cor" style="background-color: #27272a;">#27272a (Fundo dos Cards)</div>
+            <div class="cor" style="background-color: #10b981;">#10b981 (Esmeralda/Botões)</div>
+            <div class="cor light-text" style="background-color: #f4f4f5;">#f4f4f5 (Textos no Fundo Escuro)</div>
         </div>
 
     </div>
