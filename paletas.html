@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Cobalto & Branco - renê_sábio</title>
+    <title>Simulador Estética Gelo - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* * A ESTRATÉGIA: Fundo Cobalto + Texto Branco + Destaque Azul.
-         * Para não ficar "tudo azul", os cartões (bg-card) e bordas usam tons mais neutros/acinzentados.
+        /* * ESTRATÉGIA UX: Fundo branco/gelo exige texto muito escuro para contraste.
+         * Sombras e bordas azuis claras criam a ilusão de profundidade no gelo.
          */
 
-        /* 1. COBALTO & AZUL ROYAL (O Clássico) - Fundo cobalto profundo, destaque azul verdadeiro */
-        body.cobalt-royal { --bg-main: #0B1325; --bg-card: #131A2B; --text-main: #FFFFFF; --text-muted: #A1A1AA; --accent: #2563EB; --border: rgba(255,255,255,0.08); }
+        /* 1. GLACIER CLASSIC (O padrão Apple) - Branco puro, detalhes azul-celeste e sombras suaves */
+        body.glacier-classic { --bg-main: #FFFFFF; --bg-card: #FFFFFF; --text-main: #1D1D1F; --text-muted: #86868B; --accent: #007AFF; --border: rgba(0,122,255,0.1); --shadow: rgba(0,0,0,0.05); }
 
-        /* 2. COBALTO & ÍNDIGO (Elegância) - Destaque puxa levemente para o roxo/violeta, zero verde */
-        body.cobalt-indigo { --bg-main: #0A1121; --bg-card: #121826; --text-main: #FFFFFF; --text-muted: #9CA3AF; --accent: #4F46E5; --border: rgba(255,255,255,0.08); }
+        /* 2. ÁRTICO MÍNIMO (Branco Neve) - Detalhes em cinza glacial e azul muito pálido, visual cirúrgico */
+        body.arctic-minimal { --bg-main: #FFFEFC; --bg-card: #FFFEFC; --text-main: #0F172A; --text-muted: #64748B; --accent: #38BDF8; --border: rgba(226,232,240,0.8); --shadow: rgba(56,189,248,0.03); }
 
-        /* 3. COBALTO ONYX & ELÉTRICO - Cartões totalmente cinzas (sem azul) para quebrar a cor, destaque elétrico vivo */
-        body.cobalt-onyx { --bg-main: #091224; --bg-card: #18181B; --text-main: #FFFFFF; --text-muted: #A1A1AA; --accent: #0066FF; --border: rgba(255,255,255,0.05); }
+        /* 3. CRISTAL TECH (Ciano Gelo) - Detalhes em ciano vibrante, parecendo uma interface de dados */
+        body.crystal-tech { --bg-main: #FBFDFF; --bg-card: #FFFFFF; --text-main: #002147; --text-muted: #546E7A; --accent: #00E5FF; --border: rgba(0,229,255,0.15); --shadow: rgba(0,229,255,0.05); }
 
-        /* 4. COBALTO DEEP & AZUL VIBRANTE - Fundo quase preto com toque cobalto, alto contraste */
-        body.cobalt-deep { --bg-main: #040914; --bg-card: #0A111C; --text-main: #FFFFFF; --text-muted: #8E96A4; --accent: #1D4ED8; --border: rgba(255,255,255,0.06); }
+        /* 4. GEADA PROFUNDA (Deep Frost) - Texto azul-petróleo muito escuro sobre branco, visual sério e analítico */
+        body.deep-frost { --bg-main: #F8FAFC; --bg-card: #FFFFFF; --text-main: #083344; --text-muted: #164E63; --accent: #0891B2; --border: rgba(8,145,178,0.1); --shadow: rgba(0,0,0,0.04); }
+
+        /* 5. DIAMANTE BLU (Gelo Premium) - Fundo com leve toque azul, cartões brancos e bordas nítidas */
+        body.diamond-blu { --bg-main: #F0F8FF; --bg-card: #FFFFFF; --text-main: #001845; --text-muted: #5C7C99; --accent: #0077B6; --border: rgba(0,119,182,0.1); --shadow: rgba(0,119,182,0.05); }
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
@@ -37,19 +41,19 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
-        header { padding: 48px 0; border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+        header { padding: 48px 0; border-bottom: 1px solid var(--border); background: var(--bg-main); position: sticky; top: 0; z-index: 10; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; color: var(--text-main); }
         .logo span { color: var(--accent); }
 
         .hero { padding: 100px 0 60px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; color: #FFFFFF; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; color: var(--text-main); }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 680px; line-height: 1.6; font-weight: 400; }
-        .highlight { color: #FFFFFF; font-weight: 600; border-bottom: 2px solid var(--accent); }
+        .highlight { color: var(--text-main); font-weight: 600; border-bottom: 2px solid var(--accent); }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 120px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
-        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: #FFFFFF; }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px var(--shadow); }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: var(--text-main); }
         .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
         
         .btn {
@@ -62,7 +66,7 @@
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 15px;
             letter-spacing: 0.5px;
         }
@@ -77,10 +81,10 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background-color: var(--accent);
-            color: #FFFFFF;
-            border: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            background-color: var(--bg-card);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             cursor: pointer;
             z-index: 101;
             display: flex;
@@ -91,19 +95,19 @@
         .fab-btn:hover { transform: scale(1.1); }
         .fab-btn svg { width: 24px; height: 24px; fill: currentColor; }
 
-        /* Painel Completo */
+        /* Painel Completo (Estilo Gelo Fosco) */
         #themePanel {
             position: fixed;
             bottom: 100px;
             right: 32px;
-            background: rgba(15, 20, 30, 0.95);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(16px);
             padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
             z-index: 100;
-            color: #FFFFFF;
+            color: #1D1D1F;
             font-family: 'Outfit', sans-serif;
             width: 380px;
             
@@ -124,26 +128,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding-bottom: 16px;
             margin-bottom: 20px;
         }
 
-        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #FFFFFF; margin: 0;}
+        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #1D1D1F; margin: 0;}
         
         .close-btn {
             background: transparent;
             border: none;
-            color: #A1A1AA;
+            color: #86868B;
             cursor: pointer;
             font-size: 20px;
             line-height: 1;
             padding: 4px;
         }
-        .close-btn:hover { color: #FFFFFF; }
+        .close-btn:hover { color: #1D1D1F; }
 
         .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .theme-name { font-size: 14px; width: 200px; font-weight: 500; color: #FFFFFF;}
+        .theme-name { font-size: 14px; width: 160px; font-weight: 500; color: #1D1D1F;}
         
         .btn-theme {
             padding: 8px 16px;
@@ -154,21 +158,22 @@
             font-weight: 600;
             font-size: 12px;
             transition: all 0.2s;
-            background: rgba(255,255,255,0.1);
-            color: #FFFFFF;
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.03);
+            color: #1D1D1F;
+            border: 1px solid rgba(0,0,0,0.05);
         }
-        .btn-theme:hover { background: rgba(255,255,255,0.2); }
+        .btn-theme:hover { background: rgba(0,0,0,0.05); }
 
-        /* Marcadores Visuais */
-        .c-royal { border-left: 4px solid #2563EB; padding-left: 8px; }
-        .c-indigo { border-left: 4px solid #4F46E5; padding-left: 8px; }
-        .c-onyx { border-left: 4px solid #0066FF; padding-left: 8px; }
-        .c-deep { border-left: 4px solid #1D4ED8; padding-left: 8px; }
+        /* Marcadores Visuais Gelo */
+        .c-classic { border-left: 4px solid #007AFF; padding-left: 8px; }
+        .c-arctic { border-left: 4px solid #38BDF8; padding-left: 8px; }
+        .c-crystal { border-left: 4px solid #00E5FF; padding-left: 8px; }
+        .c-frost { border-left: 4px solid #0891B2; padding-left: 8px; }
+        .c-diamond { border-left: 4px solid #0077B6; padding-left: 8px; }
 
     </style>
 </head>
-<body class="cobalt-royal">
+<body class="glacier-classic">
 
     <header>
         <div class="container">
@@ -179,19 +184,19 @@
     <main class="container">
         <section class="hero">
             <h1>A Máquina de <br>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar estratégias avançadas de <span class="highlight">Inbound Marketing, RevOps e Growth</span>. Construo ecossistemas de aquisição previsível e retenção para empresas que procuram escalar com inteligência de dados.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar estratégias avançadas de <span class="highlight">Inbound Marketing, RevOps e Growth</span>. Construo ecossistemas de aquisição previsível e retenção para empresas que procuram escalar com inteligência analítica.</p>
         </section>
 
         <section class="cards-grid">
             <div class="card">
                 <h3>LinkedIn</h3>
-                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, consolidação de inteligência de dados e liderança em marketing de alto impacto.</p>
+                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, consolidação de inteligência de dados e liderança em marketing B2B de alta performance.</p>
                 <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
 
             <div class="card">
                 <h3>Inbound Hub</h3>
-                <p>O ecossistema definitivo de Inbound. Um espaço construído para profissionais que vivem as trincheiras do marketing debaterem e evoluírem.</p>
+                <p>O ecossistema definitivo de Inbound. Um espaço construído exclusivamente para profissionais que vivem as trincheiras debaterem e evoluírem.</p>
                 <a href="#" class="btn">Conhecer a Comunidade</a>
             </div>
         </section>
@@ -205,29 +210,34 @@
 
     <div id="themePanel">
         <div class="panel-header">
-            <h4>Cobalto, Branco & Azul</h4>
+            <h4>Estética Gelo & Neve</h4>
             <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
         <div id="panelContent">
             <div class="theme-row">
-                <div class="theme-name c-royal">1. Cobalto & Azul Royal</div>
-                <button class="btn-theme" onclick="setTheme('cobalt-royal')">Aplicar</button>
+                <div class="theme-name c-classic">1. Glacier Classic</div>
+                <button class="btn-theme" onclick="setTheme('glacier-classic')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-indigo">2. Cobalto & Azul Índigo</div>
-                <button class="btn-theme" onclick="setTheme('cobalt-indigo')">Aplicar</button>
+                <div class="theme-name c-arctic">2. Ártico Mínimo</div>
+                <button class="btn-theme" onclick="setTheme('arctic-minimal')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-onyx">3. Cobalto Onyx & Elétrico</div>
-                <button class="btn-theme" onclick="setTheme('cobalt-onyx')">Aplicar</button>
+                <div class="theme-name c-crystal">3. Cristal Tech</div>
+                <button class="btn-theme" onclick="setTheme('crystal-tech')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-deep">4. Cobalto Deep & Vibrante</div>
-                <button class="btn-theme" onclick="setTheme('cobalt-deep')">Aplicar</button>
+                <div class="theme-name c-frost">4. Geada Profunda</div>
+                <button class="btn-theme" onclick="setTheme('deep-frost')">Aplicar</button>
+            </div>
+
+            <div class="theme-row">
+                <div class="theme-name c-diamond">5. Diamante Blu</div>
+                <button class="btn-theme" onclick="setTheme('diamond-blu')">Aplicar</button>
             </div>
         </div>
     </div>
