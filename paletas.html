@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Chumbo & Cinza - renê_sábio</title>
+    <title>Simulador Sépia & Bronze - Renê</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* 1. CHUMBO ABSOLUTO (Monocromático de Alto Contraste) */
-        body.lead-dark { --bg-main: #121212; --bg-card: #1E1E1E; --text-main: #E0E0E0; --text-muted: #888888; --accent: #F5F5F5; --btn-text: #121212; --border: rgba(255,255,255,0.1); }
-        body.lead-light { --bg-main: #F5F5F5; --bg-card: #FFFFFF; --text-main: #121212; --text-muted: #666666; --accent: #121212; --btn-text: #FFFFFF; --border: rgba(0,0,0,0.1); }
+        /* 1. SÉPIA CLÁSSICO (Tons Quentes e Confortáveis) */
+        body.sepia-classic-dark { --bg-main: #2C241B; --bg-card: #3A3025; --text-main: #E8E0D5; --text-muted: #B8A898; --accent: #D4A373; --btn-text: #2C241B; --border: rgba(212,163,115,0.2); }
+        body.sepia-classic-light { --bg-main: #F4ECD8; --bg-card: #FDFBF6; --text-main: #4A3C31; --text-muted: #7A6A58; --accent: #B07D4B; --btn-text: #FFFFFF; --border: rgba(176,125,75,0.2); }
 
-        /* 2. TITÂNIO SÓLIDO (Cinzas Médios e Opacos) */
-        body.titanium-dark { --bg-main: #1A1A1A; --bg-card: #242424; --text-main: #D4D4D4; --text-muted: #7A7A7A; --accent: #B0B0B0; --btn-text: #1A1A1A; --border: rgba(255,255,255,0.08); }
-        body.titanium-light { --bg-main: #E8E8E8; --bg-card: #F0F0F0; --text-main: #1A1A1A; --text-muted: #5C5C5C; --accent: #333333; --btn-text: #FFFFFF; --border: rgba(0,0,0,0.08); }
+        /* 2. BRONZE EXECUTIVO (Fundo quase negro com toques metálicos quentes) */
+        body.bronze-exec-dark { --bg-main: #1A1614; --bg-card: #292320; --text-main: #E3DCD5; --text-muted: #9E9187; --accent: #CD7F32; --btn-text: #1A1614; --border: rgba(205,127,50,0.2); }
+        body.bronze-exec-light { --bg-main: #EFEBE7; --bg-card: #FFFFFF; --text-main: #292320; --text-muted: #6B5E54; --accent: #A95C17; --btn-text: #FFFFFF; --border: rgba(169,92,23,0.2); }
 
-        /* 3. AÇO CARBONO (Cinza com fundo quase negro) */
-        body.carbon-dark { --bg-main: #0F0F0F; --bg-card: #171717; --text-main: #C2C2C2; --text-muted: #636363; --accent: #E8E8E8; --btn-text: #0F0F0F; --border: rgba(255,255,255,0.05); }
-        body.carbon-light { --bg-main: #DFDFDF; --bg-card: #EBEBEB; --text-main: #0F0F0F; --text-muted: #4D4D4D; --accent: #1A1A1A; --btn-text: #FFFFFF; --border: rgba(0,0,0,0.05); }
+        /* 3. CAFÉ EXPRESSO (Mocha profundo e Latte) */
+        body.mocha-dark { --bg-main: #231914; --bg-card: #33261F; --text-main: #D9CFC4; --text-muted: #A6968A; --accent: #C49A76; --btn-text: #231914; --border: rgba(196,154,118,0.2); }
+        body.mocha-light { --bg-main: #EAE3DC; --bg-card: #F5EFE9; --text-main: #33261F; --text-muted: #6B564C; --accent: #8C5E3C; --btn-text: #FFFFFF; --border: rgba(140,94,60,0.2); }
 
-        /* 4. CINZA ESPACIAL (Suave e Tecnológico) */
-        body.space-gray-dark { --bg-main: #1C1C1E; --bg-card: #2C2C2E; --text-main: #F5F5F7; --text-muted: #8E8E93; --accent: #D1D1D6; --btn-text: #1C1C1E; --border: rgba(255,255,255,0.12); }
-        body.space-gray-light { --bg-main: #F2F2F7; --bg-card: #FFFFFF; --text-main: #1C1C1E; --text-muted: #8E8E93; --accent: #3A3A3C; --btn-text: #FFFFFF; --border: rgba(0,0,0,0.12); }
+        /* 4. AREIA DO DESERTO (Sépia desaturado, muito minimalista e limpo) */
+        body.desert-sand-dark { --bg-main: #2B2621; --bg-card: #3B342D; --text-main: #E6DFD3; --text-muted: #ACA192; --accent: #E3B477; --btn-text: #2B2621; --border: rgba(227,180,119,0.2); }
+        body.desert-sand-light { --bg-main: #FDFBF7; --bg-card: #F4EFE6; --text-main: #3B342D; --text-muted: #7A7065; --accent: #C28E46; --btn-text: #FFFFFF; --border: rgba(194,142,70,0.2); }
 
-        /* 5. PLATINA & ÓNIX (Extremo Luxo Executivo) */
-        body.platinum-dark { --bg-main: #0A0A0A; --bg-card: #141414; --text-main: #EBEBEB; --text-muted: #7D7D7D; --accent: #CCCCCC; --btn-text: #0A0A0A; --border: rgba(255,255,255,0.06); }
-        body.platinum-light { --bg-main: #FAFAFA; --bg-card: #FFFFFF; --text-main: #0A0A0A; --text-muted: #555555; --accent: #171717; --btn-text: #FAFAFA; --border: rgba(0,0,0,0.06); }
+        /* 5. COBRE ENVELHECIDO (Tom sépia avermelhado, muito imponente) */
+        body.aged-copper-dark { --bg-main: #1C1512; --bg-card: #2B201C; --text-main: #E8DCD8; --text-muted: #A8958E; --accent: #B87333; --btn-text: #1C1512; --border: rgba(184,115,51,0.2); }
+        body.aged-copper-light { --bg-main: #F5EBE7; --bg-card: #FFFFFF; --text-main: #2B201C; --text-muted: #756057; --accent: #9E5B22; --btn-text: #FFFFFF; --border: rgba(158,91,34,0.2); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
@@ -43,16 +43,16 @@
 
         header { padding: 48px 0; border-bottom: 1px solid var(--border); }
         .logo { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; }
-        .logo span { color: var(--text-muted); }
+        .logo span { color: var(--accent); }
 
         .hero { padding: 100px 0 60px; }
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 680px; line-height: 1.6; font-weight: 400; }
-        .highlight { color: var(--text-main); font-weight: 600; border-bottom: 1px solid var(--text-muted); }
+        .highlight { color: var(--accent); font-weight: 600; }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 120px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); }
-        .card:hover { border-color: var(--text-muted); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; }
         .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
         
@@ -71,7 +71,7 @@
             letter-spacing: 0.5px;
         }
 
-        .btn:hover { opacity: 0.9; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
         /* Botão Redondo (FAB) para abrir o painel */
         .fab-btn {
@@ -100,14 +100,14 @@
             position: fixed;
             bottom: 100px;
             right: 32px;
-            background: rgba(20, 20, 20, 0.95);
+            background: rgba(26, 22, 20, 0.95);
             backdrop-filter: blur(16px);
             padding: 24px;
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border: 1px solid #333333;
+            border: 1px solid #3D332D;
             z-index: 100;
-            color: #E0E0E0;
+            color: #E3DCD5;
             font-family: 'Outfit', sans-serif;
             width: 380px;
             
@@ -128,17 +128,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #333333;
+            border-bottom: 1px solid #3D332D;
             padding-bottom: 16px;
             margin-bottom: 20px;
         }
 
-        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #CCCCCC; margin: 0;}
+        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #D9CFC4; margin: 0;}
         
         .close-btn {
             background: transparent;
             border: none;
-            color: #888888;
+            color: #9E9187;
             cursor: pointer;
             font-size: 20px;
             line-height: 1;
@@ -147,7 +147,7 @@
         .close-btn:hover { color: #FFFFFF; }
 
         .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .theme-name { font-size: 14px; width: 160px; font-weight: 500; color: #D4D4D4;}
+        .theme-name { font-size: 14px; width: 160px; font-weight: 500; color: #D9CFC4;}
         
         .btn-group { display: flex; gap: 8px; }
         .btn-theme {
@@ -161,19 +161,19 @@
             transition: all 0.2s;
         }
         .btn-theme:hover { opacity: 0.8; }
-        .btn-dark { background: #333333; color: #E0E0E0; border: 1px solid #4D4D4D; }
-        .btn-light { background: #E0E0E0; color: #121212; border: 1px solid #B3B3B3; }
+        .btn-dark { background: #3D332D; color: #E3DCD5; border: 1px solid #5C4D43; }
+        .btn-light { background: #E3DCD5; color: #292320; border: 1px solid #A6968A; }
 
-        /* Marcadores Visuais em Escala de Cinza */
-        .c-lead { border-left: 4px solid #888888; padding-left: 8px; }
-        .c-titanium { border-left: 4px solid #7A7A7A; padding-left: 8px; }
-        .c-carbon { border-left: 4px solid #636363; padding-left: 8px; }
-        .c-space { border-left: 4px solid #8E8E93; padding-left: 8px; }
-        .c-platinum { border-left: 4px solid #7D7D7D; padding-left: 8px; }
+        /* Marcadores Visuais Sépia */
+        .c-classic { border-left: 4px solid #D4A373; padding-left: 8px; }
+        .c-bronze { border-left: 4px solid #CD7F32; padding-left: 8px; }
+        .c-mocha { border-left: 4px solid #C49A76; padding-left: 8px; }
+        .c-desert { border-left: 4px solid #E3B477; padding-left: 8px; }
+        .c-copper { border-left: 4px solid #B87333; padding-left: 8px; }
 
     </style>
 </head>
-<body class="lead-dark">
+<body class="sepia-classic-dark">
 
     <header>
         <div class="container">
@@ -184,19 +184,19 @@
     <main class="container">
         <section class="hero">
             <h1>A Máquina de <br>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar estratégias avançadas de <span class="highlight">Inbound Marketing, consolidação de dados e operações de receita</span>. Estruturo ecossistemas de aquisição previsível e retenção para empresas que procuram escalar de forma sustentável e imponente.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar estratégias avançadas de <span class="highlight">Inbound Marketing, RevOps e Growth</span>. Construo ecossistemas de aquisição previsível e retenção para empresas que procuram escalar com inteligência de dados.</p>
         </section>
 
         <section class="cards-grid">
             <div class="card">
                 <h3>LinkedIn</h3>
-                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, inteligência de dados e liderança em marketing B2B de alta performance.</p>
+                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, consolidação de inteligência de dados e liderança em marketing de alto impacto.</p>
                 <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
 
             <div class="card">
                 <h3>Inbound Hub</h3>
-                <p>O ecossistema definitivo de Inbound. Um espaço dedicado exclusivamente para profissionais que vivem as trincheiras do marketing trocarem experiências.</p>
+                <p>O ecossistema definitivo de Inbound. Um espaço construído para profissionais que vivem as trincheiras do marketing debaterem e evoluírem.</p>
                 <a href="#" class="btn">Conhecer a Comunidade</a>
             </div>
         </section>
@@ -210,48 +210,48 @@
 
     <div id="themePanel">
         <div class="panel-header">
-            <h4>Escala de Chumbo & Cinza</h4>
+            <h4>Escala Sépia & Bronze</h4>
             <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
         <div id="panelContent">
             <div class="theme-row">
-                <div class="theme-name c-lead">1. Chumbo Absoluto</div>
+                <div class="theme-name c-classic">1. Sépia Clássico</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('lead-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('lead-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('sepia-classic-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('sepia-classic-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-titanium">2. Titânio Sólido</div>
+                <div class="theme-name c-bronze">2. Bronze Executivo</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('titanium-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('titanium-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('bronze-exec-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('bronze-exec-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-carbon">3. Aço Carbono</div>
+                <div class="theme-name c-mocha">3. Café Expresso</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('carbon-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('carbon-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('mocha-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('mocha-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-space">4. Cinza Espacial</div>
+                <div class="theme-name c-desert">4. Areia do Deserto</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('space-gray-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('space-gray-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('desert-sand-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('desert-sand-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-platinum">5. Platina & Ónix</div>
+                <div class="theme-name c-copper">5. Cobre Envelhecido</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('platinum-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('platinum-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('aged-copper-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('aged-copper-light')">Light</button>
                 </div>
             </div>
         </div>
