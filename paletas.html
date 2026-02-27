@@ -3,38 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renê Sábio - Diretor de Marketing</title>
+    <title>Simulador Renê - Efeitos Vibrantes</title>
     <style>
-        /* Importando fontes variadas para os logos e a principal (Outfit/Space Grotesk) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;800&family=Syne:wght@800&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* PALETA DEFINITIVA */
+        /* PALETA VIBRANTE: COBALTO, GELO E LARANJA */
         :root {
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
-            --text-dark: #111111;  /* Preto Absoluto para Títulos e Texto Principal */
-            --text-muted: #444444; /* Cinza Escuro para leitura longa */
+            --text-dark: #111111;  /* Preto Absoluto para Títulos */
+            --text-muted: #526071; /* Cinza Escuro para Leitura */
             
-            /* Azul Marinho Original */
-            --navy: #0A192F;       
-            --navy-hover: #112240; 
+            /* Cores Vibrantes */
+            --cobalt: #0047AB;     /* Cobalto Profundo */
+            --ice-blue: #00F0FF;   /* Azul Gelo Elétrico */
+            --orange: #FF6600;     /* Laranja Solar */
             
-            /* Marrom Couro / Conhaque Original */
-            --brown: #C36F38;     
-            --brown-light: rgba(195, 111, 56, 0.15);
+            /* Efeitos de Transição */
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação mais suave e "elástica" */
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-neon: 0 0 10px rgba(255, 102, 0, 0.5); /* Brilho Laranja */
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            transition: all 0.3s ease; 
+        /* VARIAÇÕES DE PALETAS (Exemplo para o simulador) */
+        
+        /* 1. Cobalto/Gelo/Laranja (Inicia com esta) */
+        body.palette-vibrant { 
+            --accent-main: var(--cobalt); 
+            --accent-secondary: var(--orange); 
+            --accent-glow: var(--shadow-neon);
+            --border-card: rgba(0, 71, 171, 0.1); /* Borda Cobalto Suave */
+            --btn-bg: var(--cobalt);
+            --btn-text: #FFFFFF;
+            --btn-hover: var(--orange);
         }
+
+        /* 2. Gelo Elétrico/Laranja/Cobalto */
+        body.palette-electric { 
+            --accent-main: var(--ice-blue); 
+            --accent-secondary: var(--cobalt); 
+            --accent-glow: 0 0 10px rgba(0, 240, 255, 0.5);
+            --border-card: rgba(0, 240, 255, 0.2); /* Borda Gelo */
+            --btn-bg: var(--ice-blue);
+            --btn-text: #001B3A;
+            --btn-hover: var(--cobalt);
+        }
+
+        /* RESET E ESTRUTURA */
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: var(--transition); }
 
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-main);
-            color: var(--text-dark); /* TEXTO PRETO */
+            color: var(--text-muted); 
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -48,33 +69,36 @@
             width: 100%; 
         }
 
-        /* CABEÇALHO NORMAL */
+        /* CABEÇALHO NORMAL (Sem position sticky) */
         header { 
             padding: 40px 0; 
             background: var(--bg-main); 
         }
         
-        /* LOGOTIPO TIPOGRÁFICO - BASE */
+        /* O LOGOTIPO ORIGINAL: renê_sábio. */
         .logo-container { 
-            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: -1px; 
+            color: var(--text-dark);
+            text-transform: lowercase; /* Força lowercase */
         }
-
-        /* Classes auxiliares de cor para o Logo */
-        .c-black { color: var(--text-dark); }
-        .c-brown { color: var(--brown); }
-        .c-navy { color: var(--navy); }
+        .logo-container span.hl { color: var(--accent-secondary); } /* Laranja no _sábio */
 
         /* REGRAS DE TIPOGRAFIA */
         h1, h2, h3 {
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-dark); 
+            color: var(--text-dark);
+            letter-spacing: -1px;
         }
 
-        /* O Negrito: Apenas Cor Marrom (Sublinhado Removido) */
+        /* O Negrito: Laranja com Efeito de Brilho Neon */
         strong, b {
-            color: var(--brown);
+            color: var(--accent-secondary);
             font-weight: 700;
-            text-decoration: none; /* PEDIDO ATENDIDO: Sem sublinhado */
+            text-decoration: none;
+            text-shadow: var(--accent-glow); /* Efeito Neon */
         }
 
         /* SECÇÃO HERO */
@@ -83,7 +107,8 @@
             font-size: 64px; 
             line-height: 1.05; 
             margin-bottom: 24px; 
-            letter-spacing: -2px; 
+            letter-spacing: -2.5px; 
+            font-weight: 700;
         }
         .hero p { 
             font-size: 20px; 
@@ -92,8 +117,9 @@
             line-height: 1.6; 
             font-weight: 400; 
         }
+        .hero span.highlight { color: var(--accent-main); font-weight: 600;} /* Cobalto ou Gelo no Hub */
 
-        /* CARTÕES (Borda Marrom Fixa) */
+        /* CARTÕES COM EFEITOS 3D E BRILHO */
         .cards-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -104,17 +130,20 @@
         .card { 
             background-color: var(--bg-card); 
             padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid var(--brown); /* PEDIDO ATENDIDO: Borda marrom fixa */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); 
+            border-radius: 16px; 
+            border: 1px solid var(--border-card);
+            box-shadow: var(--shadow-subtle); 
+            transform-style: preserve-3d; /* Prepara para efeitos 3D */
         }
         .card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 30px var(--brown-light); 
+            transform: translateY(-10px) rotateX(2deg); /* Animação mais agressiva */
+            border-color: var(--accent-secondary); /* Borda Laranja */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), var(--accent-glow); /* Brilho Neon na sombra */
         }
         .card h3 { 
             font-size: 22px; 
             margin-bottom: 12px; 
+            font-weight: 700;
         }
         .card p { 
             color: var(--text-muted); 
@@ -123,60 +152,72 @@
             font-size: 16px;
         }
         
-        /* BOTÕES (Azul Sólido) */
+        /* BOTÕES SÓLIDOS VIBRANTES */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            background-color: var(--navy); 
-            color: #FFFFFF;
+            background-color: var(--btn-bg); 
+            color: var(--btn-text);
             border: none; 
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none !important; 
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 15px;
             letter-spacing: 0.5px;
             cursor: pointer;
         }
 
         .btn:hover { 
-            background-color: var(--navy-hover); 
-            transform: scale(1.02); 
-            box-shadow: 0 8px 20px rgba(10, 25, 47, 0.2); 
+            background-color: var(--btn-hover); 
+            transform: scale(1.05) translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
         }
 
-        /* RODAPÉ FOCADO EM INBOUND */
+        /* RODAPÉ BRANCO PREMIUM */
         footer { 
             margin-top: auto; 
             padding: 50px 0; 
-            background-color: var(--text-dark); /* Fundo Preto */
+            background-color: #FFFFFF;
+            border-top: 1px solid #E5E5E5;
             text-align: center; 
         }
         footer p { 
-            color: #E2E8F0; 
+            color: var(--accent-main); /* Texto no tom principal */
             font-size: 15px; 
-            font-weight: 400;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
-        /* PAINEL DE TESTE DE LOGOS COM MINIMIZAR */
+        /* PAINEL DE CONTROLO: GLASSMORPHISM E MINIMIZAR INTEGRADO */
         #themePanel {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #FFFFFF;
+            
+            /* Glassmorphism */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border: 1px solid #E5E5E5;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
             z-index: 100;
-            width: 360px;
+            width: 320px;
             overflow: hidden;
+            
+            /* Animação para minimizar */
+            max-height: 400px;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Estado minimizado (Título e Ícone apenas) */
         #themePanel.minimized {
-            height: 60px; 
+            max-height: 60px; /* Altura exata para o header */
             cursor: pointer;
         }
 
@@ -184,11 +225,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #E5E5E5;
-            padding-bottom: 10px;
             margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
+        /* Esconde a borda quando minimizado */
         #themePanel.minimized .panel-header {
             border-bottom: none;
             margin-bottom: 0;
@@ -203,61 +245,63 @@
             margin: 0;
         }
 
-        .toggle-btn {
-            background: transparent;
-            border: 1px solid #CCCCCC;
+        /* Ícone de Minimizar (-) que vira (+) */
+        .minimize-icon {
+            font-size: 20px;
             color: var(--text-muted);
-            padding: 4px 8px;
-            border-radius: 4px;
             cursor: pointer;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
+            width: 20px;
+            text-align: center;
+            line-height: 1;
+            transition: transform 0.3s;
         }
-        .toggle-btn:hover { background: #F5F5F5; color: var(--text-dark); }
+        .minimize-icon:hover { color: var(--accent-secondary); }
+        #themePanel.minimized .minimize-icon {
+            transform: rotate(90deg); /* Faz o traço virar uma cruz */
+        }
 
+        /* Conteúdo do Painel */
         #panelContent {
             transition: opacity 0.3s;
-            max-height: 400px;
-            overflow-y: auto;
         }
         #themePanel.minimized #panelContent {
             opacity: 0;
             pointer-events: none;
         }
 
-        .logo-btn {
+        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #86868B; margin-bottom: 10px; font-weight: 600;}
+        
+        .btn-option {
             display: block;
             width: 100%;
-            padding: 12px 12px;
-            margin-bottom: 8px;
-            background: #F8FAFC;
-            border: 1px solid #E5E5E5;
-            border-radius: 6px;
-            text-align: left;
+            padding: 10px 16px;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 8px;
+            background: #FFFFFF;
+            color: #334155;
             font-family: 'Outfit', sans-serif;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+            margin-bottom: 8px;
             cursor: pointer;
-            color: var(--text-muted);
         }
-        .logo-btn:hover { background: #F1F5F9; border-color: var(--navy); }
-        .logo-btn.active { background: var(--text-dark); color: #FFFFFF; border-color: var(--text-dark); }
-        
-        /* CLASSES DE DESIGN PARA OS LOGOS */
-        .logo-opt-1 { font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 900; letter-spacing: -1.5px; }
-        .logo-opt-2 { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
-        .logo-opt-3 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; font-style: italic; letter-spacing: -0.5px; }
-        .logo-opt-4 { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;}
-        .logo-opt-5 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -1px; }
-        .logo-opt-6 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -1px; }
+        .btn-option:hover { background: #F8FAFC; border-color: #CBD5E1; }
+        .btn-option.active { border-color: var(--cobalt); background: rgba(0, 71, 171, 0.05); color: var(--cobalt); }
+
+        /* Círculos de cor para o painel */
+        .color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+        .dot-vibrant { background: linear-gradient(135deg, #0047AB, #00F0FF, #FF6600); }
+        .dot-electric { background: linear-gradient(135deg, #00F0FF, #FF6600, #0047AB); }
 
     </style>
 </head>
-<body>
+<body class="palette-vibrant">
 
     <header>
         <div class="container">
-            <div id="siteLogo" class="logo-container logo-opt-1">
-                <span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>
+            <div id="siteLogo" class="logo-container">
+                renê<span class="hl">_sábio.</span>
             </div>
         </div>
     </header>
@@ -285,88 +329,62 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Renê Sábio. Especialista na estruturação de ecossistemas de Inbound Marketing.</p>
+            <p>&copy; 2026 renê_sábio. Especialista na estruturação de ecossistemas de Inbound Marketing.</p>
         </div>
     </footer>
 
     <div id="themePanel">
         <div class="panel-header" onclick="expandPanelIfMinimized()">
-            <h4>Design Tipográfico do Logo</h4>
-            <button class="toggle-btn" onclick="togglePanel(event)" id="toggleIcon">Minimizar -</button>
+            <h4>Simulador Renê - Efeitos</h4>
+            <div class="minimize-icon" onclick="togglePanel(event)" id="toggleIcon">−</div>
         </div>
         
         <div id="panelContent">
-            <button class="logo-btn active" onclick="changeLogo(1, this)">1. Modernist SaaS (Inter Heavy)</button>
-            <button class="logo-btn" onclick="changeLogo(2, this)">2. Corporate Caps (Montserrat)</button>
-            <button class="logo-btn" onclick="changeLogo(3, this)">3. Boutique Serif (Playfair Italic)</button>
-            <button class="logo-btn" onclick="changeLogo(4, this)">4. Brutalist Tech (Syne Spaced)</button>
-            <button class="logo-btn" onclick="changeLogo(5, this)">5. Growth Contrast (Jakarta Light/Bold)</button>
-            <button class="logo-btn" onclick="changeLogo(6, this)">6. Minimalist Dot (Space Grotesk)</button>
+            <div class="section-title">Paleta Vibrante B2B</div>
+            <button class="btn-option active" onclick="setTheme('palette-vibrant', this)"><span class="color-dot dot-vibrant"></span> Cobalto, Gelo e Laranja</button>
+            <button class="btn-option" onclick="setTheme('palette-electric', this)"><span class="color-dot dot-electric"></span> Gelo Elétrico, Laranja e Cobalto</button>
+            
+            <div class="section-title" style="margin-top: 15px;">Sobre o Design</div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; padding: 0 5px;">Este design utiliza o fundo branco clássico para contraste, texto principal preto e destaca as palavras-chave com a paleta vibrante (laranja e cobalto) com um sutil efeito neon. Os cards possuem animações 3D no hover.</p>
         </div>
     </div>
 
     <script>
-        function changeLogo(id, btnElement) {
-            const logo = document.getElementById('siteLogo');
+        // Função para mudar a paleta
+        function setTheme(themeClass, btnElement) {
+            document.body.className = themeClass;
             
-            // Limpa as classes de fonte
-            logo.className = 'logo-container logo-opt-' + id;
-            
-            // Constrói o HTML tipográfico conforme a escolha
-            switch(id) {
-                case 1:
-                    // Modernist SaaS: Muito grosso, colado (Azul/Marrom)
-                    logo.innerHTML = '<span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>';
-                    break;
-                case 2:
-                    // Corporate Caps: Maiúsculas espaçadas
-                    logo.innerHTML = '<span class="c-navy">RENÊ</span> <span class="c-brown">SÁBIO</span>';
-                    break;
-                case 3:
-                    // Boutique Serif: Itálico e com serifa, luxo extremo
-                    logo.innerHTML = '<span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>';
-                    break;
-                case 4:
-                    // Brutalist Tech: Maiúsculas super geométricas
-                    logo.innerHTML = '<span class="c-black">RENÊ</span> <span class="c-navy">SÁBIO</span>';
-                    break;
-                case 5:
-                    // Growth Contrast: Fino e Grosso misturado
-                    logo.innerHTML = '<span class="c-navy" style="font-weight: 300;">Renê</span> <span class="c-brown">Sábio</span>';
-                    break;
-                case 6:
-                    // Minimalist Dot: Com ponto de separação
-                    logo.innerHTML = '<span class="c-navy">Renê</span><span class="c-brown">.</span><span class="c-brown">Sábio</span>';
-                    break;
-            }
-
-            // Atualiza os botões ativos do painel
-            const buttons = document.querySelectorAll('.logo-btn');
+            // Atualiza botões
+            const buttons = document.querySelectorAll('.btn-option');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
         }
 
+        // Função para Minimizar/Expandir o painel
         function togglePanel(event) {
-            event.stopPropagation();
+            // Se o clique for no ícone de fechar, impede a propagação para o header
+            if (event) event.stopPropagation();
+            
             const panel = document.getElementById('themePanel');
-            const btn = document.getElementById('toggleIcon');
+            const icon = document.getElementById('toggleIcon');
             
             panel.classList.toggle('minimized');
             
             if (panel.classList.contains('minimized')) {
-                btn.innerText = "Expandir +";
+                icon.innerText = "+"; // Mostra "+" quando minimizado
             } else {
-                btn.innerText = "Minimizar -";
+                icon.innerText = "−"; // Mostra "-" (m-dash) quando expandido
             }
         }
 
+        // Função para expandir se clicar no cabeçalho quando minimizado
         function expandPanelIfMinimized() {
             const panel = document.getElementById('themePanel');
-            const btn = document.getElementById('toggleIcon');
+            const icon = document.getElementById('toggleIcon');
             
             if (panel.classList.contains('minimized')) {
                 panel.classList.remove('minimized');
-                btn.innerText = "Minimizar -";
+                icon.innerText = "−";
             }
         }
     </script>
