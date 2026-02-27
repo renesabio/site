@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Imersivo Doido - renê_sábio</title>
+    <title>Simulador Cores Frias - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* Variáveis Padrão (Inicia no Stasis Neon) */
+        /* Variáveis Padrão (Inicia no Oceano Profundo) */
         :root {
-            --bg-main: #130026;
-            --bg-card: #2A004D;
-            --text-main: #E0E0E0;
-            --text-muted: #D946EF;
-            --accent: #00F0FF;
-            --border: rgba(0, 240, 255, 0.2);
+            --bg-main: #020813;
+            --bg-card: #0A1428;
+            --text-main: #E2E8F0;
+            --text-muted: #64748B;
+            --accent: #06B6D4; /* Ciano */
+            --border: rgba(6, 182, 212, 0.2);
         }
 
-        /* 1. STASIS NEON (Roxo Profundo e Ciano Choque) */
-        body.stasis-dark { --bg-main: #130026; --bg-card: #2A004D; --text-main: #FFFFFF; --text-muted: #D946EF; --accent: #00F0FF; --border: rgba(0,240,255,0.2); }
-        body.stasis-light { --bg-main: #E0F7FA; --bg-card: #FFFFFF; --text-main: #2A004D; --text-muted: #8B5CF6; --accent: #00BCD4; --border: rgba(0,188,212,0.3); }
+        /* 1. OCEANO PROFUNDO (Azul Marinho e Ciano) */
+        body.ocean-dark { --bg-main: #020813; --bg-card: #0A1428; --text-main: #F8FAFC; --text-muted: #94A3B8; --accent: #06B6D4; --border: rgba(6,182,212,0.2); }
+        body.ocean-light { --bg-main: #F0F9FF; --bg-card: #FFFFFF; --text-main: #0F172A; --text-muted: #334155; --accent: #0891B2; --border: rgba(8,145,178,0.2); }
 
-        /* 2. METAL ÉPICO (Carmesim e Dourado Brilhante) */
-        body.metal-dark { --bg-main: #1A0505; --bg-card: #330A0A; --text-main: #FDF6E3; --text-muted: #FF6B6B; --accent: #FFD700; --border: rgba(255,215,0,0.2); }
-        body.metal-light { --bg-main: #FFF8E7; --bg-card: #FFFFFF; --text-main: #330A0A; --text-muted: #D9381E; --accent: #B8860B; --border: rgba(184,134,11,0.2); }
+        /* 2. TITÂNIO & COBALTO (Cinza Metálico e Azul Cobalto) */
+        body.cobalt-dark { --bg-main: #0F1115; --bg-card: #1A1D24; --text-main: #F1F5F9; --text-muted: #94A3B8; --accent: #3B82F6; --border: rgba(59,130,246,0.2); }
+        body.cobalt-light { --bg-main: #F8FAFC; --bg-card: #FFFFFF; --text-main: #1E293B; --text-muted: #64748B; --accent: #2563EB; --border: rgba(37,99,235,0.2); }
 
-        /* 3. DAEDRIC ESCARLATE (Preto Absoluto e Vermelho Sangue Néon) */
-        body.daedric-dark { --bg-main: #000000; --bg-card: #111111; --text-main: #E5E5E5; --text-muted: #888888; --accent: #FF003C; --border: rgba(255,0,60,0.3); }
-        body.daedric-light { --bg-main: #FAFAFA; --bg-card: #FFFFFF; --text-main: #000000; --text-muted: #666666; --accent: #E60000; --border: rgba(230,0,0,0.2); }
+        /* 3. VERDE CIBERNÉTICO (Preto Fosco e Verde Terminal) */
+        body.cyber-dark { --bg-main: #050505; --bg-card: #111111; --text-main: #E5E5E5; --text-muted: #737373; --accent: #10B981; --border: rgba(16,185,129,0.2); }
+        body.cyber-light { --bg-main: #F4FBF7; --bg-card: #FFFFFF; --text-main: #171717; --text-muted: #525252; --accent: #059669; --border: rgba(5,150,105,0.2); }
 
-        /* 4. SONATA GLACIAL (Azul Ártico e Prata) */
-        body.sonata-dark { --bg-main: #08121C; --bg-card: #102438; --text-main: #F0F8FF; --text-muted: #A0C4FF; --accent: #00E5FF; --border: rgba(0,229,255,0.2); }
-        body.sonata-light { --bg-main: #F0F8FF; --bg-card: #FFFFFF; --text-main: #08121C; --text-muted: #4682B4; --accent: #00BFFF; --border: rgba(0,191,255,0.3); }
+        /* 4. TUNDRA GLACIAL (Gelo e Azul Aço) */
+        body.tundra-dark { --bg-main: #0B131E; --bg-card: #152336; --text-main: #F1F5F9; --text-muted: #94A3B8; --accent: #38BDF8; --border: rgba(56,189,248,0.2); }
+        body.tundra-light { --bg-main: #F0F4F8; --bg-card: #FFFFFF; --text-main: #1C2B3E; --text-muted: #64748B; --accent: #0284C7; --border: rgba(2,132,199,0.2); }
 
-        /* 5. TROPICAL MELANCIA (Verde Floresta e Melancia Néon com Laranja) */
-        body.tropical-dark { --bg-main: #0A1C14; --bg-card: #143627; --text-main: #FFFFFF; --text-muted: #FF9F1C; --accent: #FF477E; --border: rgba(255,71,126,0.3); }
-        body.tropical-light { --bg-main: #E8F5E9; --bg-card: #FFFFFF; --text-main: #1B4332; --text-muted: #F77F00; --accent: #FF477E; --border: rgba(255,71,126,0.3); }
+        /* 5. AURORA BOREAL (Azul Noturno e Verde Menta) */
+        body.aurora-dark { --bg-main: #041116; --bg-card: #0A2229; --text-main: #ECFDF5; --text-muted: #6EE7B7; --accent: #34D399; --border: rgba(52,211,153,0.2); }
+        body.aurora-light { --bg-main: #ECFDF5; --bg-card: #FFFFFF; --text-main: #022C22; --text-muted: #047857; --accent: #10B981; --border: rgba(16,185,129,0.2); }
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
 
@@ -51,17 +52,17 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
         header { padding: 40px 0; border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -1px; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .logo span { color: var(--accent); font-weight: 700; text-shadow: 0 0 15px var(--accent); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -1px; }
+        .logo span { color: var(--accent); font-weight: 700; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
 
         .hero { padding: 80px 0 40px; }
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; }
-        .highlight { color: var(--accent); font-weight: 600; text-shadow: 0 0 8px var(--accent); }
+        .highlight { color: var(--accent); font-weight: 600; }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; padding-bottom: 100px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .card:hover { border-color: var(--accent); box-shadow: 0 0 20px rgba(0,0,0,0.4), inset 0 0 10px var(--border); transform: translateY(-5px); transition: all 0.3s; }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 15px; }
         .card p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.5; }
         
@@ -69,61 +70,60 @@
             display: inline-block;
             padding: 14px 28px;
             background-color: var(--accent);
-            color: #000000;
+            color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
-            font-weight: 800;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 16px;
-            box-shadow: 0 0 15px var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
-        body.tropical-dark .btn, body.tropical-light .btn, body.daedric-dark .btn, body.daedric-light .btn { color: #ffffff; }
-        body.sonata-light .btn, body.stasis-light .btn { color: #ffffff; }
+        /* Ajuste de contraste para botões claros */
+        body.ocean-dark .btn, body.tundra-dark .btn, body.aurora-dark .btn, body.cyber-light .btn, body.ocean-light .btn, body.cobalt-light .btn { color: #ffffff; }
+        body.cyber-dark .btn { color: #000000; font-weight: 800; }
+        body.aurora-dark .btn { color: #041116; font-weight: 800; }
 
         .theme-switcher {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(8px);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid #2D3748;
             z-index: 100;
-            color: #fff;
+            color: #F7FAFC;
             font-family: 'Space Grotesk', sans-serif;
             width: 350px;
         }
-        .theme-switcher h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #AAA; border-bottom: 1px solid #333; padding-bottom: 10px;}
-        .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-        .theme-name { font-size: 14px; width: 130px; font-weight: 600;}
+        .theme-switcher h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #A0AEC0; border-bottom: 1px solid #2D3748; padding-bottom: 10px;}
+        .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .theme-name { font-size: 14px; width: 130px; font-weight: 500;}
         .btn-theme {
             padding: 6px 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 12px;
-            transition: opacity 0.2s;
-            text-transform: uppercase;
+            transition: all 0.2s;
         }
-        .btn-theme:hover { opacity: 0.8; transform: scale(1.05); }
-        .btn-dark { background: #222; color: #fff; border: 1px solid #444; }
-        .btn-light { background: #EEE; color: #111; border: 1px solid #CCC; }
+        .btn-theme:hover { opacity: 0.8; transform: scale(1.02); }
+        .btn-dark { background: #2D3748; color: #F7FAFC; border: 1px solid #4A5568; }
+        .btn-light { background: #E2E8F0; color: #1A202C; border: 1px solid #CBD5E0; }
 
-        .c-stasis { border-left: 4px solid #00F0FF; padding-left: 8px; color: #00F0FF;}
-        .c-metal { border-left: 4px solid #FFD700; padding-left: 8px; color: #FFD700;}
-        .c-daedric { border-left: 4px solid #FF003C; padding-left: 8px; color: #FF003C;}
-        .c-sonata { border-left: 4px solid #00E5FF; padding-left: 8px; color: #00E5FF;}
-        .c-tropical { border-left: 4px solid #FF477E; padding-left: 8px; color: #FF477E;}
+        .c-ocean { border-left: 4px solid #06B6D4; padding-left: 8px; color: #06B6D4;}
+        .c-cobalt { border-left: 4px solid #3B82F6; padding-left: 8px; color: #3B82F6;}
+        .c-cyber { border-left: 4px solid #10B981; padding-left: 8px; color: #10B981;}
+        .c-tundra { border-left: 4px solid #38BDF8; padding-left: 8px; color: #38BDF8;}
+        .c-aurora { border-left: 4px solid #34D399; padding-left: 8px; color: #34D399;}
     </style>
 </head>
-<body class="stasis-dark">
+<body class="ocean-dark">
 
     <header>
         <div class="container">
@@ -134,64 +134,64 @@
     <main class="container">
         <section class="hero">
             <h1>A Máquina de <br>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">RevOps, Growth e Inbound</span>. Estruturo ecossistemas complexos de aquisição previsível e retenção para empresas que procuram escalar com inteligência de dados.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">Ecossistemas de Receita, Inbound e Dados</span>. Estruturo operações complexas de aquisição previsível e retenção para empresas que buscam escalar com inteligência cirúrgica.</p>
         </section>
 
         <section class="cards-grid">
             <div class="card">
                 <h3>LinkedIn</h3>
-                <p>Acompanhe as minhas análises executivas sobre estratégias de crescimento, consolidação de dados e liderança em marketing B2B.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
+                <p>Acompanhe minhas análises executivas sobre estratégias de aquisição, consolidação de dados analíticos e liderança em marketing de alta performance.</p>
+                <a href="https://www.linkedin.com/in/renesabio/" target="_blank" class="btn">Conectar no LinkedIn</a>
             </div>
 
             <div class="card">
                 <h3>Inbound Hub</h3>
-                <p>A comunidade definitiva. Um ecossistema dedicado para profissionais que vivem as trincheiras do marketing trocarem experiências.</p>
-                <a href="#" class="btn">Conhecer a Comunidade</a>
+                <p>O ecossistema definitivo de Inbound Marketing. Um espaço dedicado para profissionais que vivem as trincheiras trocarem experiências e evoluírem.</p>
+                <a href="https://inboundhub.com.br/" target="_blank" class="btn">Conhecer a Comunidade</a>
             </div>
         </section>
     </main>
 
     <div class="theme-switcher">
-        <h4>Simulador de Cores Doidas</h4>
+        <h4>Simulador de Cores Frias</h4>
         
         <div class="theme-row">
-            <div class="theme-name c-stasis">Stasis Néon</div>
+            <div class="theme-name c-ocean">Oceano Profundo</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('stasis-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('stasis-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('ocean-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('ocean-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-metal">Metal Épico</div>
+            <div class="theme-name c-cobalt">Titânio & Cobalto</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('metal-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('metal-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('cobalt-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('cobalt-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-daedric">Daedric Escarlate</div>
+            <div class="theme-name c-cyber">Verde Cibernético</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('daedric-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('daedric-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('cyber-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('cyber-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-sonata">Sonata Glacial</div>
+            <div class="theme-name c-tundra">Tundra Glacial</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('sonata-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('sonata-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('tundra-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('tundra-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-tropical">Melancia Tropical</div>
+            <div class="theme-name c-aurora">Aurora Boreal</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('tropical-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('tropical-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('aurora-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('aurora-light')">Light</button>
             </div>
         </div>
     </div>
