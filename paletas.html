@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Azul & Verde - renê_sábio</title>
+    <title>Simulador Azul Puro - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* 1. OCEANO & ESMERALDA (Azul Profundo com Verde Esmeralda Escuro) */
-        body.ocean-emerald-dark { --bg-main: #0A192F; --bg-card: #112240; --text-main: #CCD6F6; --text-muted: #8892B0; --accent: #059669; --border: rgba(5,150,105,0.2); }
-        body.ocean-emerald-light { --bg-main: #F0F4F8; --bg-card: #E2E8F0; --text-main: #0A192F; --text-muted: #475569; --accent: #059669; --border: rgba(5,150,105,0.2); }
+        /* 1. MARINHO & REAL (Clássico Corporativo Premium) */
+        body.navy-royal-dark { --bg-main: #0A1128; --bg-card: #101E40; --text-main: #E2E8F0; --text-muted: #94A3B8; --accent: #3B82F6; --border: rgba(59,130,246,0.2); }
+        body.navy-royal-light { --bg-main: #F0F4F8; --bg-card: #FFFFFF; --text-main: #0A1128; --text-muted: #475569; --accent: #1D4ED8; --border: rgba(29,78,216,0.15); }
 
-        /* 2. MARINHO & SAFIRA (Variação 100% Azul) */
-        body.navy-sapphire-dark { --bg-main: #0B132B; --bg-card: #1C2541; --text-main: #E2E8F0; --text-muted: #94A3B8; --accent: #3B82F6; --border: rgba(59,130,246,0.2); }
-        body.navy-sapphire-light { --bg-main: #E6EAF0; --bg-card: #D0D7E1; --text-main: #0B132B; --text-muted: #475569; --accent: #2563EB; --border: rgba(37,99,235,0.2); }
+        /* 2. ARDÓSIA PROFUNDA (Azul Acinzentado - Discreto e Tecnológico) */
+        body.slate-blue-dark { --bg-main: #0F172A; --bg-card: #1E293B; --text-main: #F8FAFC; --text-muted: #94A3B8; --accent: #38BDF8; --border: rgba(56,189,248,0.2); }
+        body.slate-blue-light { --bg-main: #F1F5F9; --bg-card: #FFFFFF; --text-main: #0F172A; --text-muted: #475569; --accent: #0284C7; --border: rgba(2,132,199,0.15); }
 
-        /* 3. ARDÓSIA & PINHO (Azul Acinzentado com Verde Pinho Escuro) */
-        body.slate-pine-dark { --bg-main: #0F172A; --bg-card: #1E293B; --text-main: #F8FAFC; --text-muted: #94A3B8; --accent: #0F766E; --border: rgba(15,118,110,0.2); }
-        body.slate-pine-light { --bg-main: #F1F5F9; --bg-card: #E2E8F0; --text-main: #0F172A; --text-muted: #475569; --accent: #0F766E; --border: rgba(15,118,110,0.2); }
+        /* 3. MEIA-NOITE & CIANO (Foco em Dados e RevOps) */
+        body.midnight-cyan-dark { --bg-main: #040F16; --bg-card: #0B1E2B; --text-main: #ECFEFF; --text-muted: #A5F3FC; --accent: #06B6D4; --border: rgba(6,182,212,0.2); }
+        body.midnight-cyan-light { --bg-main: #ECFEFF; --bg-card: #FFFFFF; --text-main: #083344; --text-muted: #164E63; --accent: #0891B2; --border: rgba(8,145,178,0.15); }
 
-        /* 4. COBALTO MONOCROMÁTICO (Azul Tech Puro) */
-        body.cobalt-mono-dark { --bg-main: #001845; --bg-card: #002855; --text-main: #E0EFFF; --text-muted: #97B2DE; --accent: #00B4D8; --border: rgba(0,180,216,0.2); }
-        body.cobalt-mono-light { --bg-main: #E0EFFF; --bg-card: #CCDEEE; --text-main: #001845; --text-muted: #5C7C99; --accent: #0077B6; --border: rgba(0,119,182,0.2); }
+        /* 4. COBALTO ABISSAL (Azul Escuro Intenso com Destaque Vibrante) */
+        body.cobalt-abyssal-dark { --bg-main: #001233; --bg-card: #002855; --text-main: #E0EFFF; --text-muted: #97B2DE; --accent: #0077B6; --border: rgba(0,119,182,0.3); }
+        body.cobalt-abyssal-light { --bg-main: #F0FBFC; --bg-card: #FFFFFF; --text-main: #001233; --text-muted: #003049; --accent: #00509D; --border: rgba(0,80,157,0.15); }
 
-        /* 5. ABISSAL & OLIVA (Azul Quase Preto com Verde Oliva Escuro) */
-        body.space-olive-dark { --bg-main: #020617; --bg-card: #0F172A; --text-main: #F1F5F9; --text-muted: #64748B; --accent: #4D7C0F; --border: rgba(77,124,15,0.2); }
-        body.space-olive-light { --bg-main: #EBEBEB; --bg-card: #D6D6D6; --text-main: #020617; --text-muted: #475569; --accent: #4D7C0F; --border: rgba(77,124,15,0.2); }
+        /* 5. GELO GLACIAL (Fundo Marinho com Azul Gelo Brilhante) */
+        body.glacier-ice-dark { --bg-main: #0B132B; --bg-card: #1C2541; --text-main: #F8FAFC; --text-muted: #94A3B8; --accent: #48CAE4; --border: rgba(72,202,228,0.2); }
+        body.glacier-ice-light { --bg-main: #F8FAFC; --bg-card: #E2E8F0; --text-main: #0B132B; --text-muted: #334155; --accent: #0077B6; --border: rgba(0,119,182,0.15); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
@@ -71,10 +71,11 @@
             letter-spacing: 0.3px;
         }
 
-        /* Ajustes específicos de contraste para os botões e texto claro */
-        body.cobalt-mono-dark .btn { color: #001845; font-weight: 800; }
+        /* Ajustes de legibilidade para botões */
+        body.glacier-ice-dark .btn, body.midnight-cyan-dark .btn, body.slate-blue-dark .btn { color: #020617; font-weight: 700; }
+        body.navy-royal-light .btn, body.cobalt-abyssal-light .btn { color: #ffffff; }
 
-        /* Botão Redondo (FAB) para abrir o painel */
+        /* Botão Redondo (FAB) */
         .fab-btn {
             position: fixed;
             bottom: 32px;
@@ -95,7 +96,8 @@
         }
         .fab-btn:hover { transform: scale(1.1); }
         .fab-btn svg { width: 24px; height: 24px; fill: currentColor; }
-        body.cobalt-mono-dark .fab-btn { color: #001845; }
+        
+        body.glacier-ice-dark .fab-btn, body.midnight-cyan-dark .fab-btn, body.slate-blue-dark .fab-btn { color: #020617; }
 
         /* Painel Completo */
         #themePanel {
@@ -149,7 +151,7 @@
         .close-btn:hover { color: #F8FAFC; }
 
         .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .theme-name { font-size: 14px; width: 150px; font-weight: 500; color: #E2E8F0;}
+        .theme-name { font-size: 14px; width: 160px; font-weight: 500; color: #E2E8F0;}
         
         .btn-group { display: flex; gap: 8px; }
         .btn-theme {
@@ -166,9 +168,16 @@
         .btn-dark { background: #1E293B; color: #F8FAFC; border: 1px solid #334155; }
         .btn-light { background: #E2E8F0; color: #0F172A; border: 1px solid #94A3B8; }
 
+        /* Marcadores Visuais */
+        .c-navy { border-left: 4px solid #3B82F6; padding-left: 8px; }
+        .c-slate { border-left: 4px solid #38BDF8; padding-left: 8px; }
+        .c-cyan { border-left: 4px solid #06B6D4; padding-left: 8px; }
+        .c-cobalt { border-left: 4px solid #0077B6; padding-left: 8px; }
+        .c-glacier { border-left: 4px solid #48CAE4; padding-left: 8px; }
+
     </style>
 </head>
-<body class="ocean-emerald-dark">
+<body class="navy-royal-dark">
 
     <header>
         <div class="container">
@@ -179,7 +188,7 @@
     <main class="container">
         <section class="hero">
             <h1>A Máquina de <br>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">Ecossistemas de Receita, Inbound e Dados</span>. Estruturo operações complexas de aquisição previsível e retenção para empresas que buscam escalar com inteligência cirúrgica.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">Ecossistemas de Receita, Inbound e Dados</span>. Estruturo operações complexas de aquisição previsível e retenção para empresas que procuram escalar com inteligência analítica.</p>
         </section>
 
         <section class="cards-grid">
@@ -205,48 +214,48 @@
 
     <div id="themePanel">
         <div class="panel-header">
-            <h4>Paleta Azul & Verde Escuro</h4>
+            <h4>Paletas Exclusivas (Azul)</h4>
             <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
         <div id="panelContent">
             <div class="theme-row">
-                <div class="theme-name">1. Oceano & Esmeralda</div>
+                <div class="theme-name c-navy">1. Marinho & Real</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('ocean-emerald-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('ocean-emerald-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('navy-royal-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('navy-royal-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name">2. Marinho & Safira</div>
+                <div class="theme-name c-slate">2. Ardósia Profunda</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('navy-sapphire-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('navy-sapphire-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('slate-blue-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('slate-blue-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name">3. Ardósia & Pinho</div>
+                <div class="theme-name c-cyan">3. Meia-Noite & Ciano</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('slate-pine-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('slate-pine-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('midnight-cyan-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('midnight-cyan-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name">4. Cobalto Mono</div>
+                <div class="theme-name c-cobalt">4. Cobalto Abissal</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('cobalt-mono-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('cobalt-mono-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('cobalt-abyssal-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('cobalt-abyssal-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name">5. Abissal & Oliva</div>
+                <div class="theme-name c-glacier">5. Gelo Glacial</div>
                 <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('space-olive-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('space-olive-light')">Light</button>
+                    <button class="btn-theme btn-dark" onclick="setTheme('glacier-ice-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('glacier-ice-light')">Light</button>
                 </div>
             </div>
         </div>
