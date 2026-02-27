@@ -3,56 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Glacier & Índigo - Renê</title>
+    <title>Simulador Azul & Couro - Renê</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* * PALETAS: GLACIER CLASSIC (BRANCO) + ÍNDIGO / AZUL GELO */
+        /* * PALETAS: AZUL ESCURO (BASE) + MARROM COURO (DESTAQUE) */
         
-        /* 1. Índigo Dominante (Botões Índigo, Detalhes Gelo) */
-        body.theme-indigo {
-            --bg-main: #FFFFFF;
-            --bg-card: #FFFFFF;
-            --text-main: #0F172A; /* Azul marinho quase preto */
-            --text-muted: #475569;
-            --accent: #4F46E5; /* Índigo */
-            --accent-hover: #00E5FF; /* Azul Gelo */
-            --border: rgba(79, 70, 229, 0.15);
-            --shadow: rgba(0, 0, 0, 0.04);
-            --btn-bg: #4F46E5;
+        /* 1. Marinho & Conhaque (Navy & Cognac Leather) - O Clássico Luxuoso */
+        body.theme-cognac {
+            --bg-main: #0B1325;
+            --bg-card: #121D36;
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --accent: #C36F38; /* Couro Conhaque */
+            --accent-hover: #A35829;
+            --border: rgba(195, 111, 56, 0.2);
+            --shadow: rgba(0, 0, 0, 0.4);
             --btn-text: #FFFFFF;
         }
 
-        /* 2. Gelo Primário (Botões Gelo, Detalhes Índigo) */
-        body.theme-ice {
-            --bg-main: #FAFCFF; /* Branco com levíssimo toque gelo */
-            --bg-card: #FFFFFF;
-            --text-main: #0B132B;
-            --text-muted: #475569;
-            --accent: #00BFFF; /* Azul Gelo mais forte para leitura */
-            --accent-hover: #4F46E5; /* Índigo */
-            --border: rgba(0, 191, 255, 0.2);
-            --shadow: rgba(0, 191, 255, 0.05);
-            --btn-bg: #00BFFF;
-            --btn-text: #0B132B;
+        /* 2. Meia-Noite & Sela (Midnight & Saddle Brown) - Fundo quase negro, couro alaranjado */
+        body.theme-saddle {
+            --bg-main: #050B14;
+            --bg-card: #0A152A;
+            --text-main: #E2E8F0;
+            --text-muted: #64748B;
+            --accent: #A96232; /* Couro Sela */
+            --accent-hover: #8C4E25;
+            --border: rgba(169, 98, 50, 0.2);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --btn-text: #FFFFFF;
         }
 
-        /* 3. Gradiente Boreal (O melhor dos dois mundos) */
-        body.theme-gradient {
-            --bg-main: #FFFFFF;
-            --bg-card: #FFFFFF;
-            --text-main: #111827;
-            --text-muted: #4B5563;
-            --accent: #4F46E5; 
-            --accent-hover: #00BFFF;
-            --border: rgba(79, 70, 229, 0.1);
-            --shadow: rgba(79, 70, 229, 0.05);
-            --btn-bg: linear-gradient(135deg, #4F46E5 0%, #00E5FF 100%);
+        /* 3. Aço Azul & Nogueira (Steel Blue & Walnut) - Mais suave e acinzentado */
+        body.theme-walnut {
+            --bg-main: #172130;
+            --bg-card: #1F2C40;
+            --text-main: #F8FAFC;
+            --text-muted: #CBD5E1;
+            --accent: #8E5A3A; /* Couro Nogueira */
+            --accent-hover: #73472C;
+            --border: rgba(142, 90, 58, 0.2);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --btn-text: #F8FAFC;
+        }
+
+        /* 4. Oxford & Mogno (Oxford Blue & Mahogany) - Tons muito densos e institucionais */
+        body.theme-mahogany {
+            --bg-main: #001B3A;
+            --bg-card: #002651;
+            --text-main: #E0E7FF;
+            --text-muted: #93A5CF;
+            --accent: #9A412A; /* Couro Mogno/Avermelhado */
+            --accent-hover: #7A321E;
+            --border: rgba(154, 65, 42, 0.2);
+            --shadow: rgba(0, 0, 0, 0.4);
             --btn-text: #FFFFFF;
         }
 
         /* RESET E ESTRUTURA */
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -66,7 +76,7 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
-        header { padding: 40px 0; border-bottom: 1px solid var(--border); background: var(--bg-main); }
+        header { padding: 40px 0; border-bottom: 1px solid var(--border); background: var(--bg-main); position: sticky; top: 0; z-index: 10;}
         
         /* ESTILOS DE LOGOTIPO DINÂMICOS */
         .logo-container { font-family: 'Space Grotesk', sans-serif; font-size: 28px; }
@@ -74,7 +84,7 @@
         /* Logo 1: O Ponto Executivo (Renê.) */
         .logo-1 { font-weight: 700; letter-spacing: -1px; }
         .logo-1 .hl { color: var(--accent); }
-        .logo-1 .hidden-text { display: none; } /* Esconde o sobrenome nesta versão */
+        .logo-1 .hidden-text { display: none; }
 
         /* Logo 2: Contraste de Peso (RENÊ SÁBIO) */
         .logo-2 { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 24px; }
@@ -88,11 +98,11 @@
         .hero { padding: 100px 0 60px; }
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; color: var(--text-main); }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; font-weight: 400; }
-        .highlight { color: var(--accent); font-weight: 600; }
+        .highlight { color: var(--accent); font-weight: 600; border-bottom: 1px solid var(--border); }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 80px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px var(--shadow); }
-        .card:hover { border-color: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px var(--shadow); }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: var(--text-main); }
         .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
         
@@ -101,22 +111,22 @@
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            background: var(--btn-bg);
+            background: var(--accent);
             color: var(--btn-text);
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 15px;
             letter-spacing: 0.5px;
             border: none;
             cursor: pointer;
         }
 
-        .btn:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 8px 20px var(--shadow); }
+        .btn:hover { background: var(--accent-hover); transform: scale(1.02); }
 
         /* RODAPÉ FOCADO EM INBOUND */
-        footer { margin-top: auto; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+        footer { margin-top: auto; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
         footer p { color: var(--text-muted); font-size: 15px; }
 
         /* PAINEL DE CONTROLO */
@@ -127,10 +137,10 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background-color: var(--text-main);
+            background-color: var(--accent);
             color: #FFFFFF;
             border: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             cursor: pointer;
             z-index: 101;
             display: flex;
@@ -144,14 +154,14 @@
             position: fixed;
             bottom: 100px;
             right: 32px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(10, 15, 25, 0.95);
             backdrop-filter: blur(16px);
             padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
             z-index: 100;
-            color: #1D1D1F;
+            color: #F8FAFC;
             width: 360px;
             opacity: 1;
             visibility: visible;
@@ -160,21 +170,21 @@
 
         #themePanel.hidden { opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
 
-        .panel-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 12px; margin-bottom: 16px; }
-        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #1D1D1F; margin: 0;}
-        .close-btn { background: transparent; border: none; color: #86868B; cursor: pointer; font-size: 20px; line-height: 1; }
-        .close-btn:hover { color: #1D1D1F; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 16px; }
+        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #FFFFFF; margin: 0;}
+        .close-btn { background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 20px; line-height: 1; }
+        .close-btn:hover { color: #FFFFFF; }
 
-        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #86868B; margin-bottom: 10px; font-weight: 600;}
+        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin-bottom: 10px; font-weight: 600;}
         
         .btn-option {
             display: block;
             width: 100%;
             padding: 10px 16px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 8px;
-            background: #FFFFFF;
-            color: #1D1D1F;
+            background: rgba(255,255,255,0.03);
+            color: #E2E8F0;
             font-family: 'Outfit', sans-serif;
             font-size: 14px;
             font-weight: 500;
@@ -182,12 +192,19 @@
             margin-bottom: 8px;
             cursor: pointer;
         }
-        .btn-option:hover { background: #F8FAFC; border-color: #CBD5E1; }
-        .btn-option.active { border-color: #4F46E5; background: #EEF2FF; color: #4F46E5; }
+        .btn-option:hover { background: rgba(255,255,255,0.1); }
+        .btn-option.active { border-color: var(--accent); background: rgba(0,0,0,0.3); color: var(--accent); }
+
+        /* Círculos de cor para o painel */
+        .color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+        .dot-cognac { background: #C36F38; }
+        .dot-saddle { background: #A96232; }
+        .dot-walnut { background: #8E5A3A; }
+        .dot-mahogany { background: #9A412A; }
 
     </style>
 </head>
-<body class="theme-gradient">
+<body class="theme-cognac">
 
     <header>
         <div class="container">
@@ -230,14 +247,15 @@
 
     <div id="themePanel">
         <div class="panel-header">
-            <h4>Personalização Glacier</h4>
+            <h4>Estética Azul & Couro</h4>
             <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
-        <div class="section-title">Paleta de Cores (Índigo & Gelo)</div>
-        <button class="btn-option" onclick="setTheme('theme-indigo', this)">1. Índigo Dominante (Clássico)</button>
-        <button class="btn-option" onclick="setTheme('theme-ice', this)">2. Azul Gelo Dominante</button>
-        <button class="btn-option active" onclick="setTheme('theme-gradient', this)">3. Gradiente (Índigo para Gelo)</button>
+        <div class="section-title">Paleta de Cores</div>
+        <button class="btn-option active" onclick="setTheme('theme-cognac', this)"><span class="color-dot dot-cognac"></span> 1. Marinho & Couro Conhaque</button>
+        <button class="btn-option" onclick="setTheme('theme-saddle', this)"><span class="color-dot dot-saddle"></span> 2. Meia-Noite & Couro Sela</button>
+        <button class="btn-option" onclick="setTheme('theme-walnut', this)"><span class="color-dot dot-walnut"></span> 3. Aço Azul & Couro Nogueira</button>
+        <button class="btn-option" onclick="setTheme('theme-mahogany', this)"><span class="color-dot dot-mahogany"></span> 4. Oxford & Couro Mogno</button>
 
         <div class="section-title" style="margin-top: 20px;">Estilo do Logótipo</div>
         <button class="btn-option active-logo" onclick="setLogo(1, this)">A. O Ponto Executivo (Renê.)</button>
@@ -246,25 +264,18 @@
     </div>
 
     <script>
-        // Função para mudar a cor
         function setTheme(themeClass, btnElement) {
             document.body.className = themeClass;
-            
-            // Atualiza botões ativos
             let colorBtns = btnElement.parentElement.querySelectorAll('.btn-option:not(.active-logo):not([onclick^="setLogo"])');
             colorBtns.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
         }
 
-        // Função para mudar o logo
         function setLogo(styleId, btnElement) {
             const logo = document.getElementById('siteLogo');
-            
-            // Remove as classes antigas
             logo.classList.remove('logo-1', 'logo-2', 'logo-3');
             logo.classList.add('logo-' + styleId);
 
-            // Ajusta o HTML interno dependendo do estilo escolhido
             if(styleId === 1) {
                 logo.innerHTML = 'Renê<span class="hl">.</span><span class="hidden-text hl">SÁBIO</span>';
             } else if (styleId === 2) {
@@ -273,7 +284,6 @@
                 logo.innerHTML = 'Renê<span class="hl">Sábio</span>';
             }
 
-            // Atualiza botões ativos
             let logoBtns = btnElement.parentElement.querySelectorAll('[onclick^="setLogo"]');
             logoBtns.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -283,7 +293,6 @@
             document.getElementById('themePanel').classList.toggle('hidden');
         }
 
-        // Inicializar os botões corretos no painel
         window.onload = function() {
             document.querySelectorAll('[onclick="setLogo(1, this)"]')[0].classList.add('active');
         };
