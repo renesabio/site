@@ -3,292 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variações Kit 3 - Renê Sábio</title>
+    <title>Simulador Imersivo - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
 
+        /* Variáveis Padrão (Inicia no Teal Dark) */
+        :root {
+            --bg-main: #041A1A;
+            --bg-card: #0B2929;
+            --text-main: #FFFFFF;
+            --text-muted: #9CC2C2;
+            --accent: #14B8A6;
+            --accent-hover: #0D9488;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 1. TEAL (Azul-Esverdeado) */
+        body.teal-dark { --bg-main: #041A1A; --bg-card: #0B2929; --text-main: #FFFFFF; --text-muted: #9CC2C2; --accent: #14B8A6; --border: rgba(255,255,255,0.1); }
+        body.teal-light { --bg-main: #F0FDFA; --bg-card: #FFFFFF; --text-main: #134E4A; --text-muted: #475569; --accent: #0D9488; --border: rgba(0,0,0,0.1); }
+
+        /* 2. ÂMBAR (Amarelo-Alaranjado) */
+        body.amber-dark { --bg-main: #1C1405; --bg-card: #2E220A; --text-main: #FFFFFF; --text-muted: #D4B88C; --accent: #F59E0B; --border: rgba(255,255,255,0.1); }
+        body.amber-light { --bg-main: #FFFBEB; --bg-card: #FFFFFF; --text-main: #78350F; --text-muted: #57534E; --accent: #D97706; --border: rgba(0,0,0,0.1); }
+
+        /* 3. MAGENTA (Vermelho-Arroxeado) */
+        body.magenta-dark { --bg-main: #1C0514; --bg-card: #2E0A22; --text-main: #FFFFFF; --text-muted: #D48CBF; --accent: #D946EF; --border: rgba(255,255,255,0.1); }
+        body.magenta-light { --bg-main: #FDF4FF; --bg-card: #FFFFFF; --text-main: #701A75; --text-muted: #57534E; --accent: #C026D3; --border: rgba(0,0,0,0.1); }
+
+        /* 4. CHARTREUSE (Verde-Amarelado) */
+        body.chartreuse-dark { --bg-main: #141A05; --bg-card: #222E0A; --text-main: #FFFFFF; --text-muted: #B4D48C; --accent: #84CC16; --border: rgba(255,255,255,0.1); }
+        body.chartreuse-light { --bg-main: #F7FEE7; --bg-card: #FFFFFF; --text-main: #365314; --text-muted: #4D7C0F; --accent: #65A30D; --border: rgba(0,0,0,0.1); }
+
+        /* 5. CORAL (Vermelho-Alaranjado) */
+        body.coral-dark { --bg-main: #1C0B05; --bg-card: #2E140A; --text-main: #FFFFFF; --text-muted: #D4A38C; --accent: #F97316; --border: rgba(255,255,255,0.1); }
+        body.coral-light { --bg-main: #FFF7ED; --bg-card: #FFFFFF; --text-main: #7C2D12; --text-muted: #57534E; --accent: #EA580C; --border: rgba(0,0,0,0.1); }
+
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
+
         body {
-            background-color: #e5e5e5;
-            margin: 0;
-            padding: 40px;
             font-family: 'Outfit', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .header-title {
-            text-align: center;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #111;
-            margin-bottom: 10px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .variation-card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        .card-header {
-            padding: 20px 30px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            border-bottom: 1px solid rgba(128,128,128,0.2);
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        .card-body {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+        /* Header */
+        header { padding: 40px 0; border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -1px; }
+        .logo span { color: var(--accent); font-weight: 700; }
 
-        /* Tipografia de Teste */
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            margin: 0;
-            letter-spacing: -0.5px;
-        }
-        p {
-            font-family: 'Outfit', sans-serif;
-            font-size: 15px;
-            line-height: 1.6;
-            margin: 0;
-        }
+        /* Hero */
+        .hero { padding: 80px 0 40px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
+        .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; }
+        .highlight { color: var(--accent); font-weight: 600; }
 
-        /* Logo Display */
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            font-weight: 500;
-            letter-spacing: -1px;
-        }
-        .logo span { font-weight: 700; }
-
-        /* Botão Fake */
+        /* Cards */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; padding-bottom: 100px; }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 15px; }
+        .card p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.5; }
+        
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 14px 28px;
+            background-color: var(--accent);
+            color: var(--bg-main);
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 6px;
-            text-align: center;
-            width: fit-content;
-            transition: 0.3s;
+            border-radius: 8px;
+            font-size: 16px;
         }
 
-        /* ==========================================
-           1. AZUL (Trust & Tech)
-           ========================================== */
-        /* Dark */
-        .azul-dark { background: #0A0F1A; color: #94A3B8; }
-        .azul-dark .card-header { background: #0F172A; color: #fff; }
-        .azul-dark h1, .azul-dark .logo { color: #fff; }
-        .azul-dark .logo span { color: #3B82F6; }
-        .azul-dark .btn { background: #3B82F6; color: #fff; }
-        
-        /* Light */
-        .azul-light { background: #F8FAFC; color: #475569; border: 1px solid #E2E8F0;}
-        .azul-light .card-header { background: #F1F5F9; color: #0F172A; }
-        .azul-light h1, .azul-light .logo { color: #0F172A; }
-        .azul-light .logo span { color: #2563EB; }
-        .azul-light .btn { background: #2563EB; color: #fff; }
+        /* Painel Flutuante de Controle */
+        .theme-switcher {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            z-index: 100;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            width: 340px;
+        }
+        .theme-switcher h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #888; border-bottom: 1px solid #333; padding-bottom: 10px;}
+        .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .theme-name { font-size: 14px; width: 100px; }
+        .btn-theme {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            transition: opacity 0.2s;
+        }
+        .btn-theme:hover { opacity: 0.8; }
+        .btn-dark { background: #333; color: #fff; }
+        .btn-light { background: #ddd; color: #111; }
 
-        /* ==========================================
-           2. VERMELHO (Action & Performance)
-           ========================================== */
-        /* Dark */
-        .red-dark { background: #1A0505; color: #FCA5A5; }
-        .red-dark .card-header { background: #2C0B0B; color: #fff; }
-        .red-dark h1, .red-dark .logo { color: #fff; }
-        .red-dark .logo span { color: #EF4444; }
-        .red-dark .btn { background: #EF4444; color: #fff; }
-        
-        /* Light */
-        .red-light { background: #FEF2F2; color: #7F1D1D; border: 1px solid #FECACA;}
-        .red-light .card-header { background: #FEE2E2; color: #450A0A; }
-        .red-light h1, .red-light .logo { color: #450A0A; }
-        .red-light .logo span { color: #DC2626; }
-        .red-light .btn { background: #DC2626; color: #fff; }
-
-        /* ==========================================
-           3. VERDE (RevOps & Growth)
-           ========================================== */
-        /* Dark */
-        .green-dark { background: #051A0F; color: #6EE7B7; }
-        .green-dark .card-header { background: #064E3B; color: #fff; }
-        .green-dark h1, .green-dark .logo { color: #fff; }
-        .green-dark .logo span { color: #10B981; }
-        .green-dark .btn { background: #10B981; color: #051A0F; }
-        
-        /* Light */
-        .green-light { background: #F0FDF4; color: #14532D; border: 1px solid #BBF7D0;}
-        .green-light .card-header { background: #DCFCE7; color: #052E16; }
-        .green-light h1, .green-light .logo { color: #052E16; }
-        .green-light .logo span { color: #059669; }
-        .green-light .btn { background: #059669; color: #fff; }
-
-        /* ==========================================
-           4. AMARELO/OURO (Premium & Alert)
-           ========================================== */
-        /* Dark */
-        .yellow-dark { background: #1A1805; color: #FEF08A; }
-        .yellow-dark .card-header { background: #422006; color: #fff; }
-        .yellow-dark h1, .yellow-dark .logo { color: #fff; }
-        .yellow-dark .logo span { color: #FACC15; }
-        .yellow-dark .btn { background: #FACC15; color: #422006; }
-        
-        /* Light */
-        .yellow-light { background: #FEFCE8; color: #713F12; border: 1px solid #FEF08A;}
-        .yellow-light .card-header { background: #FEF9C3; color: #422006; }
-        .yellow-light h1, .yellow-light .logo { color: #422006; }
-        .yellow-light .logo span { color: #D97706; }
-        .yellow-light .btn { background: #D97706; color: #fff; }
-
-        /* ==========================================
-           5. ROXO/ÍNDIGO (Wisdom & Ecosystem)
-           ========================================== */
-        /* Dark */
-        .purple-dark { background: #10051A; color: #D8B4FE; }
-        .purple-dark .card-header { background: #2E1065; color: #fff; }
-        .purple-dark h1, .purple-dark .logo { color: #fff; }
-        .purple-dark .logo span { color: #A855F7; }
-        .purple-dark .btn { background: #A855F7; color: #fff; }
-        
-        /* Light */
-        .purple-light { background: #FAF5FF; color: #581C87; border: 1px solid #E9D5FF;}
-        .purple-light .card-header { background: #F3E8FF; color: #3B0764; }
-        .purple-light h1, .purple-light .logo { color: #3B0764; }
-        .purple-light .logo span { color: #7E22CE; }
-        .purple-light .btn { background: #7E22CE; color: #fff; }
-
+        /* Cores dos botões do painel */
+        .c-teal { border-left: 4px solid #14B8A6; padding-left: 8px;}
+        .c-amber { border-left: 4px solid #F59E0B; padding-left: 8px;}
+        .c-magenta { border-left: 4px solid #D946EF; padding-left: 8px;}
+        .c-chart { border-left: 4px solid #84CC16; padding-left: 8px;}
+        .c-coral { border-left: 4px solid #F97316; padding-left: 8px;}
     </style>
 </head>
-<body>
+<body class="teal-dark">
 
-    <h1 class="header-title">Variações do Kit "Arquiteto" (Kit 3)</h1>
-    <p style="text-align: center; margin-bottom: 20px; font-size: 18px; color: #555;">Análise as opções de paleta e contraste (Dark Mode vs Light Mode).</p>
+    <header>
+        <div class="container">
+            <div class="logo">renê<span>_</span>sábio</div>
+        </div>
+    </header>
 
-    <div class="grid-container">
-        <div class="variation-card azul-dark">
-            <div class="card-header">1. AZUL - Dark Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Escalando o Ecossistema</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Visão corporativa de ponta a ponta.</p>
+    <main class="container">
+        <section class="hero">
+            <h1>A Máquina de <br>Tração e Receita.</h1>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">RevOps, Growth e Inbound</span>. Estruturo ecossistemas complexos de aquisição previsível e retenção para empresas que buscam escalar com inteligência de dados.</p>
+        </section>
+
+        <section class="cards-grid">
+            <div class="card">
+                <h3>LinkedIn</h3>
+                <p>Acompanhe minhas análises executivas sobre estratégias de crescimento, consolidação de dados e liderança em marketing B2B.</p>
                 <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
+
+            <div class="card">
+                <h3>Inbound Hub</h3>
+                <p>A comunidade definitiva. Um ecossistema dedicado para profissionais que vivem as trincheiras do marketing trocarem experiências.</p>
+                <a href="#" class="btn">Conhecer a Comunidade</a>
+            </div>
+        </section>
+    </main>
+
+    <div class="theme-switcher">
+        <h4>Simulador de Identidade</h4>
+        
+        <div class="theme-row">
+            <div class="theme-name c-teal">Teal (Petróleo)</div>
+            <div>
+                <button class="btn-theme btn-dark" onclick="setTheme('teal-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('teal-light')">Light</button>
+            </div>
         </div>
-        <div class="variation-card azul-light">
-            <div class="card-header">1. AZUL - Light Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Escalando o Ecossistema</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Visão corporativa de ponta a ponta.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
+
+        <div class="theme-row">
+            <div class="theme-name c-amber">Âmbar</div>
+            <div>
+                <button class="btn-theme btn-dark" onclick="setTheme('amber-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('amber-light')">Light</button>
+            </div>
+        </div>
+
+        <div class="theme-row">
+            <div class="theme-name c-magenta">Magenta / Vinho</div>
+            <div>
+                <button class="btn-theme btn-dark" onclick="setTheme('magenta-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('magenta-light')">Light</button>
+            </div>
+        </div>
+
+        <div class="theme-row">
+            <div class="theme-name c-chart">Limão (Chartreuse)</div>
+            <div>
+                <button class="btn-theme btn-dark" onclick="setTheme('chartreuse-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('chartreuse-light')">Light</button>
+            </div>
+        </div>
+
+        <div class="theme-row">
+            <div class="theme-name c-coral">Coral</div>
+            <div>
+                <button class="btn-theme btn-dark" onclick="setTheme('coral-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('coral-light')">Light</button>
             </div>
         </div>
     </div>
 
-    <div class="grid-container">
-        <div class="variation-card red-dark">
-            <div class="card-header">2. VERMELHO - Dark Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>A Máquina de Aquisição</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Ação e performance constantes.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-        <div class="variation-card red-light">
-            <div class="card-header">2. VERMELHO - Light Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>A Máquina de Aquisição</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Ação e performance constantes.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-container">
-        <div class="variation-card green-dark">
-            <div class="card-header">3. VERDE - Dark Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Operações de Receita</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Foco analítico em crescimento contínuo.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-        <div class="variation-card green-light">
-            <div class="card-header">3. VERDE - Light Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Operações de Receita</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Foco analítico em crescimento contínuo.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-container">
-        <div class="variation-card yellow-dark">
-            <div class="card-header">4. AMARELO - Dark Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Gestão Premium B2B</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Autoridade e senioridade no mercado.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-        <div class="variation-card yellow-light">
-            <div class="card-header">4. AMARELO - Light Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Gestão Premium B2B</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Autoridade e senioridade no mercado.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-container">
-        <div class="variation-card purple-dark">
-            <div class="card-header">5. ROXO - Dark Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Conexões Duradouras</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. A cor ideal para conectar com o Inbound Hub.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-        <div class="variation-card purple-light">
-            <div class="card-header">5. ROXO - Light Mode</div>
-            <div class="card-body">
-                <div class="logo">renê<span>_</span>sábio</div>
-                <h1>Conexões Duradouras</h1>
-                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. A cor ideal para conectar com o Inbound Hub.</p>
-                <a href="#" class="btn">Conectar no LinkedIn</a>
-            </div>
-        </div>
-    </div>
-
+    <script>
+        function setTheme(themeClass) {
+            document.body.className = themeClass;
+        }
+    </script>
 </body>
 </html>
