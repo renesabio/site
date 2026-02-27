@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renê - Diretor de Marketing</title>
+    <title>Renê Sábio - Diretor de Marketing</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700;800&display=swap');
 
-        /* PALETA CLAREADA: MARINHO MAIS ABERTO E COURO CARAMELO */
+        /* PALETA AJUSTADA: TEXTO PRETO, DESTAQUES MARINHO/CONHAQUE */
         :root {
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
-            --navy: #1A365D;       /* Azul Marinho/Safira mais claro e rico */
-            --navy-light: #2B4C7E; /* Azul para Hover */
-            --cognac: #D0733A;     /* Couro Caramelo/Conhaque mais vibrante */
-            --cognac-light: rgba(208, 115, 58, 0.3);
-            --text-muted: #526071;
+            --text-dark: #111111;  /* Preto Absoluto para Títulos e Texto Principal */
+            --text-muted: #444444; /* Cinza Escuro para leitura longa */
+            --navy: #1A365D;       /* Azul Marinho apenas para Botões e Sublinhado */
+            --navy-hover: #2B4C7E; 
+            --cognac: #D0733A;     /* Conhaque para Negritos e Logos */
+            --cognac-light: rgba(208, 115, 58, 0.2);
         }
 
         * { 
@@ -28,7 +29,7 @@
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-main);
-            color: var(--navy); 
+            color: var(--text-dark); /* TEXTO PRETO */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -42,37 +43,34 @@
             width: 100%; 
         }
 
-        /* CABEÇALHO NORMAL (Sem position sticky) */
+        /* CABEÇALHO NORMAL */
         header { 
             padding: 40px 0; 
             background: var(--bg-main); 
         }
         
-        /* LOGOTIPO DINÂMICO */
+        /* O LOGOTIPO VIA CÓDIGO (TIPOGRÁFICO) */
         .logo-container { 
             font-family: 'Space Grotesk', sans-serif; 
-            color: var(--navy);
+            font-size: 28px;
             display: inline-block;
+            letter-spacing: -0.5px;
         }
-        .logo-container .hl { color: var(--cognac); }
 
-        /* Estilos específicos para cada Logo */
-        .logo-1 { font-size: 28px; font-weight: 700; letter-spacing: -1px; }
-        .logo-2 { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
-        .logo-2 .hl { font-weight: 300; margin-right: 8px; }
-        .logo-3 { font-size: 28px; font-weight: 700; letter-spacing: 0px; }
-        .logo-4 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
-        .logo-4 .hl { font-weight: 300; font-size: 20px; letter-spacing: 1px; margin-left: 8px; text-transform: uppercase; }
-        .logo-5 { font-size: 26px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
-        .logo-5 .hl { font-weight: 300; }
+        /* Classes auxiliares que o JS vai usar para montar o logo */
+        .w-bold { font-weight: 800; }
+        .w-light { font-weight: 400; }
+        .c-black { color: var(--text-dark); }
+        .c-cognac { color: var(--cognac); }
+        .c-navy { color: var(--navy); }
 
         /* REGRAS DE TIPOGRAFIA */
         h1, h2, h3 {
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--navy);
+            color: var(--text-dark); /* TEXTO PRETO */
         }
 
-        /* Negrito Conhaque com Sublinhado Marinho */
+        /* O Negrito: Conhaque com Sublinhado Marinho */
         strong, b {
             color: var(--cognac);
             font-weight: 700;
@@ -98,7 +96,7 @@
             font-weight: 400; 
         }
 
-        /* CARTÕES COM BORDA FINA */
+        /* CARTÕES (Apenas com a bordinha fina conhaque ao passar o rato) */
         .cards-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -110,13 +108,13 @@
             background-color: var(--bg-card); 
             padding: 40px; 
             border-radius: 12px; 
-            border: 1px solid var(--cognac-light); /* Borda muito mais fina e suave */
-            box-shadow: 0 4px 15px rgba(26, 54, 93, 0.04); 
+            border: 1px solid #E5E5E5; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
         }
         .card:hover { 
-            border-color: var(--cognac); /* Escurece apenas ao passar o rato */
+            border-color: var(--cognac); 
             transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(208, 115, 58, 0.12); 
+            box-shadow: 0 15px 30px var(--cognac-light); 
         }
         .card h3 { 
             font-size: 22px; 
@@ -129,7 +127,7 @@
             font-size: 16px;
         }
         
-        /* BOTÕES */
+        /* BOTÕES (Azul Marinho Sólido, sem borda) */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -137,7 +135,7 @@
             padding: 14px 28px;
             background-color: var(--navy); 
             color: #FFFFFF;
-            border: 1px solid var(--cognac); /* Borda fina acompanhando o botão */
+            border: none; /* REMOVIDA A BORDA MARROM */
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none !important; 
@@ -148,46 +146,96 @@
         }
 
         .btn:hover { 
-            background-color: var(--navy-light); 
+            background-color: var(--navy-hover); 
             transform: scale(1.02); 
-            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.15); 
+            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); 
         }
 
-        /* RODAPÉ ESCURO FOCADO EM INBOUND */
+        /* RODAPÉ FOCADO EM INBOUND */
         footer { 
             margin-top: auto; 
             padding: 50px 0; 
-            background-color: var(--navy); /* Fundo Escuro */
+            background-color: var(--text-dark); /* Fundo Preto */
             text-align: center; 
         }
         footer p { 
-            color: #E2E8F0; /* Texto claro para contraste */
+            color: #E2E8F0; 
             font-size: 15px; 
             font-weight: 400;
-            letter-spacing: 0.5px;
         }
 
-        /* PAINEL DE TESTE DE LOGOS */
-        .logo-panel {
+        /* PAINEL DE TESTE COM MINIMIZAR */
+        #themePanel {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: #FFFFFF;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 1px solid #E2E8F0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 1px solid #E5E5E5;
             z-index: 100;
-            width: 300px;
+            width: 320px;
+            overflow: hidden;
         }
-        .logo-panel h4 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; margin-bottom: 12px; color: var(--navy);}
+
+        /* Estado minimizado (apenas o cabeçalho visível) */
+        #themePanel.minimized {
+            height: 60px; /* Altura exata para mostrar só o header */
+            cursor: pointer;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E5E5E5;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* Remove a borda se estiver minimizado para ficar mais limpo */
+        #themePanel.minimized .panel-header {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            height: 100%;
+        }
+
+        .panel-header h4 { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 14px; 
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: 1px solid #CCCCCC;
+            color: var(--text-muted);
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+        }
+        .toggle-btn:hover { background: #F5F5F5; color: var(--text-dark); }
+
+        #panelContent {
+            transition: opacity 0.3s;
+        }
+        #themePanel.minimized #panelContent {
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .logo-btn {
             display: block;
             width: 100%;
-            padding: 8px 12px;
+            padding: 10px 12px;
             margin-bottom: 8px;
             background: #F8FAFC;
-            border: 1px solid #E2E8F0;
+            border: 1px solid #E5E5E5;
             border-radius: 6px;
             text-align: left;
             font-family: 'Outfit', sans-serif;
@@ -195,16 +243,16 @@
             cursor: pointer;
             color: var(--text-muted);
         }
-        .logo-btn:hover { background: #F1F5F9; border-color: var(--cognac-light); }
-        .logo-btn.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
+        .logo-btn:hover { background: #F1F5F9; border-color: var(--cognac); }
+        .logo-btn.active { background: var(--text-dark); color: #FFFFFF; border-color: var(--text-dark); }
     </style>
 </head>
 <body>
 
     <header>
         <div class="container">
-            <div id="siteLogo" class="logo-container logo-1">
-                Renê<span class="hl">.</span>
+            <div id="siteLogo" class="logo-container">
+                <span class="w-bold c-cognac">Renê</span> <span class="w-light c-black">Sábio</span>
             </div>
         </div>
     </header>
@@ -232,49 +280,76 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Renê. Especialista na estruturação de ecossistemas de Inbound Marketing.</p>
+            <p>&copy; 2026 Renê Sábio. Especialista na estruturação de ecossistemas de Inbound Marketing.</p>
         </div>
     </footer>
 
-    <div class="logo-panel">
-        <h4>Variações de Logótipo</h4>
-        <button class="logo-btn active" onclick="changeLogo(1, this)">1. O Ponto Executivo</button>
-        <button class="logo-btn" onclick="changeLogo(2, this)">2. Linha Consultoria</button>
-        <button class="logo-btn" onclick="changeLogo(3, this)">3. Assinatura Clássica</button>
-        <button class="logo-btn" onclick="changeLogo(4, this)">4. Cargo Integrado</button>
-        <button class="logo-btn" onclick="changeLogo(5, this)">5. Chancelado (Brackets)</button>
+    <div id="themePanel">
+        <div class="panel-header" onclick="expandPanelIfMinimized()">
+            <h4>Design Tipográfico de Logo</h4>
+            <button class="toggle-btn" onclick="togglePanel(event)" id="toggleIcon">Minimizar -</button>
+        </div>
+        
+        <div id="panelContent">
+            <button class="logo-btn active" onclick="changeLogo(1, this)">1. Renê (Conhaque Bold) + Sábio (Preto Fino)</button>
+            <button class="logo-btn" onclick="changeLogo(2, this)">2. Renê (Preto Fino) + Sábio (Conhaque Bold)</button>
+            <button class="logo-btn" onclick="changeLogo(3, this)">3. Renê (Preto Bold) + Sábio (Marinho Fino)</button>
+            <button class="logo-btn" onclick="changeLogo(4, this)">4. Renê (Marinho Fino) + Sábio (Preto Bold)</button>
+            <button class="logo-btn" onclick="changeLogo(5, this)">5. Renê (Marinho Bold) + Sábio (Conhaque Fino)</button>
+        </div>
     </div>
 
     <script>
         function changeLogo(id, btnElement) {
             const logo = document.getElementById('siteLogo');
             
-            // Limpa as classes e aplica a nova
-            logo.className = 'logo-container logo-' + id;
-
-            // Define o HTML do logo baseado na escolha
+            // Constrói o HTML tipográfico conforme a escolha
             switch(id) {
                 case 1:
-                    logo.innerHTML = 'Renê<span class="hl">.</span>';
+                    logo.innerHTML = '<span class="w-bold c-cognac">Renê</span> <span class="w-light c-black">Sábio</span>';
                     break;
                 case 2:
-                    logo.innerHTML = '<span class="hl">|</span>RENÊ SÁBI';
+                    logo.innerHTML = '<span class="w-light c-black">Renê</span> <span class="w-bold c-cognac">Sábio</span>';
                     break;
                 case 3:
-                    logo.innerHTML = 'R<span class="hl">.</span> SÁBI';
+                    logo.innerHTML = '<span class="w-bold c-black">Renê</span> <span class="w-light c-navy">Sábio</span>';
                     break;
                 case 4:
-                    logo.innerHTML = 'Renê<span class="hl">DIRETOR</span>';
+                    logo.innerHTML = '<span class="w-light c-navy">Renê</span> <span class="w-bold c-black">Sábio</span>';
                     break;
                 case 5:
-                    logo.innerHTML = '<span class="hl">[</span> RENÊ <span class="hl">]</span>';
+                    logo.innerHTML = '<span class="w-bold c-navy">Renê</span> <span class="w-light c-cognac">Sábio</span>';
                     break;
             }
 
-            // Atualiza o estado visual dos botões no painel
+            // Atualiza botões
             const buttons = document.querySelectorAll('.logo-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
+        }
+
+        function togglePanel(event) {
+            event.stopPropagation(); // Impede duplo clique no painel inteiro
+            const panel = document.getElementById('themePanel');
+            const btn = document.getElementById('toggleIcon');
+            
+            panel.classList.toggle('minimized');
+            
+            if (panel.classList.contains('minimized')) {
+                btn.innerText = "Expandir +";
+            } else {
+                btn.innerText = "Minimizar -";
+            }
+        }
+
+        function expandPanelIfMinimized() {
+            const panel = document.getElementById('themePanel');
+            const btn = document.getElementById('toggleIcon');
+            
+            if (panel.classList.contains('minimized')) {
+                panel.classList.remove('minimized');
+                btn.innerText = "Minimizar -";
+            }
         }
     </script>
 </body>
