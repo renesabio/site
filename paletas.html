@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Sépia & Bronze - Renê</title>
+    <title>Simulador Cobalto & Branco - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* 1. SÉPIA CLÁSSICO (Tons Quentes e Confortáveis) */
-        body.sepia-classic-dark { --bg-main: #2C241B; --bg-card: #3A3025; --text-main: #E8E0D5; --text-muted: #B8A898; --accent: #D4A373; --btn-text: #2C241B; --border: rgba(212,163,115,0.2); }
-        body.sepia-classic-light { --bg-main: #F4ECD8; --bg-card: #FDFBF6; --text-main: #4A3C31; --text-muted: #7A6A58; --accent: #B07D4B; --btn-text: #FFFFFF; --border: rgba(176,125,75,0.2); }
+        /* * A ESTRATÉGIA: Fundo Cobalto + Texto Branco + Destaque Azul.
+         * Para não ficar "tudo azul", os cartões (bg-card) e bordas usam tons mais neutros/acinzentados.
+         */
 
-        /* 2. BRONZE EXECUTIVO (Fundo quase negro com toques metálicos quentes) */
-        body.bronze-exec-dark { --bg-main: #1A1614; --bg-card: #292320; --text-main: #E3DCD5; --text-muted: #9E9187; --accent: #CD7F32; --btn-text: #1A1614; --border: rgba(205,127,50,0.2); }
-        body.bronze-exec-light { --bg-main: #EFEBE7; --bg-card: #FFFFFF; --text-main: #292320; --text-muted: #6B5E54; --accent: #A95C17; --btn-text: #FFFFFF; --border: rgba(169,92,23,0.2); }
+        /* 1. COBALTO & AZUL ROYAL (O Clássico) - Fundo cobalto profundo, destaque azul verdadeiro */
+        body.cobalt-royal { --bg-main: #0B1325; --bg-card: #131A2B; --text-main: #FFFFFF; --text-muted: #A1A1AA; --accent: #2563EB; --border: rgba(255,255,255,0.08); }
 
-        /* 3. CAFÉ EXPRESSO (Mocha profundo e Latte) */
-        body.mocha-dark { --bg-main: #231914; --bg-card: #33261F; --text-main: #D9CFC4; --text-muted: #A6968A; --accent: #C49A76; --btn-text: #231914; --border: rgba(196,154,118,0.2); }
-        body.mocha-light { --bg-main: #EAE3DC; --bg-card: #F5EFE9; --text-main: #33261F; --text-muted: #6B564C; --accent: #8C5E3C; --btn-text: #FFFFFF; --border: rgba(140,94,60,0.2); }
+        /* 2. COBALTO & ÍNDIGO (Elegância) - Destaque puxa levemente para o roxo/violeta, zero verde */
+        body.cobalt-indigo { --bg-main: #0A1121; --bg-card: #121826; --text-main: #FFFFFF; --text-muted: #9CA3AF; --accent: #4F46E5; --border: rgba(255,255,255,0.08); }
 
-        /* 4. AREIA DO DESERTO (Sépia desaturado, muito minimalista e limpo) */
-        body.desert-sand-dark { --bg-main: #2B2621; --bg-card: #3B342D; --text-main: #E6DFD3; --text-muted: #ACA192; --accent: #E3B477; --btn-text: #2B2621; --border: rgba(227,180,119,0.2); }
-        body.desert-sand-light { --bg-main: #FDFBF7; --bg-card: #F4EFE6; --text-main: #3B342D; --text-muted: #7A7065; --accent: #C28E46; --btn-text: #FFFFFF; --border: rgba(194,142,70,0.2); }
+        /* 3. COBALTO ONYX & ELÉTRICO - Cartões totalmente cinzas (sem azul) para quebrar a cor, destaque elétrico vivo */
+        body.cobalt-onyx { --bg-main: #091224; --bg-card: #18181B; --text-main: #FFFFFF; --text-muted: #A1A1AA; --accent: #0066FF; --border: rgba(255,255,255,0.05); }
 
-        /* 5. COBRE ENVELHECIDO (Tom sépia avermelhado, muito imponente) */
-        body.aged-copper-dark { --bg-main: #1C1512; --bg-card: #2B201C; --text-main: #E8DCD8; --text-muted: #A8958E; --accent: #B87333; --btn-text: #1C1512; --border: rgba(184,115,51,0.2); }
-        body.aged-copper-light { --bg-main: #F5EBE7; --bg-card: #FFFFFF; --text-main: #2B201C; --text-muted: #756057; --accent: #9E5B22; --btn-text: #FFFFFF; --border: rgba(158,91,34,0.2); }
+        /* 4. COBALTO DEEP & AZUL VIBRANTE - Fundo quase preto com toque cobalto, alto contraste */
+        body.cobalt-deep { --bg-main: #040914; --bg-card: #0A111C; --text-main: #FFFFFF; --text-muted: #8E96A4; --accent: #1D4ED8; --border: rgba(255,255,255,0.06); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
@@ -46,14 +42,14 @@
         .logo span { color: var(--accent); }
 
         .hero { padding: 100px 0 60px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; color: #FFFFFF; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 680px; line-height: 1.6; font-weight: 400; }
-        .highlight { color: var(--accent); font-weight: 600; }
+        .highlight { color: #FFFFFF; font-weight: 600; border-bottom: 2px solid var(--accent); }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 120px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
-        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: #FFFFFF; }
         .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
         
         .btn {
@@ -62,9 +58,9 @@
             justify-content: center;
             padding: 12px 24px;
             background-color: var(--accent);
-            color: var(--btn-text);
+            color: #FFFFFF;
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 6px;
             font-size: 15px;
@@ -73,7 +69,7 @@
 
         .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-        /* Botão Redondo (FAB) para abrir o painel */
+        /* Botão Redondo (FAB) */
         .fab-btn {
             position: fixed;
             bottom: 32px;
@@ -82,9 +78,9 @@
             height: 56px;
             border-radius: 50%;
             background-color: var(--accent);
-            color: var(--btn-text);
+            color: #FFFFFF;
             border: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             cursor: pointer;
             z-index: 101;
             display: flex;
@@ -100,14 +96,14 @@
             position: fixed;
             bottom: 100px;
             right: 32px;
-            background: rgba(26, 22, 20, 0.95);
+            background: rgba(15, 20, 30, 0.95);
             backdrop-filter: blur(16px);
             padding: 24px;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border: 1px solid #3D332D;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
             z-index: 100;
-            color: #E3DCD5;
+            color: #FFFFFF;
             font-family: 'Outfit', sans-serif;
             width: 380px;
             
@@ -128,17 +124,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #3D332D;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 16px;
             margin-bottom: 20px;
         }
 
-        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #D9CFC4; margin: 0;}
+        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #FFFFFF; margin: 0;}
         
         .close-btn {
             background: transparent;
             border: none;
-            color: #9E9187;
+            color: #A1A1AA;
             cursor: pointer;
             font-size: 20px;
             line-height: 1;
@@ -147,9 +143,8 @@
         .close-btn:hover { color: #FFFFFF; }
 
         .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .theme-name { font-size: 14px; width: 160px; font-weight: 500; color: #D9CFC4;}
+        .theme-name { font-size: 14px; width: 200px; font-weight: 500; color: #FFFFFF;}
         
-        .btn-group { display: flex; gap: 8px; }
         .btn-theme {
             padding: 8px 16px;
             border: none;
@@ -159,21 +154,21 @@
             font-weight: 600;
             font-size: 12px;
             transition: all 0.2s;
+            background: rgba(255,255,255,0.1);
+            color: #FFFFFF;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .btn-theme:hover { opacity: 0.8; }
-        .btn-dark { background: #3D332D; color: #E3DCD5; border: 1px solid #5C4D43; }
-        .btn-light { background: #E3DCD5; color: #292320; border: 1px solid #A6968A; }
+        .btn-theme:hover { background: rgba(255,255,255,0.2); }
 
-        /* Marcadores Visuais Sépia */
-        .c-classic { border-left: 4px solid #D4A373; padding-left: 8px; }
-        .c-bronze { border-left: 4px solid #CD7F32; padding-left: 8px; }
-        .c-mocha { border-left: 4px solid #C49A76; padding-left: 8px; }
-        .c-desert { border-left: 4px solid #E3B477; padding-left: 8px; }
-        .c-copper { border-left: 4px solid #B87333; padding-left: 8px; }
+        /* Marcadores Visuais */
+        .c-royal { border-left: 4px solid #2563EB; padding-left: 8px; }
+        .c-indigo { border-left: 4px solid #4F46E5; padding-left: 8px; }
+        .c-onyx { border-left: 4px solid #0066FF; padding-left: 8px; }
+        .c-deep { border-left: 4px solid #1D4ED8; padding-left: 8px; }
 
     </style>
 </head>
-<body class="sepia-classic-dark">
+<body class="cobalt-royal">
 
     <header>
         <div class="container">
@@ -210,49 +205,29 @@
 
     <div id="themePanel">
         <div class="panel-header">
-            <h4>Escala Sépia & Bronze</h4>
+            <h4>Cobalto, Branco & Azul</h4>
             <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
         <div id="panelContent">
             <div class="theme-row">
-                <div class="theme-name c-classic">1. Sépia Clássico</div>
-                <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('sepia-classic-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('sepia-classic-light')">Light</button>
-                </div>
+                <div class="theme-name c-royal">1. Cobalto & Azul Royal</div>
+                <button class="btn-theme" onclick="setTheme('cobalt-royal')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-bronze">2. Bronze Executivo</div>
-                <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('bronze-exec-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('bronze-exec-light')">Light</button>
-                </div>
+                <div class="theme-name c-indigo">2. Cobalto & Azul Índigo</div>
+                <button class="btn-theme" onclick="setTheme('cobalt-indigo')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-mocha">3. Café Expresso</div>
-                <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('mocha-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('mocha-light')">Light</button>
-                </div>
+                <div class="theme-name c-onyx">3. Cobalto Onyx & Elétrico</div>
+                <button class="btn-theme" onclick="setTheme('cobalt-onyx')">Aplicar</button>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-desert">4. Areia do Deserto</div>
-                <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('desert-sand-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('desert-sand-light')">Light</button>
-                </div>
-            </div>
-
-            <div class="theme-row">
-                <div class="theme-name c-copper">5. Cobre Envelhecido</div>
-                <div class="btn-group">
-                    <button class="btn-theme btn-dark" onclick="setTheme('aged-copper-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('aged-copper-light')">Light</button>
-                </div>
+                <div class="theme-name c-deep">4. Cobalto Deep & Vibrante</div>
+                <button class="btn-theme" onclick="setTheme('cobalt-deep')">Aplicar</button>
             </div>
         </div>
     </div>
