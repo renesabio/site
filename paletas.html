@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renê Sábio - Diretor de Marketing</title>
     <style>
-        /* Importando as 5 novas opções de fontes para o Logo + a fonte Outfit para o corpo do site */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Montserrat:wght@700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+        /* Importando fontes variadas para os logos e a principal (Outfit/Space Grotesk) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=Montserrat:wght@800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;800&family=Syne:wght@800&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700;800&display=swap');
 
-        /* PALETA RESTAURADA: MARINHO PROFUNDO E CONHAQUE CLÁSSICO */
+        /* PALETA DEFINITIVA */
         :root {
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
-            --text-dark: #111111;  /* Texto Principal Preto */
-            --text-muted: #444444; /* Texto Secundário Cinza Escuro */
+            --text-dark: #111111;  /* Preto Absoluto para Títulos e Texto Principal */
+            --text-muted: #444444; /* Cinza Escuro para leitura longa */
             
-            /* O Azul Marinho e Conhaque que você gostou */
+            /* Azul Marinho Original */
             --navy: #0A192F;       
             --navy-hover: #112240; 
-            --cognac: #C36F38;     
-            --cognac-light: rgba(195, 111, 56, 0.2);
+            
+            /* Marrom Couro / Conhaque Original */
+            --brown: #C36F38;     
+            --brown-light: rgba(195, 111, 56, 0.15);
         }
 
         * { 
@@ -32,7 +34,7 @@
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-main);
-            color: var(--text-dark);
+            color: var(--text-dark); /* TEXTO PRETO */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -46,44 +48,33 @@
             width: 100%; 
         }
 
+        /* CABEÇALHO NORMAL */
         header { 
             padding: 40px 0; 
             background: var(--bg-main); 
         }
         
-        /* LOGOTIPO CONTAINER */
+        /* LOGOTIPO TIPOGRÁFICO - BASE */
         .logo-container { 
-            font-size: 32px; /* Aumentei um pouco para valorizar a fonte */
             display: inline-block;
-            letter-spacing: -1px;
         }
 
-        /* CLASSES DE FONTES PARA O JAVASCRIPT ALTERNAR */
-        .font-inter { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -1.5px; }
-        .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -1px; }
-        .font-montserrat { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -1px; }
-        .font-syne { font-family: 'Syne', sans-serif; font-weight: 800; letter-spacing: -0.5px; }
-        .font-playfair { font-family: 'Playfair Display', serif; font-weight: 900; letter-spacing: -0.5px; font-style: italic; }
-
-        /* Cores aplicadas ao Logo */
+        /* Classes auxiliares de cor para o Logo */
+        .c-black { color: var(--text-dark); }
+        .c-brown { color: var(--brown); }
         .c-navy { color: var(--navy); }
-        .c-cognac { color: var(--cognac); }
 
-        /* REGRAS DE TIPOGRAFIA GERAL (Usando Inter para títulos como padrão SaaS) */
+        /* REGRAS DE TIPOGRAFIA */
         h1, h2, h3 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             color: var(--text-dark); 
-            letter-spacing: -1px;
         }
 
-        /* O Negrito no texto: Conhaque com Sublinhado Marinho */
+        /* O Negrito: Apenas Cor Marrom (Sublinhado Removido) */
         strong, b {
-            color: var(--cognac);
+            color: var(--brown);
             font-weight: 700;
-            text-decoration: underline;
-            text-decoration-color: var(--navy);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
+            text-decoration: none; /* PEDIDO ATENDIDO: Sem sublinhado */
         }
 
         /* SECÇÃO HERO */
@@ -92,8 +83,7 @@
             font-size: 64px; 
             line-height: 1.05; 
             margin-bottom: 24px; 
-            letter-spacing: -2.5px; 
-            font-weight: 800;
+            letter-spacing: -2px; 
         }
         .hero p { 
             font-size: 20px; 
@@ -103,7 +93,7 @@
             font-weight: 400; 
         }
 
-        /* CARTÕES */
+        /* CARTÕES (Borda Marrom Fixa) */
         .cards-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -115,18 +105,16 @@
             background-color: var(--bg-card); 
             padding: 40px; 
             border-radius: 12px; 
-            border: 1px solid #E5E5E5; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
+            border: 1px solid var(--brown); /* PEDIDO ATENDIDO: Borda marrom fixa */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); 
         }
         .card:hover { 
-            border-color: var(--cognac); 
             transform: translateY(-5px); 
-            box-shadow: 0 15px 30px var(--cognac-light); 
+            box-shadow: 0 15px 30px var(--brown-light); 
         }
         .card h3 { 
             font-size: 22px; 
             margin-bottom: 12px; 
-            font-weight: 700;
         }
         .card p { 
             color: var(--text-muted); 
@@ -135,7 +123,7 @@
             font-size: 16px;
         }
         
-        /* BOTÕES */
+        /* BOTÕES (Azul Sólido) */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -144,7 +132,7 @@
             background-color: var(--navy); 
             color: #FFFFFF;
             border: none; 
-            font-family: 'Inter', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none !important; 
             border-radius: 6px;
@@ -159,11 +147,11 @@
             box-shadow: 0 8px 20px rgba(10, 25, 47, 0.2); 
         }
 
-        /* RODAPÉ */
+        /* RODAPÉ FOCADO EM INBOUND */
         footer { 
             margin-top: auto; 
             padding: 50px 0; 
-            background-color: var(--text-dark); 
+            background-color: var(--text-dark); /* Fundo Preto */
             text-align: center; 
         }
         footer p { 
@@ -172,7 +160,7 @@
             font-weight: 400;
         }
 
-        /* PAINEL COM MINIMIZAR */
+        /* PAINEL DE TESTE DE LOGOS COM MINIMIZAR */
         #themePanel {
             position: fixed;
             bottom: 30px;
@@ -183,7 +171,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border: 1px solid #E5E5E5;
             z-index: 100;
-            width: 320px;
+            width: 360px;
             overflow: hidden;
         }
 
@@ -209,7 +197,7 @@
         }
 
         .panel-header h4 { 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Space Grotesk', sans-serif; 
             font-size: 14px; 
             color: var(--text-dark);
             margin: 0;
@@ -222,14 +210,15 @@
             padding: 4px 8px;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 12px;
-            font-weight: 600;
         }
         .toggle-btn:hover { background: #F5F5F5; color: var(--text-dark); }
 
         #panelContent {
             transition: opacity 0.3s;
+            max-height: 400px;
+            overflow-y: auto;
         }
         #themePanel.minimized #panelContent {
             opacity: 0;
@@ -245,19 +234,21 @@
             border: 1px solid #E5E5E5;
             border-radius: 6px;
             text-align: left;
-            font-size: 15px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
             cursor: pointer;
-            color: var(--text-dark);
+            color: var(--text-muted);
         }
         .logo-btn:hover { background: #F1F5F9; border-color: var(--navy); }
-        .logo-btn.active { background: var(--navy); color: #FFFFFF; border-color: var(--navy); }
-
-        /* Estilização para as fontes dentro dos botões do painel */
-        .preview-inter { font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: -1px;}
-        .preview-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -0.5px;}
-        .preview-montserrat { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: -0.5px;}
-        .preview-syne { font-family: 'Syne', sans-serif; font-weight: 800; }
-        .preview-playfair { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;}
+        .logo-btn.active { background: var(--text-dark); color: #FFFFFF; border-color: var(--text-dark); }
+        
+        /* CLASSES DE DESIGN PARA OS LOGOS */
+        .logo-opt-1 { font-family: 'Inter', sans-serif; font-size: 30px; font-weight: 900; letter-spacing: -1.5px; }
+        .logo-opt-2 { font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+        .logo-opt-3 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; font-style: italic; letter-spacing: -0.5px; }
+        .logo-opt-4 { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;}
+        .logo-opt-5 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -1px; }
+        .logo-opt-6 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -1px; }
 
     </style>
 </head>
@@ -265,8 +256,8 @@
 
     <header>
         <div class="container">
-            <div id="siteLogo" class="logo-container font-inter">
-                <span class="c-navy">Renê</span> <span class="c-cognac">Sábio</span>
+            <div id="siteLogo" class="logo-container logo-opt-1">
+                <span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>
             </div>
         </div>
     </header>
@@ -300,37 +291,63 @@
 
     <div id="themePanel">
         <div class="panel-header" onclick="expandPanelIfMinimized()">
-            <h4>Tipografia do Logo</h4>
+            <h4>Design Tipográfico do Logo</h4>
             <button class="toggle-btn" onclick="togglePanel(event)" id="toggleIcon">Minimizar -</button>
         </div>
         
         <div id="panelContent">
-            <button class="logo-btn active preview-inter" onclick="changeFont('font-inter', this)">1. Inter (SaaS Puro)</button>
-            <button class="logo-btn preview-jakarta" onclick="changeFont('font-jakarta', this)">2. Jakarta (Growth)</button>
-            <button class="logo-btn preview-montserrat" onclick="changeFont('font-montserrat', this)">3. Montserrat (Sólida)</button>
-            <button class="logo-btn preview-syne" onclick="changeFont('font-syne', this)">4. Syne (Vanguarda)</button>
-            <button class="logo-btn preview-playfair" onclick="changeFont('font-playfair', this)">5. Playfair (Boutique)</button>
+            <button class="logo-btn active" onclick="changeLogo(1, this)">1. Modernist SaaS (Inter Heavy)</button>
+            <button class="logo-btn" onclick="changeLogo(2, this)">2. Corporate Caps (Montserrat)</button>
+            <button class="logo-btn" onclick="changeLogo(3, this)">3. Boutique Serif (Playfair Italic)</button>
+            <button class="logo-btn" onclick="changeLogo(4, this)">4. Brutalist Tech (Syne Spaced)</button>
+            <button class="logo-btn" onclick="changeLogo(5, this)">5. Growth Contrast (Jakarta Light/Bold)</button>
+            <button class="logo-btn" onclick="changeLogo(6, this)">6. Minimalist Dot (Space Grotesk)</button>
         </div>
     </div>
 
     <script>
-        function changeFont(fontClass, btnElement) {
+        function changeLogo(id, btnElement) {
             const logo = document.getElementById('siteLogo');
             
-            // Remove todas as classes de fonte possíveis
-            logo.classList.remove('font-inter', 'font-jakarta', 'font-montserrat', 'font-syne', 'font-playfair');
+            // Limpa as classes de fonte
+            logo.className = 'logo-container logo-opt-' + id;
             
-            // Adiciona a classe de fonte selecionada
-            logo.classList.add(fontClass);
+            // Constrói o HTML tipográfico conforme a escolha
+            switch(id) {
+                case 1:
+                    // Modernist SaaS: Muito grosso, colado (Azul/Marrom)
+                    logo.innerHTML = '<span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>';
+                    break;
+                case 2:
+                    // Corporate Caps: Maiúsculas espaçadas
+                    logo.innerHTML = '<span class="c-navy">RENÊ</span> <span class="c-brown">SÁBIO</span>';
+                    break;
+                case 3:
+                    // Boutique Serif: Itálico e com serifa, luxo extremo
+                    logo.innerHTML = '<span class="c-navy">Renê</span> <span class="c-brown">Sábio</span>';
+                    break;
+                case 4:
+                    // Brutalist Tech: Maiúsculas super geométricas
+                    logo.innerHTML = '<span class="c-black">RENÊ</span> <span class="c-navy">SÁBIO</span>';
+                    break;
+                case 5:
+                    // Growth Contrast: Fino e Grosso misturado
+                    logo.innerHTML = '<span class="c-navy" style="font-weight: 300;">Renê</span> <span class="c-brown">Sábio</span>';
+                    break;
+                case 6:
+                    // Minimalist Dot: Com ponto de separação
+                    logo.innerHTML = '<span class="c-navy">Renê</span><span class="c-brown">.</span><span class="c-brown">Sábio</span>';
+                    break;
+            }
 
-            // Atualiza o estado ativo dos botões
+            // Atualiza os botões ativos do painel
             const buttons = document.querySelectorAll('.logo-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
         }
 
         function togglePanel(event) {
-            event.stopPropagation(); // Impede o clique de ativar a expansão se clicar diretamente no botão
+            event.stopPropagation();
             const panel = document.getElementById('themePanel');
             const btn = document.getElementById('toggleIcon');
             
