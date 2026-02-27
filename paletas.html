@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Imersivo - renê_sábio</title>
+    <title>Simulador Imersivo v2 - renê_sábio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* Variáveis Padrão (Inicia no Teal Dark) */
+        /* Variáveis Padrão (Inicia na Safira Dark) */
         :root {
-            --bg-main: #041A1A;
-            --bg-card: #0B2929;
-            --text-main: #FFFFFF;
-            --text-muted: #9CC2C2;
-            --accent: #14B8A6;
-            --accent-hover: #0D9488;
-            --border: rgba(255, 255, 255, 0.1);
+            --bg-main: #070B19;
+            --bg-card: #111827;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --accent: #3B82F6;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        /* 1. TEAL (Azul-Esverdeado) */
-        body.teal-dark { --bg-main: #041A1A; --bg-card: #0B2929; --text-main: #FFFFFF; --text-muted: #9CC2C2; --accent: #14B8A6; --border: rgba(255,255,255,0.1); }
-        body.teal-light { --bg-main: #F0FDFA; --bg-card: #FFFFFF; --text-main: #134E4A; --text-muted: #475569; --accent: #0D9488; --border: rgba(0,0,0,0.1); }
+        /* 1. SAFIRA PROFUNDA (Azul Noturno) */
+        body.sapphire-dark { --bg-main: #070B19; --bg-card: #111827; --text-main: #F3F4F6; --text-muted: #9CA3AF; --accent: #3B82F6; --border: rgba(255,255,255,0.08); }
+        body.sapphire-light { --bg-main: #F0F4F8; --bg-card: #FFFFFF; --text-main: #0F172A; --text-muted: #475569; --accent: #2563EB; --border: rgba(0,0,0,0.08); }
 
-        /* 2. ÂMBAR (Amarelo-Alaranjado) */
-        body.amber-dark { --bg-main: #1C1405; --bg-card: #2E220A; --text-main: #FFFFFF; --text-muted: #D4B88C; --accent: #F59E0B; --border: rgba(255,255,255,0.1); }
-        body.amber-light { --bg-main: #FFFBEB; --bg-card: #FFFFFF; --text-main: #78350F; --text-muted: #57534E; --accent: #D97706; --border: rgba(0,0,0,0.1); }
+        /* 2. BORGONHA / VINHO (Poder e Tradição) */
+        body.burgundy-dark { --bg-main: #140509; --bg-card: #270A13; --text-main: #F9FAFB; --text-muted: #D1D5DB; --accent: #E11D48; --border: rgba(255,255,255,0.08); }
+        body.burgundy-light { --bg-main: #FFF1F2; --bg-card: #FFFFFF; --text-main: #4C0519; --text-muted: #881337; --accent: #BE123C; --border: rgba(0,0,0,0.08); }
 
-        /* 3. MAGENTA (Vermelho-Arroxeado) */
-        body.magenta-dark { --bg-main: #1C0514; --bg-card: #2E0A22; --text-main: #FFFFFF; --text-muted: #D48CBF; --accent: #D946EF; --border: rgba(255,255,255,0.1); }
-        body.magenta-light { --bg-main: #FDF4FF; --bg-card: #FFFFFF; --text-main: #701A75; --text-muted: #57534E; --accent: #C026D3; --border: rgba(0,0,0,0.1); }
+        /* 3. COBRE / FERRUGEM (Inovação Sólida) */
+        body.copper-dark { --bg-main: #170C08; --bg-card: #2A160F; --text-main: #F9FAFB; --text-muted: #D1D5DB; --accent: #F97316; --border: rgba(255,255,255,0.08); }
+        body.copper-light { --bg-main: #FFF7ED; --bg-card: #FFFFFF; --text-main: #431407; --text-muted: #7C2D12; --accent: #EA580C; --border: rgba(0,0,0,0.08); }
 
-        /* 4. CHARTREUSE (Verde-Amarelado) */
-        body.chartreuse-dark { --bg-main: #141A05; --bg-card: #222E0A; --text-main: #FFFFFF; --text-muted: #B4D48C; --accent: #84CC16; --border: rgba(255,255,255,0.1); }
-        body.chartreuse-light { --bg-main: #F7FEE7; --bg-card: #FFFFFF; --text-main: #365314; --text-muted: #4D7C0F; --accent: #65A30D; --border: rgba(0,0,0,0.1); }
+        /* 4. ARDÓSIA (Neutralidade Tecnológica - RevOps) */
+        body.slate-dark { --bg-main: #0F172A; --bg-card: #1E293B; --text-main: #F8FAFC; --text-muted: #94A3B8; --accent: #38BDF8; --border: rgba(255,255,255,0.08); }
+        body.slate-light { --bg-main: #F8FAFC; --bg-card: #FFFFFF; --text-main: #0F172A; --text-muted: #475569; --accent: #0284C7; --border: rgba(0,0,0,0.08); }
 
-        /* 5. CORAL (Vermelho-Alaranjado) */
-        body.coral-dark { --bg-main: #1C0B05; --bg-card: #2E140A; --text-main: #FFFFFF; --text-muted: #D4A38C; --accent: #F97316; --border: rgba(255,255,255,0.1); }
-        body.coral-light { --bg-main: #FFF7ED; --bg-card: #FFFFFF; --text-main: #7C2D12; --text-muted: #57534E; --accent: #EA580C; --border: rgba(0,0,0,0.1); }
-
+        /* 5. ESMERALDA ESCURA (Crescimento e Receita) */
+        body.emerald-dark { --bg-main: #021B13; --bg-card: #063A29; --text-main: #ECFDF5; --text-muted: #6EE7B7; --accent: #10B981; --border: rgba(255,255,255,0.08); }
+        body.emerald-light { --bg-main: #ECFDF5; --bg-card: #FFFFFF; --text-main: #022C22; --text-muted: #065F46; --accent: #059669; --border: rgba(0,0,0,0.08); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
 
@@ -52,18 +50,18 @@
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* Header */
+        /* Cabeçalho */
         header { padding: 40px 0; border-bottom: 1px solid var(--border); }
         .logo { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -1px; }
         .logo span { color: var(--accent); font-weight: 700; }
 
-        /* Hero */
+        /* Secção Principal */
         .hero { padding: 80px 0 40px; }
         h1 { font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
         .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; }
         .highlight { color: var(--accent); font-weight: 600; }
 
-        /* Cards */
+        /* Cartões */
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; padding-bottom: 100px; }
         .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 15px; }
@@ -73,32 +71,34 @@
             display: inline-block;
             padding: 14px 28px;
             background-color: var(--accent);
-            color: var(--bg-main);
+            color: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             text-decoration: none;
             border-radius: 8px;
             font-size: 16px;
         }
+        
+        body.emerald-light .btn, body.sapphire-light .btn { color: #ffffff; }
 
-        /* Painel Flutuante de Controle */
+        /* Painel Flutuante */
         .theme-switcher {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #111;
+            background: #18181B;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border: 1px solid #3F3F46;
             z-index: 100;
             color: #fff;
             font-family: 'Space Grotesk', sans-serif;
             width: 340px;
         }
-        .theme-switcher h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #888; border-bottom: 1px solid #333; padding-bottom: 10px;}
+        .theme-switcher h4 { margin-bottom: 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #A1A1AA; border-bottom: 1px solid #3F3F46; padding-bottom: 10px;}
         .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-        .theme-name { font-size: 14px; width: 100px; }
+        .theme-name { font-size: 14px; width: 110px; }
         .btn-theme {
             padding: 6px 12px;
             border: none;
@@ -110,18 +110,18 @@
             transition: opacity 0.2s;
         }
         .btn-theme:hover { opacity: 0.8; }
-        .btn-dark { background: #333; color: #fff; }
-        .btn-light { background: #ddd; color: #111; }
+        .btn-dark { background: #3F3F46; color: #fff; }
+        .btn-light { background: #E4E4E7; color: #18181B; }
 
-        /* Cores dos botões do painel */
-        .c-teal { border-left: 4px solid #14B8A6; padding-left: 8px;}
-        .c-amber { border-left: 4px solid #F59E0B; padding-left: 8px;}
-        .c-magenta { border-left: 4px solid #D946EF; padding-left: 8px;}
-        .c-chart { border-left: 4px solid #84CC16; padding-left: 8px;}
-        .c-coral { border-left: 4px solid #F97316; padding-left: 8px;}
+        /* Indicadores de Cor */
+        .c-sapphire { border-left: 4px solid #3B82F6; padding-left: 8px;}
+        .c-burgundy { border-left: 4px solid #E11D48; padding-left: 8px;}
+        .c-copper { border-left: 4px solid #F97316; padding-left: 8px;}
+        .c-slate { border-left: 4px solid #38BDF8; padding-left: 8px;}
+        .c-emerald { border-left: 4px solid #10B981; padding-left: 8px;}
     </style>
 </head>
-<body class="teal-dark">
+<body class="sapphire-dark">
 
     <header>
         <div class="container">
@@ -132,13 +132,13 @@
     <main class="container">
         <section class="hero">
             <h1>A Máquina de <br>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">RevOps, Growth e Inbound</span>. Estruturo ecossistemas complexos de aquisição previsível e retenção para empresas que buscam escalar com inteligência de dados.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> especialista em orquestrar <span class="highlight">RevOps, Growth e Inbound</span>. Estruturo ecossistemas complexos de aquisição previsível e retenção para empresas que procuram escalar com inteligência de dados.</p>
         </section>
 
         <section class="cards-grid">
             <div class="card">
                 <h3>LinkedIn</h3>
-                <p>Acompanhe minhas análises executivas sobre estratégias de crescimento, consolidação de dados e liderança em marketing B2B.</p>
+                <p>Acompanhe as minhas análises executivas sobre estratégias de crescimento, consolidação de dados e liderança em marketing B2B.</p>
                 <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
 
@@ -151,45 +151,45 @@
     </main>
 
     <div class="theme-switcher">
-        <h4>Simulador de Identidade</h4>
+        <h4>Simulador de Identidade v2</h4>
         
         <div class="theme-row">
-            <div class="theme-name c-teal">Teal (Petróleo)</div>
+            <div class="theme-name c-sapphire">Safira</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('teal-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('teal-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('sapphire-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('sapphire-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-amber">Âmbar</div>
+            <div class="theme-name c-burgundy">Borgonha</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('amber-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('amber-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('burgundy-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('burgundy-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-magenta">Magenta / Vinho</div>
+            <div class="theme-name c-copper">Cobre</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('magenta-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('magenta-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('copper-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('copper-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-chart">Limão (Chartreuse)</div>
+            <div class="theme-name c-slate">Ardósia</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('chartreuse-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('chartreuse-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('slate-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('slate-light')">Light</button>
             </div>
         </div>
 
         <div class="theme-row">
-            <div class="theme-name c-coral">Coral</div>
+            <div class="theme-name c-emerald">Esmeralda</div>
             <div>
-                <button class="btn-theme btn-dark" onclick="setTheme('coral-dark')">Dark</button>
-                <button class="btn-theme btn-light" onclick="setTheme('coral-light')">Light</button>
+                <button class="btn-theme btn-dark" onclick="setTheme('emerald-dark')">Dark</button>
+                <button class="btn-theme btn-light" onclick="setTheme('emerald-light')">Light</button>
             </div>
         </div>
     </div>
