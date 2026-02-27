@@ -3,213 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Branco, Azul & Couro - Renê</title>
+    <title>Renê - Diretor de Marketing</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* * PALETAS: FUNDO BRANCO + TEXTO AZUL ESCURO + DESTAQUE COURO */
-        
-        /* 1. Neve, Marinho & Conhaque (Snow, Navy & Cognac) - O Clássico Impecável */
-        body.theme-cognac {
+        /* PALETA DEFINITIVA: BRANCO, MARINHO E CONHAQUE */
+        :root {
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
-            --text-main: #0A192F; /* Azul Marinho Profundo */
+            --navy: #0A192F;       /* Azul Marinho Profundo */
+            --navy-light: #112240; /* Marinho para Hover */
+            --cognac: #C36F38;     /* Couro Conhaque */
+            --cognac-light: rgba(195, 111, 56, 0.3);
             --text-muted: #475569;
-            --accent: #C36F38; /* Couro Conhaque */
-            --accent-hover: #A35829;
-            --border: rgba(10, 25, 47, 0.1);
-            --shadow: rgba(10, 25, 47, 0.05);
-            --btn-text: #FFFFFF;
         }
 
-        /* 2. Gelo, Oxford & Sela (Ice, Oxford Blue & Saddle) - Fundo levissimamente azulado, couro vibrante */
-        body.theme-saddle {
-            --bg-main: #F8FAFC;
-            --bg-card: #FFFFFF;
-            --text-main: #0B1325; /* Azul Oxford */
-            --text-muted: #334155;
-            --accent: #B45F06; /* Couro Sela */
-            --accent-hover: #8C4E25;
-            --border: rgba(11, 19, 37, 0.08);
-            --shadow: rgba(11, 19, 37, 0.06);
-            --btn-text: #FFFFFF;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease; 
         }
-
-        /* 3. Algodão, Meia-Noite & Nogueira (Cotton, Midnight & Walnut) - Mais sóbrio e fechado */
-        body.theme-walnut {
-            --bg-main: #FAFAFA;
-            --bg-card: #FFFFFF;
-            --text-main: #0B132B; /* Azul Meia-Noite */
-            --text-muted: #4B5563;
-            --accent: #8E5A3A; /* Couro Nogueira */
-            --accent-hover: #73472C;
-            --border: rgba(11, 19, 43, 0.1);
-            --shadow: rgba(11, 19, 43, 0.04);
-            --btn-text: #FFFFFF;
-        }
-
-        /* 4. Marfim, Real Escuro & Mogno (Ivory, Dark Royal & Mahogany) - Couro mais avermelhado */
-        body.theme-mahogany {
-            --bg-main: #FCFDFD;
-            --bg-card: #FFFFFF;
-            --text-main: #001B3A; /* Azul Real Escuro */
-            --text-muted: #495057;
-            --accent: #9A412A; /* Couro Mogno */
-            --accent-hover: #7A321E;
-            --border: rgba(0, 27, 58, 0.1);
-            --shadow: rgba(0, 27, 58, 0.06);
-            --btn-text: #FFFFFF;
-        }
-
-        /* RESET E ESTRUTURA */
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
 
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-main);
-            color: var(--text-main);
+            color: var(--navy); /* O Marinho assume o controlo do texto principal */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%; }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+            width: 100%; 
+        }
 
-        header { padding: 40px 0; border-bottom: 1px solid var(--border); background: var(--bg-main); position: sticky; top: 0; z-index: 10;}
+        /* CABEÇALHO E LOGOTIPO */
+        header { 
+            padding: 40px 0; 
+            background: var(--bg-main); 
+            position: sticky; 
+            top: 0; 
+            z-index: 10;
+        }
         
-        /* ESTILOS DE LOGOTIPO DINÂMICOS */
-        .logo-container { font-family: 'Space Grotesk', sans-serif; font-size: 28px; }
-        
-        /* Logo 1: O Ponto Executivo (Renê.) */
-        .logo-1 { font-weight: 700; letter-spacing: -1px; }
-        .logo-1 .hl { color: var(--accent); }
-        .logo-1 .hidden-text { display: none; }
+        .logo { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 28px; 
+            font-weight: 700; 
+            letter-spacing: -1px; 
+            color: var(--navy);
+        }
+        .logo span { color: var(--cognac); }
 
-        /* Logo 2: Contraste de Peso (RENÊ SÁBIO) */
-        .logo-2 { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 24px; }
-        .logo-2 .hl { font-weight: 300; color: var(--accent); margin-left: 5px;}
+        /* REGRAS DE TIPOGRAFIA E NEGRITO (A sua assinatura) */
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--navy);
+        }
 
-        /* Logo 3: Elegância Minimalista (Renê Sábio) */
-        .logo-3 { font-family: 'Outfit', sans-serif; font-weight: 400; letter-spacing: 0; }
-        .logo-3 .hl { font-weight: 700; color: var(--accent); margin-left: 4px; }
+        /* Aplicação do Conhaque com Sublinhado Marinho nos Negritos */
+        strong, b {
+            color: var(--cognac);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--navy);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
 
-        /* SECÇÕES */
+        /* SECÇÃO HERO */
         .hero { padding: 100px 0 60px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; color: var(--text-main); }
-        .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; font-weight: 400; }
-        .highlight { color: var(--accent); font-weight: 600; }
+        .hero h1 { 
+            font-size: 64px; 
+            line-height: 1.05; 
+            margin-bottom: 24px; 
+            letter-spacing: -2px; 
+        }
+        .hero p { 
+            font-size: 20px; 
+            color: var(--text-muted); 
+            max-width: 750px; 
+            line-height: 1.6; 
+            font-weight: 400; 
+        }
 
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 80px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 10px 30px var(--shadow); }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; color: var(--text-main); }
-        .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
+        /* CARTÕES (Borda Conhaque) */
+        .cards-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 24px; 
+            margin-top: 40px; 
+            padding-bottom: 80px; 
+        }
+        .card { 
+            background-color: var(--bg-card); 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 2px solid var(--cognac); /* Borda Conhaque conforme pedido */
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.05); 
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px var(--cognac-light); 
+        }
+        .card h3 { 
+            font-size: 22px; 
+            margin-bottom: 12px; 
+        }
+        .card p { 
+            color: var(--text-muted); 
+            margin-bottom: 32px; 
+            line-height: 1.6; 
+            font-size: 16px;
+        }
         
+        /* BOTÕES (Fundo Marinho, Borda Conhaque) */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            background: var(--accent);
-            color: var(--btn-text);
+            background-color: var(--navy); /* Fundo Azul Marinho */
+            color: #FFFFFF;
+            border: 2px solid var(--cognac); /* Borda Conhaque */
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
-            text-decoration: none;
+            text-decoration: none !important; /* Remove sublinhado nativo do link */
             border-radius: 6px;
             font-size: 15px;
             letter-spacing: 0.5px;
-            border: none;
             cursor: pointer;
         }
 
-        .btn:hover { background: var(--accent-hover); transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .btn:hover { 
+            background-color: var(--navy-light); 
+            transform: scale(1.02); 
+            box-shadow: 0 8px 20px rgba(10, 25, 47, 0.15); 
+        }
 
         /* RODAPÉ FOCADO EM INBOUND */
-        footer { margin-top: auto; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
-        footer p { color: var(--text-muted); font-size: 15px; }
-
-        /* PAINEL DE CONTROLO */
-        .fab-btn {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            color: #FFFFFF;
-            border: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            cursor: pointer;
-            z-index: 101;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        footer { 
+            margin-top: auto; 
+            padding: 40px 0; 
+            border-top: 1px solid rgba(10, 25, 47, 0.1); 
+            text-align: center; 
         }
-        .fab-btn:hover { transform: scale(1.1); }
-        .fab-btn svg { width: 24px; height: 24px; fill: currentColor; }
-
-        #themePanel {
-            position: fixed;
-            bottom: 100px;
-            right: 32px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(16px);
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border: 1px solid rgba(0,0,0,0.05);
-            z-index: 100;
-            color: #0A192F;
-            width: 380px;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        #themePanel.hidden { opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
-
-        .panel-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 12px; margin-bottom: 16px; }
-        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #0A192F; margin: 0;}
-        .close-btn { background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 20px; line-height: 1; }
-        .close-btn:hover { color: #0A192F; }
-
-        .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #64748B; margin-bottom: 10px; font-weight: 600;}
-        
-        .btn-option {
-            display: block;
-            width: 100%;
-            padding: 10px 16px;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 8px;
-            background: #FFFFFF;
-            color: #334155;
-            font-family: 'Outfit', sans-serif;
-            font-size: 14px;
+        footer p { 
+            color: var(--navy); 
+            font-size: 15px; 
             font-weight: 500;
-            text-align: left;
-            margin-bottom: 8px;
-            cursor: pointer;
         }
-        .btn-option:hover { background: #F8FAFC; border-color: #CBD5E1; }
-        .btn-option.active { border-color: var(--accent); background: #F8FAFC; color: var(--accent); }
-
-        /* Círculos de cor para o painel */
-        .color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-        .dot-cognac { background: #C36F38; }
-        .dot-saddle { background: #B45F06; }
-        .dot-walnut { background: #8E5A3A; }
-        .dot-mahogany { background: #9A412A; }
-
     </style>
 </head>
-<body class="theme-cognac">
+<body>
 
     <header>
         <div class="container">
-            <div id="siteLogo" class="logo-container logo-1">
-                Renê<span class="hl logo-punct">.</span><span class="hidden-text hl">SÁBIO</span>
+            <div class="logo">
+                Renê<span>.</span>
             </div>
         </div>
     </header>
@@ -217,19 +173,19 @@
     <main class="container">
         <section class="hero">
             <h1>Tração e Receita.</h1>
-            <p>Sou <strong>Diretor de Marketing</strong> focado na orquestração de ecossistemas completos. Estruturo operações de aquisição previsível integrando <span class="highlight">Inbound Marketing</span>, inteligência de dados e processos comerciais escaláveis.</p>
+            <p>Sou <strong>Diretor de Marketing</strong> focado na orquestração de ecossistemas completos. Estruturo operações de aquisição previsível integrando <strong>Inbound Marketing</strong>, inteligência de dados e processos comerciais escaláveis para o mercado B2B.</p>
         </section>
 
         <section class="cards-grid">
             <div class="card">
-                <h3>LinkedIn</h3>
-                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, estruturação de equipas e liderança em marketing de alto impacto.</p>
+                <h3>Visão Executiva</h3>
+                <p>Acompanhe as minhas análises sobre estratégias de aquisição, estruturação de equipas e liderança em marketing de alto impacto.</p>
                 <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
 
             <div class="card">
                 <h3>Inbound Hub</h3>
-                <p>O ecossistema definitivo de Inbound Marketing. Um espaço dedicado para profissionais que vivem as trincheiras do mercado evoluírem juntos.</p>
+                <p>A consolidação da estratégia. Um ecossistema fechado para profissionais que vivem as trincheiras da aquisição previsível.</p>
                 <a href="#" class="btn">Conhecer a Comunidade</a>
             </div>
         </section>
@@ -237,65 +193,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Renê. Impulsionando resultados através de estratégias autênticas de Inbound.</p>
+            <p>&copy; 2026 Renê. Ecossistemas autênticos e previsíveis de Inbound Marketing.</p>
         </div>
     </footer>
 
-    <button class="fab-btn" onclick="togglePanel()">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C13.1 22 14 21.1 14 20C14 19.5 13.8 19.04 13.46 18.67C13.15 18.3 13 17.8 13 17.2C13 15.98 14.02 15 15.2 15H17C19.76 15 22 12.76 22 10C22 5.58 17.52 2 12 2Z"/></svg>
-    </button>
-
-    <div id="themePanel">
-        <div class="panel-header">
-            <h4>Estética Branco, Azul & Couro</h4>
-            <button class="close-btn" onclick="togglePanel()">&times;</button>
-        </div>
-        
-        <div class="section-title">Paleta de Cores</div>
-        <button class="btn-option active" onclick="setTheme('theme-cognac', this)"><span class="color-dot dot-cognac"></span> 1. Branco, Marinho & Conhaque</button>
-        <button class="btn-option" onclick="setTheme('theme-saddle', this)"><span class="color-dot dot-saddle"></span> 2. Gelo, Oxford & Sela</button>
-        <button class="btn-option" onclick="setTheme('theme-walnut', this)"><span class="color-dot dot-walnut"></span> 3. Algodão, Meia-Noite & Nogueira</button>
-        <button class="btn-option" onclick="setTheme('theme-mahogany', this)"><span class="color-dot dot-mahogany"></span> 4. Marfim, Azul Real & Mogno</button>
-
-        <div class="section-title" style="margin-top: 20px;">Estilo do Logótipo</div>
-        <button class="btn-option active-logo" onclick="setLogo(1, this)">A. O Ponto Executivo (Renê.)</button>
-        <button class="btn-option" onclick="setLogo(2, this)">B. Contraste de Peso (RENÊ SÁBIO)</button>
-        <button class="btn-option" onclick="setLogo(3, this)">C. Elegância Minimalista (Renê Sábio)</button>
-    </div>
-
-    <script>
-        function setTheme(themeClass, btnElement) {
-            document.body.className = themeClass;
-            let colorBtns = btnElement.parentElement.querySelectorAll('.btn-option:not(.active-logo):not([onclick^="setLogo"])');
-            colorBtns.forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-        }
-
-        function setLogo(styleId, btnElement) {
-            const logo = document.getElementById('siteLogo');
-            logo.classList.remove('logo-1', 'logo-2', 'logo-3');
-            logo.classList.add('logo-' + styleId);
-
-            if(styleId === 1) {
-                logo.innerHTML = 'Renê<span class="hl">.</span><span class="hidden-text hl">SÁBIO</span>';
-            } else if (styleId === 2) {
-                logo.innerHTML = 'RENÊ<span class="hl">SÁBIO</span>';
-            } else if (styleId === 3) {
-                logo.innerHTML = 'Renê<span class="hl">Sábio</span>';
-            }
-
-            let logoBtns = btnElement.parentElement.querySelectorAll('[onclick^="setLogo"]');
-            logoBtns.forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-        }
-
-        function togglePanel() {
-            document.getElementById('themePanel').classList.toggle('hidden');
-        }
-
-        window.onload = function() {
-            document.querySelectorAll('[onclick="setLogo(1, this)"]')[0].classList.add('active');
-        };
-    </script>
 </body>
 </html>
