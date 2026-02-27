@@ -7,16 +7,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;500;700;800&display=swap');
 
-        /* PALETA AJUSTADA: TEXTO PRETO, DESTAQUES MARINHO/CONHAQUE */
+        /* PALETA DEFINITIVA */
         :root {
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
             --text-dark: #111111;  /* Preto Absoluto para Títulos e Texto Principal */
             --text-muted: #444444; /* Cinza Escuro para leitura longa */
-            --navy: #1A365D;       /* Azul Marinho apenas para Botões e Sublinhado */
-            --navy-hover: #2B4C7E; 
-            --cognac: #D0733A;     /* Conhaque para Negritos e Logos */
-            --cognac-light: rgba(208, 115, 58, 0.2);
+            
+            /* Novo Azul: Mais claro e vibrante que o marinho antigo (Royal Blue) */
+            --blue-accent: #2563EB; 
+            --blue-hover: #1D4ED8; 
+            
+            /* Marrom Couro / Conhaque */
+            --brown: #D0733A;     
+            --brown-light: rgba(208, 115, 58, 0.2);
         }
 
         * { 
@@ -49,33 +53,32 @@
             background: var(--bg-main); 
         }
         
-        /* O LOGOTIPO VIA CÓDIGO (TIPOGRÁFICO) */
+        /* LOGOTIPO TIPOGRÁFICO */
         .logo-container { 
             font-family: 'Space Grotesk', sans-serif; 
-            font-size: 28px;
+            font-size: 30px;
             display: inline-block;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
 
-        /* Classes auxiliares que o JS vai usar para montar o logo */
+        /* Classes auxiliares para o Logo */
         .w-bold { font-weight: 800; }
-        .w-light { font-weight: 400; }
         .c-black { color: var(--text-dark); }
-        .c-cognac { color: var(--cognac); }
-        .c-navy { color: var(--navy); }
+        .c-brown { color: var(--brown); }
+        .c-blue { color: var(--blue-accent); }
 
         /* REGRAS DE TIPOGRAFIA */
         h1, h2, h3 {
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-dark); /* TEXTO PRETO */
+            color: var(--text-dark); 
         }
 
-        /* O Negrito: Conhaque com Sublinhado Marinho */
+        /* O Negrito: Cor Marrom com Sublinhado Azul */
         strong, b {
-            color: var(--cognac);
+            color: var(--brown);
             font-weight: 700;
             text-decoration: underline;
-            text-decoration-color: var(--navy);
+            text-decoration-color: var(--blue-accent);
             text-decoration-thickness: 2px;
             text-underline-offset: 4px;
         }
@@ -96,7 +99,7 @@
             font-weight: 400; 
         }
 
-        /* CARTÕES (Apenas com a bordinha fina conhaque ao passar o rato) */
+        /* CARTÕES (Apenas com a bordinha fina marrom ao passar o rato) */
         .cards-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -112,9 +115,9 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
         }
         .card:hover { 
-            border-color: var(--cognac); 
+            border-color: var(--brown); 
             transform: translateY(-5px); 
-            box-shadow: 0 15px 30px var(--cognac-light); 
+            box-shadow: 0 15px 30px var(--brown-light); 
         }
         .card h3 { 
             font-size: 22px; 
@@ -127,15 +130,15 @@
             font-size: 16px;
         }
         
-        /* BOTÕES (Azul Marinho Sólido, sem borda) */
+        /* BOTÕES (Azul Sólido, sem borda marrom) */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            background-color: var(--navy); 
+            background-color: var(--blue-accent); 
             color: #FFFFFF;
-            border: none; /* REMOVIDA A BORDA MARROM */
+            border: none; 
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-decoration: none !important; 
@@ -146,9 +149,9 @@
         }
 
         .btn:hover { 
-            background-color: var(--navy-hover); 
+            background-color: var(--blue-hover); 
             transform: scale(1.02); 
-            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2); 
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2); 
         }
 
         /* RODAPÉ FOCADO EM INBOUND */
@@ -164,7 +167,7 @@
             font-weight: 400;
         }
 
-        /* PAINEL DE TESTE COM MINIMIZAR */
+        /* PAINEL DE TESTE DE LOGOS COM MINIMIZAR */
         #themePanel {
             position: fixed;
             bottom: 30px;
@@ -175,13 +178,13 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border: 1px solid #E5E5E5;
             z-index: 100;
-            width: 320px;
+            width: 340px;
             overflow: hidden;
         }
 
         /* Estado minimizado (apenas o cabeçalho visível) */
         #themePanel.minimized {
-            height: 60px; /* Altura exata para mostrar só o header */
+            height: 60px; 
             cursor: pointer;
         }
 
@@ -194,7 +197,6 @@
             margin-bottom: 15px;
         }
         
-        /* Remove a borda se estiver minimizado para ficar mais limpo */
         #themePanel.minimized .panel-header {
             border-bottom: none;
             margin-bottom: 0;
@@ -243,7 +245,7 @@
             cursor: pointer;
             color: var(--text-muted);
         }
-        .logo-btn:hover { background: #F1F5F9; border-color: var(--cognac); }
+        .logo-btn:hover { background: #F1F5F9; border-color: var(--blue-accent); }
         .logo-btn.active { background: var(--text-dark); color: #FFFFFF; border-color: var(--text-dark); }
     </style>
 </head>
@@ -252,7 +254,7 @@
     <header>
         <div class="container">
             <div id="siteLogo" class="logo-container">
-                <span class="w-bold c-cognac">Renê</span> <span class="w-light c-black">Sábio</span>
+                <span class="w-bold c-blue">Renê</span> <span class="w-bold c-brown">Sábio</span>
             </div>
         </div>
     </header>
@@ -286,16 +288,18 @@
 
     <div id="themePanel">
         <div class="panel-header" onclick="expandPanelIfMinimized()">
-            <h4>Design Tipográfico de Logo</h4>
+            <h4>Variações de Logo (Negrito)</h4>
             <button class="toggle-btn" onclick="togglePanel(event)" id="toggleIcon">Minimizar -</button>
         </div>
         
         <div id="panelContent">
-            <button class="logo-btn active" onclick="changeLogo(1, this)">1. Renê (Conhaque Bold) + Sábio (Preto Fino)</button>
-            <button class="logo-btn" onclick="changeLogo(2, this)">2. Renê (Preto Fino) + Sábio (Conhaque Bold)</button>
-            <button class="logo-btn" onclick="changeLogo(3, this)">3. Renê (Preto Bold) + Sábio (Marinho Fino)</button>
-            <button class="logo-btn" onclick="changeLogo(4, this)">4. Renê (Marinho Fino) + Sábio (Preto Bold)</button>
-            <button class="logo-btn" onclick="changeLogo(5, this)">5. Renê (Marinho Bold) + Sábio (Conhaque Fino)</button>
+            <button class="logo-btn active" onclick="changeLogo(1, this)">1. Renê (Azul) Sábio (Marrom)</button>
+            <button class="logo-btn" onclick="changeLogo(2, this)">2. Renê (Marrom) Sábio (Azul)</button>
+            <button class="logo-btn" onclick="changeLogo(3, this)">3. RENÊ SÁBIO (Maiúsculas - Azul/Marrom)</button>
+            <button class="logo-btn" onclick="changeLogo(4, this)">4. RENÊ SÁBIO (Maiúsculas - Marrom/Azul)</button>
+            <button class="logo-btn" onclick="changeLogo(5, this)">5. Renê <span style="color:black">/</span> Sábio (Com separador)</button>
+            <button class="logo-btn" onclick="changeLogo(6, this)">6. Renê<span style="color:black">.</span>Sábio (Junto com ponto)</button>
+            <button class="logo-btn" onclick="changeLogo(7, this)">7. [ Renê Sábio ] (Com Brackets)</button>
         </div>
     </div>
 
@@ -306,23 +310,41 @@
             // Constrói o HTML tipográfico conforme a escolha
             switch(id) {
                 case 1:
-                    logo.innerHTML = '<span class="w-bold c-cognac">Renê</span> <span class="w-light c-black">Sábio</span>';
+                    // O seu pedido exato
+                    logo.innerHTML = '<span class="w-bold c-blue">Renê</span> <span class="w-bold c-brown">Sábio</span>';
+                    logo.style.textTransform = 'none';
                     break;
                 case 2:
-                    logo.innerHTML = '<span class="w-light c-black">Renê</span> <span class="w-bold c-cognac">Sábio</span>';
+                    // Invertido
+                    logo.innerHTML = '<span class="w-bold c-brown">Renê</span> <span class="w-bold c-blue">Sábio</span>';
+                    logo.style.textTransform = 'none';
                     break;
                 case 3:
-                    logo.innerHTML = '<span class="w-bold c-black">Renê</span> <span class="w-light c-navy">Sábio</span>';
+                    // Tudo Maiúsculo (Azul / Marrom)
+                    logo.innerHTML = '<span class="w-bold c-blue">RENÊ</span> <span class="w-bold c-brown">SÁBIO</span>';
                     break;
                 case 4:
-                    logo.innerHTML = '<span class="w-light c-navy">Renê</span> <span class="w-bold c-black">Sábio</span>';
+                    // Tudo Maiúsculo (Marrom / Azul)
+                    logo.innerHTML = '<span class="w-bold c-brown">RENÊ</span> <span class="w-bold c-blue">SÁBIO</span>';
                     break;
                 case 5:
-                    logo.innerHTML = '<span class="w-bold c-navy">Renê</span> <span class="w-light c-cognac">Sábio</span>';
+                    // Com Separador Barra
+                    logo.innerHTML = '<span class="w-bold c-blue">Renê</span> <span class="w-bold c-black" style="opacity: 0.3; margin: 0 4px;">/</span> <span class="w-bold c-brown">Sábio</span>';
+                    logo.style.textTransform = 'none';
+                    break;
+                case 6:
+                    // Sem espaço, com ponto
+                    logo.innerHTML = '<span class="w-bold c-blue">Renê</span><span class="w-bold c-black">.</span><span class="w-bold c-brown">Sábio</span>';
+                    logo.style.textTransform = 'none';
+                    break;
+                case 7:
+                    // Com colchetes
+                    logo.innerHTML = '<span class="w-bold c-blue">[</span> <span class="w-bold c-black">Renê Sábio</span> <span class="w-bold c-blue">]</span>';
+                    logo.style.textTransform = 'none';
                     break;
             }
 
-            // Atualiza botões
+            // Atualiza os botões ativos do painel
             const buttons = document.querySelectorAll('.logo-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
