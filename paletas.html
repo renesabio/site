@@ -3,43 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador High-Tech - renê_sábio</title>
+    <title>Simulador UX/UI - renê_sábio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
 
-        /* Variáveis Padrão (Inicia no Índigo & Ouro) */
-        :root {
-            --bg-main: #0B0F19;
-            --bg-card: #1A233A;
-            --text-main: #E2E8F0;
-            --text-muted: #94A3B8;
-            --accent: #FBBF24; /* Ouro */
-            --border: rgba(251, 191, 36, 0.2);
-        }
+        /* * PALETAS BASEADAS EM PADRÕES REAIS DE UX/UI DO MERCADO SAAS
+         */
 
-        /* Sem branco puro. Light modes usam tons de prata e gelo acinzentado/azulado. */
+        /* 1. FINTECH TRUST (Inspirado na Stripe) - Foco em Confiança e Limpeza */
+        body.fintech-dark { --bg-main: #0A192F; --bg-card: #112240; --text-main: #CCD6F6; --text-muted: #8892B0; --accent: #64FFDA; --border: rgba(100,255,218,0.1); }
+        body.fintech-light { --bg-main: #F6F9FC; --bg-card: #FFFFFF; --text-main: #0A2540; --text-muted: #425466; --accent: #635BFF; --border: rgba(99,91,255,0.1); }
 
-        /* 1. ÍNDIGO & OURO (O Clássico High-Tech C-Level) */
-        body.indigo-gold-dark { --bg-main: #0B0F19; --bg-card: #1A233A; --text-main: #E2E8F0; --text-muted: #94A3B8; --accent: #FBBF24; --border: rgba(251,191,36,0.2); }
-        body.indigo-gold-light { --bg-main: #E2E8F0; --bg-card: #CBD5E1; --text-main: #0B0F19; --text-muted: #475569; --accent: #D97706; --border: rgba(217,119,6,0.2); }
+        /* 2. DEV & REVOPS (Inspirado na Linear/Vercel) - Alto Contraste, Minimalismo Absoluto */
+        body.linear-dark { --bg-main: #000000; --bg-card: #111111; --text-main: #EDEDED; --text-muted: #888888; --accent: #5E6AD2; --border: rgba(255,255,255,0.08); }
+        body.linear-light { --bg-main: #FAFAFA; --bg-card: #FFFFFF; --text-main: #111111; --text-muted: #666666; --accent: #5E6AD2; --border: rgba(0,0,0,0.08); }
 
-        /* 2. AZUL PROFUNDO & LARANJA (Energia RevOps) */
-        body.blue-orange-dark { --bg-main: #0A1128; --bg-card: #162245; --text-main: #E6E9F0; --text-muted: #8A9BB8; --accent: #FF6D00; --border: rgba(255,109,0,0.2); }
-        body.blue-orange-light { --bg-main: #E6E9F0; --bg-card: #D0D7E8; --text-main: #0A1128; --text-muted: #3B4B6E; --accent: #E65C00; --border: rgba(230,92,0,0.2); }
+        /* 3. NEO-CORPORATE (Inspirado na Apple) - Cinzas neutros, azul de hiperligação nativo */
+        body.apple-dark { --bg-main: #1C1C1E; --bg-card: #2C2C2E; --text-main: #F5F5F7; --text-muted: #86868B; --accent: #0A84FF; --border: rgba(255,255,255,0.1); }
+        body.apple-light { --bg-main: #F5F5F7; --bg-card: #FFFFFF; --text-main: #1D1D1F; --text-muted: #86868B; --accent: #0066CC; --border: rgba(0,0,0,0.08); }
 
-        /* 3. ROXO QUÂNTICO & CIANO (Foco em Dados/Tech Pura) */
-        body.purple-cyan-dark { --bg-main: #120B2E; --bg-card: #1F144D; --text-main: #EAE8F4; --text-muted: #9283D6; --accent: #00F0FF; --border: rgba(0,240,255,0.2); }
-        body.purple-cyan-light { --bg-main: #EAE8F4; --bg-card: #D4CFE9; --text-main: #120B2E; --text-muted: #4B3A8A; --accent: #00B7C3; --border: rgba(0,183,195,0.2); }
+        /* 4. EDITORIAL PREMIUM (Inspirado no Medium/Notion) - Leitura Impecável, Tons Quentes */
+        body.notion-dark { --bg-main: #191919; --bg-card: #222222; --text-main: #EAEAEA; --text-muted: #9B9B9B; --accent: #E05D3A; --border: rgba(224,93,58,0.15); }
+        body.notion-light { --bg-main: #FFFEFC; --bg-card: #F7F6F3; --text-main: #37352F; --text-muted: #787774; --accent: #D9534F; --border: rgba(0,0,0,0.05); }
 
-        /* 4. AZUL ESPACIAL & PRATA (Aero Tech Minimalista) */
-        body.space-silver-dark { --bg-main: #070F14; --bg-card: #11212D; --text-main: #E0E6ED; --text-muted: #7A93A6; --accent: #38BDF8; --border: rgba(56,189,248,0.2); }
-        body.space-silver-light { --bg-main: #E0E6ED; --bg-card: #C9D3DF; --text-main: #070F14; --text-muted: #3D556B; --accent: #0284C7; --border: rgba(2,132,199,0.2); }
+        /* 5. GROWTH DASHBOARD (Inspirado em CRM/HubSpot) - Contraste forte para Dados */
+        body.crm-dark { --bg-main: #111827; --bg-card: #1F2937; --text-main: #F9FAFB; --text-muted: #9CA3AF; --accent: #10B981; --border: rgba(16,185,129,0.15); }
+        body.crm-light { --bg-main: #F3F4F6; --bg-card: #FFFFFF; --text-main: #111827; --text-muted: #4B5563; --accent: #059669; --border: rgba(0,0,0,0.08); }
 
-        /* 5. VIOLETA MEIA-NOITE & LARANJA SOLAR (Agressivo e Distinto) */
-        body.violet-orange-dark { --bg-main: #150524; --bg-card: #270F40; --text-main: #EBE6F0; --text-muted: #A382C9; --accent: #F97316; --border: rgba(249,115,22,0.2); }
-        body.violet-orange-light { --bg-main: #EBE6F0; --bg-card: #D4C9E0; --text-main: #150524; --text-muted: #562E82; --accent: #EA580C; --border: rgba(234,88,12,0.2); }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -48,117 +40,149 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
-        header { padding: 40px 0; border-bottom: 1px solid var(--border); }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -1px; }
-        .logo span { color: var(--accent); font-weight: 700; }
+        header { padding: 48px 0; border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; }
+        .logo span { color: var(--accent); }
 
-        .hero { padding: 80px 0 40px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 56px; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
-        .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; line-height: 1.6; }
-        .highlight { color: var(--accent); font-weight: 600; }
+        .hero { padding: 100px 0 60px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px; }
+        .hero p { font-size: 20px; color: var(--text-muted); max-width: 650px; line-height: 1.6; font-weight: 400; }
+        .highlight { color: var(--accent); font-weight: 500; }
 
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; padding-bottom: 100px; }
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 15px; }
-        .card p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.5; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; padding-bottom: 120px; }
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin-bottom: 12px; }
+        .card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; font-size: 16px;}
         
         .btn {
-            display: inline-block;
-            padding: 14px 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
             background-color: var(--accent);
-            color: #000000;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 16px;
-            letter-spacing: 0.5px;
+            border-radius: 8px;
+            font-size: 15px;
+            letter-spacing: 0.3px;
         }
-        
-        /* Ajuste de contraste para botões claros/escuros */
-        body.purple-cyan-dark .btn, body.space-silver-dark .btn { color: #000000; }
-        body.blue-orange-light .btn, body.indigo-gold-light .btn, body.violet-orange-light .btn, body.space-silver-light .btn, body.purple-cyan-light .btn { color: #E2E8F0; }
-        body.blue-orange-dark .btn, body.indigo-gold-dark .btn, body.violet-orange-dark .btn { color: #000000; }
 
-        /* Painel Flutuante com Minimizar */
+        /* Ajustes específicos de contraste UX para os botões */
+        body.fintech-dark .btn { color: #0A192F; font-weight: 700; }
+        body.linear-light .btn, body.fintech-light .btn, body.notion-light .btn, body.crm-light .btn { color: #ffffff; }
+        body.linear-dark .btn { color: #ffffff; }
+
+        /* =========================================
+           PAINEL FLUTUANTE E ÍCONE DE MINIMIZAR
+           ========================================= */
+        
+        /* Botão Redondo (FAB - Floating Action Button) */
+        .fab-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 101;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .fab-btn:hover { transform: scale(1.1); }
+        .fab-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Ocultar texto no botão FAB de acordo com o contraste */
+        body.fintech-dark .fab-btn { color: #0A192F; }
+
+        /* Painel Completo */
         #themePanel {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(10, 15, 25, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            border: 1px solid #2D3748;
+            bottom: 100px;
+            right: 32px;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(16px);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid #374151;
             z-index: 100;
-            color: #F1F5F9;
-            font-family: 'Space Grotesk', sans-serif;
+            color: #F9FAFB;
+            font-family: 'Outfit', sans-serif;
             width: 380px;
-            height: 360px;
-            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            
+            /* Transição para aparecer/desaparecer */
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        #themePanel.minimized {
-            height: 60px;
-            cursor: pointer;
+        /* Classe que esconde totalmente o painel */
+        #themePanel.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            pointer-events: none;
         }
 
         .panel-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #2D3748;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
         }
 
-        .panel-header h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8; margin: 0;}
+        .panel-header h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: 0.5px; color: #D1D5DB; margin: 0;}
         
-        .toggle-btn {
+        .close-btn {
             background: transparent;
-            border: 1px solid #4A5568;
-            color: #94A3B8;
-            padding: 4px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
-            transition: all 0.2s;
-        }
-        .toggle-btn:hover { background: #2D3748; color: #F1F5F9; }
-
-        .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-        .theme-name { font-size: 14px; width: 160px; font-weight: 500;}
-        .btn-theme {
-            padding: 6px 12px;
             border: none;
-            border-radius: 4px;
+            color: #9CA3AF;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            padding: 4px;
+        }
+        .close-btn:hover { color: #F9FAFB; }
+
+        .theme-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .theme-name { font-size: 14px; width: 150px; font-weight: 500; color: #E5E7EB;}
+        
+        .btn-group { display: flex; gap: 8px; }
+        .btn-theme {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             font-size: 12px;
             transition: all 0.2s;
         }
-        .btn-theme:hover { opacity: 0.8; transform: scale(1.02); }
-        .btn-dark { background: #2D3748; color: #F1F5F9; border: 1px solid #4A5568; }
-        .btn-light { background: #CBD5E1; color: #0F172A; border: 1px solid #94A3B8; }
+        .btn-theme:hover { opacity: 0.8; }
+        .btn-dark { background: #374151; color: #F9FAFB; border: 1px solid #4B5563; }
+        .btn-light { background: #E5E7EB; color: #111827; border: 1px solid #9CA3AF; }
 
-        /* Marcadores Visuais no Painel */
-        .c-indigo-gold { border-left: 4px solid #FBBF24; padding-left: 8px; color: #FBBF24;}
-        .c-blue-orange { border-left: 4px solid #FF6D00; padding-left: 8px; color: #FF6D00;}
-        .c-purple-cyan { border-left: 4px solid #00F0FF; padding-left: 8px; color: #00F0FF;}
-        .c-space-silver { border-left: 4px solid #38BDF8; padding-left: 8px; color: #38BDF8;}
-        .c-violet-orange { border-left: 4px solid #F97316; padding-left: 8px; color: #F97316;}
     </style>
 </head>
-<body class="indigo-gold-dark">
+<body class="linear-dark">
 
     <header>
         <div class="container">
@@ -175,62 +199,68 @@
         <section class="cards-grid">
             <div class="card">
                 <h3>LinkedIn</h3>
-                <p>Acompanhe minhas análises executivas sobre estratégias de aquisição, consolidação de dados analíticos e liderança em marketing de alta performance.</p>
-                <a href="https://www.linkedin.com/in/renesabio/" target="_blank" class="btn">Conectar no LinkedIn</a>
+                <p>Acompanhe as minhas análises executivas sobre estratégias de aquisição, consolidação de dados e liderança em marketing de alta performance.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
 
             <div class="card">
                 <h3>Inbound Hub</h3>
-                <p>O ecossistema definitivo de Inbound Marketing. Um espaço dedicado para profissionais que vivem as trincheiras trocarem experiências e evoluírem.</p>
-                <a href="https://inboundhub.com.br/" target="_blank" class="btn">Conhecer a Comunidade</a>
+                <p>O ecossistema definitivo de Inbound Marketing. Um espaço dedicado para profissionais que vivem as trincheiras trocarem experiências.</p>
+                <a href="#" class="btn">Conhecer a Comunidade</a>
             </div>
         </section>
     </main>
 
+    <button class="fab-btn" onclick="togglePanel()" aria-label="Alterar Tema">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C13.1 22 14 21.1 14 20C14 19.5 13.8 19.04 13.46 18.67C13.15 18.3 13 17.8 13 17.2C13 15.98 14.02 15 15.2 15H17C19.76 15 22 12.76 22 10C22 5.58 17.52 2 12 2ZM8 10C6.9 10 6 9.1 6 8C6 6.9 6.9 6 8 6C9.1 6 10 6.9 10 8C10 9.1 9.1 10 8 10ZM11.5 6C10.4 6 9.5 5.1 9.5 4C9.5 2.9 10.4 2 11.5 2C12.6 2 13.5 2.9 13.5 4C13.5 5.1 12.6 6 11.5 6ZM16.5 10C15.4 10 14.5 9.1 14.5 8C14.5 6.9 15.4 6 16.5 6C17.6 6 18.5 6.9 18.5 8C18.5 9.1 17.6 10 16.5 10Z"/>
+        </svg>
+    </button>
+
     <div id="themePanel">
-        <div class="panel-header" onclick="expandPanelIfMinimized()">
-            <h4>Simulador High-Tech</h4>
-            <button class="toggle-btn" onclick="togglePanel(event)" id="toggleIcon">Minimizar -</button>
+        <div class="panel-header">
+            <h4>Padrões UX/UI (SaaS)</h4>
+            <button class="close-btn" onclick="togglePanel()">&times;</button>
         </div>
         
         <div id="panelContent">
             <div class="theme-row">
-                <div class="theme-name c-indigo-gold">Índigo & Ouro</div>
-                <div>
-                    <button class="btn-theme btn-dark" onclick="setTheme('indigo-gold-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('indigo-gold-light')">Light</button>
+                <div class="theme-name">1. SaaS Fintech (Stripe)</div>
+                <div class="btn-group">
+                    <button class="btn-theme btn-dark" onclick="setTheme('fintech-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('fintech-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-blue-orange">Azul Deep & Laranja</div>
-                <div>
-                    <button class="btn-theme btn-dark" onclick="setTheme('blue-orange-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('blue-orange-light')">Light</button>
+                <div class="theme-name">2. Dev & RevOps (Linear)</div>
+                <div class="btn-group">
+                    <button class="btn-theme btn-dark" onclick="setTheme('linear-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('linear-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-purple-cyan">Roxo Tech & Ciano</div>
-                <div>
-                    <button class="btn-theme btn-dark" onclick="setTheme('purple-cyan-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('purple-cyan-light')">Light</button>
+                <div class="theme-name">3. Neo-Corporate (Apple)</div>
+                <div class="btn-group">
+                    <button class="btn-theme btn-dark" onclick="setTheme('apple-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('apple-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-space-silver">Azul Espacial & Prata</div>
-                <div>
-                    <button class="btn-theme btn-dark" onclick="setTheme('space-silver-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('space-silver-light')">Light</button>
+                <div class="theme-name">4. Editorial (Notion)</div>
+                <div class="btn-group">
+                    <button class="btn-theme btn-dark" onclick="setTheme('notion-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('notion-light')">Light</button>
                 </div>
             </div>
 
             <div class="theme-row">
-                <div class="theme-name c-violet-orange">Violeta & Laranja Solar</div>
-                <div>
-                    <button class="btn-theme btn-dark" onclick="setTheme('violet-orange-dark')">Dark</button>
-                    <button class="btn-theme btn-light" onclick="setTheme('violet-orange-light')">Light</button>
+                <div class="theme-name">5. Growth CRM (HubSpot)</div>
+                <div class="btn-group">
+                    <button class="btn-theme btn-dark" onclick="setTheme('crm-dark')">Dark</button>
+                    <button class="btn-theme btn-light" onclick="setTheme('crm-light')">Light</button>
                 </div>
             </div>
         </div>
@@ -241,28 +271,9 @@
             document.body.className = themeClass;
         }
 
-        function togglePanel(event) {
-            event.stopPropagation(); // Impede expansão acidental ao clicar no botão
+        function togglePanel() {
             const panel = document.getElementById('themePanel');
-            const btn = document.getElementById('toggleIcon');
-            
-            panel.classList.toggle('minimized');
-            
-            if (panel.classList.contains('minimized')) {
-                btn.innerText = "Expandir +";
-            } else {
-                btn.innerText = "Minimizar -";
-            }
-        }
-
-        function expandPanelIfMinimized() {
-            const panel = document.getElementById('themePanel');
-            const btn = document.getElementById('toggleIcon');
-            
-            if (panel.classList.contains('minimized')) {
-                panel.classList.remove('minimized');
-                btn.innerText = "Minimizar -";
-            }
+            panel.classList.toggle('hidden');
         }
     </script>
 </body>
