@@ -3,373 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Kits - Renê Sábi</title>
+    <title>Variações Kit 3 - Renê Sábio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=DM+Sans:wght@400;500&family=Inter:wght@400;600&family=Montserrat:wght@300;600&family=Outfit:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,600&family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500;700&family=Syne:wght@600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap');
 
         body {
             background-color: #e5e5e5;
             margin: 0;
             padding: 40px;
-            font-family: sans-serif;
+            font-family: 'Outfit', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 50px;
-        }
-
-        .kit-container {
-            width: 100%;
-            max-width: 1100px;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .kit-header {
-            padding: 30px 40px;
-            color: #fff;
-        }
-
-        .kit-header h2 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: 1px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .kit-header p {
-            margin: 5px 0 0 0;
-            opacity: 0.9;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .kit-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 40px;
             gap: 40px;
         }
 
-        /* Seções Internas */
-        .section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #888;
-            margin-bottom: 15px;
-            font-family: 'Inter', sans-serif;
+        .header-title {
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #111;
+            margin-bottom: 10px;
         }
 
-        /* Cores */
-        .color-palette {
-            display: flex;
-            gap: 15px;
-        }
-        .color-swatch {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            color: transparent;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .color-swatch:hover {
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-            font-size: 12px;
-            font-family: monospace;
-        }
-        .swatch-border { border: 1px solid #ccc; color: #333 !important; text-shadow: none !important;}
-
-        /* Tipografia Demo */
-        .typo-demo {
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border-left: 4px solid #333;
-        }
-        .typo-demo h1 { margin: 0 0 10px 0; font-size: 32px; }
-        .typo-demo p { margin: 0; font-size: 16px; line-height: 1.6; }
-
-        /* Estilo de Design Box */
-        .design-style-box {
-            padding: 20px;
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            color: #555;
-            line-height: 1.5;
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
         }
 
-        /* Logos Específicos */
-        .logo-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 150px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        /* =========================================
-           KIT 1: Vanguarda Deserto (Syne + Inter)
-           ========================================= */
-        .k1-bg { background-color: #1A1A1A; }
-        .k1-h1 { font-family: 'Syne', sans-serif; font-weight: 800; color: #1A1A1A; }
-        .k1-p { font-family: 'Inter', sans-serif; color: #444; }
-        .k1-typo-box { border-color: #C84C31; background-color: #EBE6E0; }
-        .logo-k1 {
-            background: #EBE6E0;
-            font-family: 'Syne', sans-serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: #1A1A1A;
-            letter-spacing: -2px;
-        }
-        .logo-k1 span { color: #C84C31; }
-
-        /* =========================================
-           KIT 2: Oceano & Cobre (Cinzel + Montserrat)
-           ========================================= */
-        .k2-bg { background-color: #0B1320; }
-        .k2-h1 { font-family: 'Cinzel', serif; font-weight: 800; color: #0B1320; }
-        .k2-p { font-family: 'Montserrat', sans-serif; color: #333; }
-        .k2-typo-box { border-color: #C4734F; background-color: #E4D8CC; }
-        .logo-k2 {
-            background: #0B1320;
-            font-family: 'Cinzel', serif;
-            font-size: 36px;
-            color: #E4D8CC;
+        .variation-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            line-height: 1;
         }
-        .logo-k2 small { font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 6px; color: #C4734F; margin-top: 5px; }
 
-        /* =========================================
-           KIT 3: Arquiteto Neo-Noir (Space Grotesk + Outfit)
-           ========================================= */
-        .k3-bg { background-color: #050505; border-bottom: 2px solid #D4FF00;}
-        .k3-h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #ffffff; }
-        .k3-p { font-family: 'Outfit', sans-serif; color: #aaaaaa; }
-        .k3-typo-box { border-color: #D4FF00; background-color: #1A1B1E; }
-        .logo-k3 {
-            background: #050505;
+        .card-header {
+            padding: 20px 30px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 40px;
-            color: #fff;
-            text-transform: lowercase;
+            font-weight: 700;
+            font-size: 20px;
+            border-bottom: 1px solid rgba(128,128,128,0.2);
+        }
+
+        .card-body {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Tipografia de Teste */
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        p {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Logo Display */
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 500;
             letter-spacing: -1px;
         }
-        .logo-k3 span { color: #D4FF00; font-weight: 700;}
+        .logo span { font-weight: 700; }
 
-        /* =========================================
-           KIT 4: Consultoria C-Level (Playfair + Source Sans)
-           ========================================= */
-        .k4-bg { background-color: #002147; }
-        .k4-h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; color: #002147; }
-        .k4-p { font-family: 'Source Sans 3', sans-serif; color: #222; }
-        .k4-typo-box { border-color: #722F37; background-color: #F7E7CE; }
-        .logo-k4 {
-            background: #F7E7CE;
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #002147;
-            border: 2px solid #002147;
-            padding: 10px 30px;
-        }
-        
-        /* =========================================
-           KIT 5: Terroso Monocromático (Outfit + DM Sans)
-           ========================================= */
-        .k5-bg { background-color: #3E2723; }
-        .k5-h1 { font-family: 'Outfit', sans-serif; font-weight: 700; color: #3E2723; }
-        .k5-p { font-family: 'DM Sans', sans-serif; color: #555; }
-        .k5-typo-box { border-color: #FBC02D; background-color: #FFF8E1; }
-        .logo-k5 {
-            background: #3E2723;
-            font-family: 'Outfit', sans-serif;
-            font-size: 50px;
+        /* Botão Fake */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            color: #FFF8E1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            width: fit-content;
+            transition: 0.3s;
         }
-        .logo-k5 .dot { width: 12px; height: 12px; background: #FBC02D; border-radius: 50%; display: inline-block; margin-top: 20px;}
+
+        /* ==========================================
+           1. AZUL (Trust & Tech)
+           ========================================== */
+        /* Dark */
+        .azul-dark { background: #0A0F1A; color: #94A3B8; }
+        .azul-dark .card-header { background: #0F172A; color: #fff; }
+        .azul-dark h1, .azul-dark .logo { color: #fff; }
+        .azul-dark .logo span { color: #3B82F6; }
+        .azul-dark .btn { background: #3B82F6; color: #fff; }
+        
+        /* Light */
+        .azul-light { background: #F8FAFC; color: #475569; border: 1px solid #E2E8F0;}
+        .azul-light .card-header { background: #F1F5F9; color: #0F172A; }
+        .azul-light h1, .azul-light .logo { color: #0F172A; }
+        .azul-light .logo span { color: #2563EB; }
+        .azul-light .btn { background: #2563EB; color: #fff; }
+
+        /* ==========================================
+           2. VERMELHO (Action & Performance)
+           ========================================== */
+        /* Dark */
+        .red-dark { background: #1A0505; color: #FCA5A5; }
+        .red-dark .card-header { background: #2C0B0B; color: #fff; }
+        .red-dark h1, .red-dark .logo { color: #fff; }
+        .red-dark .logo span { color: #EF4444; }
+        .red-dark .btn { background: #EF4444; color: #fff; }
+        
+        /* Light */
+        .red-light { background: #FEF2F2; color: #7F1D1D; border: 1px solid #FECACA;}
+        .red-light .card-header { background: #FEE2E2; color: #450A0A; }
+        .red-light h1, .red-light .logo { color: #450A0A; }
+        .red-light .logo span { color: #DC2626; }
+        .red-light .btn { background: #DC2626; color: #fff; }
+
+        /* ==========================================
+           3. VERDE (RevOps & Growth)
+           ========================================== */
+        /* Dark */
+        .green-dark { background: #051A0F; color: #6EE7B7; }
+        .green-dark .card-header { background: #064E3B; color: #fff; }
+        .green-dark h1, .green-dark .logo { color: #fff; }
+        .green-dark .logo span { color: #10B981; }
+        .green-dark .btn { background: #10B981; color: #051A0F; }
+        
+        /* Light */
+        .green-light { background: #F0FDF4; color: #14532D; border: 1px solid #BBF7D0;}
+        .green-light .card-header { background: #DCFCE7; color: #052E16; }
+        .green-light h1, .green-light .logo { color: #052E16; }
+        .green-light .logo span { color: #059669; }
+        .green-light .btn { background: #059669; color: #fff; }
+
+        /* ==========================================
+           4. AMARELO/OURO (Premium & Alert)
+           ========================================== */
+        /* Dark */
+        .yellow-dark { background: #1A1805; color: #FEF08A; }
+        .yellow-dark .card-header { background: #422006; color: #fff; }
+        .yellow-dark h1, .yellow-dark .logo { color: #fff; }
+        .yellow-dark .logo span { color: #FACC15; }
+        .yellow-dark .btn { background: #FACC15; color: #422006; }
+        
+        /* Light */
+        .yellow-light { background: #FEFCE8; color: #713F12; border: 1px solid #FEF08A;}
+        .yellow-light .card-header { background: #FEF9C3; color: #422006; }
+        .yellow-light h1, .yellow-light .logo { color: #422006; }
+        .yellow-light .logo span { color: #D97706; }
+        .yellow-light .btn { background: #D97706; color: #fff; }
+
+        /* ==========================================
+           5. ROXO/ÍNDIGO (Wisdom & Ecosystem)
+           ========================================== */
+        /* Dark */
+        .purple-dark { background: #10051A; color: #D8B4FE; }
+        .purple-dark .card-header { background: #2E1065; color: #fff; }
+        .purple-dark h1, .purple-dark .logo { color: #fff; }
+        .purple-dark .logo span { color: #A855F7; }
+        .purple-dark .btn { background: #A855F7; color: #fff; }
+        
+        /* Light */
+        .purple-light { background: #FAF5FF; color: #581C87; border: 1px solid #E9D5FF;}
+        .purple-light .card-header { background: #F3E8FF; color: #3B0764; }
+        .purple-light h1, .purple-light .logo { color: #3B0764; }
+        .purple-light .logo span { color: #7E22CE; }
+        .purple-light .btn { background: #7E22CE; color: #fff; }
 
     </style>
 </head>
 <body>
 
-    <div class="kit-container">
-        <div class="kit-header k1-bg">
-            <h2>Kit 1: Vanguarda Deserto</h2>
-            <p>Agressivo, contemporâneo e ousado. Foge completamente do óbvio corporativo.</p>
-        </div>
-        <div class="kit-content">
-            <div>
-                <div class="section-title">Logotipo Estratégico</div>
-                <div class="logo-display logo-k1">R<span>/</span>S.</div>
-                
-                <div class="section-title">Paleta de Cores</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #1A1A1A;">#1A1A1A</div>
-                    <div class="color-swatch" style="background: #C84C31;">#C84C31</div>
-                    <div class="color-swatch" style="background: #8A9A86;">#8A9A86</div>
-                    <div class="color-swatch swatch-border" style="background: #EBE6E0;">#EBE6E0</div>
-                </div>
+    <h1 class="header-title">Variações do Kit "Arquiteto" (Kit 3)</h1>
+    <p style="text-align: center; margin-bottom: 20px; font-size: 18px; color: #555;">Análise as opções de paleta e contraste (Dark Mode vs Light Mode).</p>
+
+    <div class="grid-container">
+        <div class="variation-card azul-dark">
+            <div class="card-header">1. AZUL - Dark Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Escalando o Ecossistema</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Visão corporativa de ponta a ponta.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
-            <div>
-                <div class="section-title">Tipografia Aplicada</div>
-                <div class="typo-demo k1-typo-box">
-                    <h1 class="k1-h1">Tração e Receita.</h1>
-                    <p class="k1-p">Títulos em <strong>Syne</strong> (larga e impactante) e corpo em <strong>Inter</strong>. Um contraste brutalista que prende a atenção na mensagem principal.</p>
-                </div>
-                <div class="section-title" style="margin-top:20px;">Estilo de Design (UI)</div>
-                <div class="design-style-box">
-                    <strong>Neo-Brutalismo Clean:</strong> Bordas grossas, ausência de sombras suaves (sombras sólidas), botões com formatos inusitados. Transmite a ideia de um profissional "fora da caixa" que quebra padrões.
-                </div>
+        </div>
+        <div class="variation-card azul-light">
+            <div class="card-header">1. AZUL - Light Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Escalando o Ecossistema</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Visão corporativa de ponta a ponta.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
         </div>
     </div>
 
-    <div class="kit-container">
-        <div class="kit-header k2-bg">
-            <h2>Kit 2: Profundidade e Cobre</h2>
-            <p>Altamente premium, remete a escritórios de alta gestão e boutique de negócios.</p>
-        </div>
-        <div class="kit-content">
-            <div>
-                <div class="section-title">Logotipo Estratégico</div>
-                <div class="logo-display logo-k2">
-                    RENÊ SÁBI
-                    <small>DIRETOR DE MARKETING</small>
-                </div>
-                
-                <div class="section-title">Paleta de Cores</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #0B1320;">#0B1320</div>
-                    <div class="color-swatch" style="background: #163A42;">#163A42</div>
-                    <div class="color-swatch" style="background: #C4734F;">#C4734F</div>
-                    <div class="color-swatch swatch-border" style="background: #E4D8CC;">#E4D8CC</div>
-                </div>
+    <div class="grid-container">
+        <div class="variation-card red-dark">
+            <div class="card-header">2. VERMELHO - Dark Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>A Máquina de Aquisição</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Ação e performance constantes.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
-            <div>
-                <div class="section-title">Tipografia Aplicada</div>
-                <div class="typo-demo k2-typo-box">
-                    <h1 class="k2-h1">Escalando o Ecossistema</h1>
-                    <p class="k2-p">Títulos em <strong>Cinzel</strong> (épica e majestosa) e corpo em <strong>Montserrat</strong>. Perfeito para quem não vende apenas serviços, mas autoridade e visão estratégica.</p>
-                </div>
-                <div class="section-title" style="margin-top:20px;">Estilo de Design (UI)</div>
-                <div class="design-style-box">
-                    <strong>Minimalismo Vanguardista:</strong> Muito espaço negativo (áreas vazias no site), grid assimétrico. O uso do Cobre (#C4734F) serve apenas para detalhes sutis, como linhas finas e o botão de contato.
-                </div>
+        </div>
+        <div class="variation-card red-light">
+            <div class="card-header">2. VERMELHO - Light Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>A Máquina de Aquisição</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Ação e performance constantes.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
         </div>
     </div>
 
-    <div class="kit-container" style="background: #111;">
-        <div class="kit-header k3-bg">
-            <h2 style="color: #fff;">Kit 3: O Arquiteto Neo-Noir</h2>
-            <p style="color: #aaa;">Dark mode nativo. Focado em tecnologia, dados (RevOps) e performance absoluta.</p>
-        </div>
-        <div class="kit-content">
-            <div>
-                <div class="section-title">Logotipo Estratégico</div>
-                <div class="logo-display logo-k3">renê<span>_</span>sabi</div>
-                
-                <div class="section-title">Paleta de Cores</div>
-                <div class="color-palette">
-                    <div class="color-swatch swatch-border" style="background: #050505;">#050505</div>
-                    <div class="color-swatch swatch-border" style="background: #1A1B1E;">#1A1B1E</div>
-                    <div class="color-swatch" style="background: #888888;">#888888</div>
-                    <div class="color-swatch" style="background: #D4FF00; color: #000;">#D4FF00</div>
-                </div>
+    <div class="grid-container">
+        <div class="variation-card green-dark">
+            <div class="card-header">3. VERDE - Dark Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Operações de Receita</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Foco analítico em crescimento contínuo.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
-            <div>
-                <div class="section-title">Tipografia Aplicada</div>
-                <div class="typo-demo k3-typo-box">
-                    <h1 class="k3-h1">A Máquina de Aquisição</h1>
-                    <p class="k3-p">Títulos em <strong>Space Grotesk</strong> (tech/geométrica) e corpo em <strong>Outfit</strong>. Leitura perfeita no fundo preto, evocando terminais de dados e inteligência artificial.</p>
-                </div>
-                <div class="section-title" style="margin-top:20px;">Estilo de Design (UI)</div>
-                <div class="design-style-box" style="border-color: #444; color: #aaa;">
-                    <strong>Dark Mode Glassmorphism:</strong> Fundos pretos absolutos, cards com transparência fosca (efeito vidro) e o verde-limão neon apenas para interações (hover do mouse e botões principais).
-                </div>
+        </div>
+        <div class="variation-card green-light">
+            <div class="card-header">3. VERDE - Light Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Operações de Receita</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Foco analítico em crescimento contínuo.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
         </div>
     </div>
 
-    <div class="kit-container">
-        <div class="kit-header k4-bg">
-            <h2>Kit 4: A Consultoria C-Level</h2>
-            <p>Tradição e peso institucional. O layout clássico que transmite segurança imediata para B2B.</p>
-        </div>
-        <div class="kit-content">
-            <div>
-                <div class="section-title">Logotipo Estratégico</div>
-                <div class="logo-display logo-k4">RENÊ</div>
-                
-                <div class="section-title">Paleta de Cores</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #002147;">#002147</div>
-                    <div class="color-swatch" style="background: #722F37;">#722F37</div>
-                    <div class="color-swatch swatch-border" style="background: #F7E7CE;">#F7E7CE</div>
-                    <div class="color-swatch swatch-border" style="background: #FFFFFF;">#FFFFFF</div>
-                </div>
+    <div class="grid-container">
+        <div class="variation-card yellow-dark">
+            <div class="card-header">4. AMARELO - Dark Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Gestão Premium B2B</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Autoridade e senioridade no mercado.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
-            <div>
-                <div class="section-title">Tipografia Aplicada</div>
-                <div class="typo-demo k4-typo-box">
-                    <h1 class="k4-h1">Consolidação de Dados</h1>
-                    <p class="k4-p">Títulos em <strong>Playfair Display</strong> (serifas elegantes) e corpo em <strong>Source Sans 3</strong>. Uma combinação que se assemelha a relatórios executivos de grandes veículos financeiros.</p>
-                </div>
-                <div class="section-title" style="margin-top:20px;">Estilo de Design (UI)</div>
-                <div class="design-style-box">
-                    <strong>Editorial Clássico:</strong> Estrutura em colunas rigorosas, uso de linhas separadoras finas, e cards que lembram artigos de jornais de negócios de alto escalão. Sem cantos arredondados.
-                </div>
+        </div>
+        <div class="variation-card yellow-light">
+            <div class="card-header">4. AMARELO - Light Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Gestão Premium B2B</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. Autoridade e senioridade no mercado.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
         </div>
     </div>
 
-    <div class="kit-container">
-        <div class="kit-header k5-bg">
-            <h2>Kit 5: Terroso Monocromático</h2>
-            <p>Calmo, maduro e focado. Uma identidade que não precisa gritar para demonstrar valor.</p>
-        </div>
-        <div class="kit-content">
-            <div>
-                <div class="section-title">Logotipo Estratégico</div>
-                <div class="logo-display logo-k5">Renê<span class="dot"></span></div>
-                
-                <div class="section-title">Paleta de Cores</div>
-                <div class="color-palette">
-                    <div class="color-swatch" style="background: #3E2723;">#3E2723</div>
-                    <div class="color-swatch" style="background: #A1887F;">#A1887F</div>
-                    <div class="color-swatch" style="background: #FBC02D; color:#000;">#FBC02D</div>
-                    <div class="color-swatch swatch-border" style="background: #FFF8E1;">#FFF8E1</div>
-                </div>
+    <div class="grid-container">
+        <div class="variation-card purple-dark">
+            <div class="card-header">5. ROXO - Dark Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Conexões Duradouras</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. A cor ideal para conectar com o Inbound Hub.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
-            <div>
-                <div class="section-title">Tipografia Aplicada</div>
-                <div class="typo-demo k5-typo-box">
-                    <h1 class="k5-h1">Retenção e Escala</h1>
-                    <p class="k5-p">Títulos em <strong>Outfit</strong> (arredondada e amigável, porém firme) e corpo em <strong>DM Sans</strong>. Excelente leiturabilidade, criando um ambiente digital confortável.</p>
-                </div>
-                <div class="section-title" style="margin-top:20px;">Estilo de Design (UI)</div>
-                <div class="design-style-box">
-                    <strong>Flat Design Orgânico:</strong> Elementos fluídos, sem sombras projetadas (design plano), utilizando o contraste entre o marrom profundo (Mocha) e o amarelo mostarda para criar hierarquia visual.
-                </div>
+        </div>
+        <div class="variation-card purple-light">
+            <div class="card-header">5. ROXO - Light Mode</div>
+            <div class="card-body">
+                <div class="logo">renê<span>_</span>sábio</div>
+                <h1>Conexões Duradouras</h1>
+                <p>Diretor de Marketing focado em processos, tecnologia e na estruturação de aquisição previsível de receita. A cor ideal para conectar com o Inbound Hub.</p>
+                <a href="#" class="btn">Conectar no LinkedIn</a>
             </div>
         </div>
     </div>
