@@ -3,53 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Renê - Efeitos Vibrantes</title>
+    <title>Renê Sábio - Dark Mode Vibrante</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap');
 
-        /* PALETA VIBRANTE: COBALTO, GELO E LARANJA */
+        /* * PALETA DARK MODO: FUNDO ABISSAL COM ACENTOS ELÉTRICOS
+         */
         :root {
-            --bg-main: #FFFFFF;
-            --bg-card: #FFFFFF;
-            --text-dark: #111111;  /* Preto Absoluto para Títulos */
-            --text-muted: #526071; /* Cinza Escuro para Leitura */
+            /* Base Dark */
+            --bg-main: #040914; /* Cobalto Abissal Profundo */
+            --bg-card: #0A1120; /* Ligeiramente mais claro para profundidade */
+            --text-dark: #FFFFFF; /* Títulos em Branco Absoluto */
+            --text-muted: #94A3B8; /* Texto de apoio em Cinza */
             
-            /* Cores Vibrantes */
-            --cobalt: #0047AB;     /* Cobalto Profundo */
+            /* Cores de Acento Vibrantes */
+            --cobalt: #1D4ED8;     /* Cobalto Elétrico */
             --ice-blue: #00F0FF;   /* Azul Gelo Elétrico */
             --orange: #FF6600;     /* Laranja Solar */
             
-            /* Efeitos de Transição */
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação mais suave e "elástica" */
-            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --shadow-neon: 0 0 10px rgba(255, 102, 0, 0.5); /* Brilho Laranja */
+            /* Efeitos e Animações */
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --shadow-neon-orange: 0 0 15px rgba(255, 102, 0, 0.7); /* Brilho Laranja Forte */
+            --shadow-neon-cobalt: 0 0 15px rgba(29, 78, 216, 0.5); /* Brilho Cobalto */
+            --border-default: rgba(255, 255, 255, 0.08);
         }
 
-        /* VARIAÇÕES DE PALETAS (Exemplo para o simulador) */
-        
-        /* 1. Cobalto/Gelo/Laranja (Inicia com esta) */
-        body.palette-vibrant { 
-            --accent-main: var(--cobalt); 
-            --accent-secondary: var(--orange); 
-            --accent-glow: var(--shadow-neon);
-            --border-card: rgba(0, 71, 171, 0.1); /* Borda Cobalto Suave */
-            --btn-bg: var(--cobalt);
-            --btn-text: #FFFFFF;
-            --btn-hover: var(--orange);
-        }
-
-        /* 2. Gelo Elétrico/Laranja/Cobalto */
-        body.palette-electric { 
-            --accent-main: var(--ice-blue); 
-            --accent-secondary: var(--cobalt); 
-            --accent-glow: 0 0 10px rgba(0, 240, 255, 0.5);
-            --border-card: rgba(0, 240, 255, 0.2); /* Borda Gelo */
-            --btn-bg: var(--ice-blue);
-            --btn-text: #001B3A;
-            --btn-hover: var(--cobalt);
-        }
-
-        /* RESET E ESTRUTURA */
+        /* * RESET E ESTRUTURA
+         */
         * { margin: 0; padding: 0; box-sizing: border-box; transition: var(--transition); }
 
         body {
@@ -69,36 +50,48 @@
             width: 100%; 
         }
 
-        /* CABEÇALHO NORMAL (Sem position sticky) */
+        /* * CABEÇALHO NORMAL (Sem position sticky)
+         */
         header { 
             padding: 40px 0; 
-            background: var(--bg-main); 
+            background: transparent; 
         }
         
-        /* O LOGOTIPO ORIGINAL: renê_sábio. */
+        /* LOGOTIPO BASE */
         .logo-container { 
             font-family: 'Space Grotesk', sans-serif; 
-            font-size: 28px; 
+            font-size: 30px; 
             font-weight: 700; 
             letter-spacing: -1px; 
             color: var(--text-dark);
-            text-transform: lowercase; /* Força lowercase */
         }
-        .logo-container span.hl { color: var(--accent-secondary); } /* Laranja no _sábio */
+
+        /* Logo Estilo 1: renê_sábio. (Lowercase original) */
+        .logo-original { text-transform: lowercase; }
+        .logo-original span.hl { color: var(--orange); } /* Laranja no _sábio */
+
+        /* Logo Estilo 2: Renê Sábio (Normal, Bold, Caps no início) */
+        .logo-normal { text-transform: none; }
+        .logo-normal span.fn { color: var(--cobalt); } /* Azul no Renê */
+        .logo-normal span.sn { color: var(--orange); margin-left: 8px;} /* Laranja no Sábio */
+
 
         /* REGRAS DE TIPOGRAFIA */
         h1, h2, h3 {
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-dark);
+            color: var(--text-dark); /* Texto Branco */
             letter-spacing: -1px;
         }
 
-        /* O Negrito: Laranja com Efeito de Brilho Neon */
+        /* O Negrito no texto: Laranja com Sublinhado Neon Gelo */
         strong, b {
-            color: var(--accent-secondary);
+            color: var(--orange);
             font-weight: 700;
-            text-decoration: none;
-            text-shadow: var(--accent-glow); /* Efeito Neon */
+            text-decoration: underline;
+            text-decoration-color: var(--ice-blue); /* Sublinhado Gelo */
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            text-shadow: var(--shadow-neon-orange); /* Efeito Neon */
         }
 
         /* SECÇÃO HERO */
@@ -108,7 +101,7 @@
             line-height: 1.05; 
             margin-bottom: 24px; 
             letter-spacing: -2.5px; 
-            font-weight: 700;
+            font-weight: 800;
         }
         .hero p { 
             font-size: 20px; 
@@ -117,9 +110,9 @@
             line-height: 1.6; 
             font-weight: 400; 
         }
-        .hero span.highlight { color: var(--accent-main); font-weight: 600;} /* Cobalto ou Gelo no Hub */
+        .hero span.highlight { color: var(--ice-blue); font-weight: 600;} /* Gelo elétrico nos destaques menores */
 
-        /* CARTÕES COM EFEITOS 3D E BRILHO */
+        /* CARTÕES DARK COM EFEITOS 3D E BRILHO */
         .cards-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -131,14 +124,14 @@
             background-color: var(--bg-card); 
             padding: 40px; 
             border-radius: 16px; 
-            border: 1px solid var(--border-card);
+            border: 1px solid var(--border-default);
             box-shadow: var(--shadow-subtle); 
-            transform-style: preserve-3d; /* Prepara para efeitos 3D */
+            transform-style: preserve-3d;
         }
         .card:hover { 
-            transform: translateY(-10px) rotateX(2deg); /* Animação mais agressiva */
-            border-color: var(--accent-secondary); /* Borda Laranja */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1), var(--accent-glow); /* Brilho Neon na sombra */
+            transform: translateY(-10px) rotateX(2deg); /* Animação elástica 3D */
+            border-color: var(--orange); /* Borda Laranja Solar no hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), var(--shadow-neon-orange); /* Sombra pesada com brilho neon */
         }
         .card h3 { 
             font-size: 22px; 
@@ -152,14 +145,14 @@
             font-size: 16px;
         }
         
-        /* BOTÕES SÓLIDOS VIBRANTES */
+        /* BOTÕES SÓLIDOS VIBRANTES (Cobalto para Laranja) */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 14px 28px;
-            background-color: var(--btn-bg); 
-            color: var(--btn-text);
+            background-color: var(--cobalt); 
+            color: #FFFFFF;
             border: none; 
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
@@ -168,45 +161,48 @@
             font-size: 15px;
             letter-spacing: 0.5px;
             cursor: pointer;
+            box-shadow: var(--shadow-neon-cobalt); /* Brilho cobalto inicial */
         }
 
         .btn:hover { 
-            background-color: var(--btn-hover); 
+            background-color: var(--orange); 
             transform: scale(1.05) translateY(-2px); 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), var(--shadow-neon-orange); /* Muda para brilho laranja */
         }
 
-        /* RODAPÉ BRANCO PREMIUM */
+        /* RODAPÉ DARK PREMIUM */
         footer { 
             margin-top: auto; 
             padding: 50px 0; 
-            background-color: #FFFFFF;
-            border-top: 1px solid #E5E5E5;
+            background-color: rgba(0,0,0,0.5); /* Ligeiramente mais escuro que o main */
+            border-top: 1px solid var(--border-default);
             text-align: center; 
         }
         footer p { 
-            color: var(--accent-main); /* Texto no tom principal */
+            color: var(--text-dark); /* Texto Branco no rodapé escuro */
             font-size: 15px; 
             font-weight: 500;
             letter-spacing: 0.5px;
         }
 
-        /* PAINEL DE CONTROLO: GLASSMORPHISM E MINIMIZAR INTEGRADO */
+        /* * PAINEL DE CONTROLO: DARK GLASSMORPHISM
+         */
         #themePanel {
             position: fixed;
             bottom: 30px;
             right: 30px;
             
-            /* Glassmorphism */
-            background: rgba(255, 255, 255, 0.7);
+            /* Glassmorphism Dark */
+            background: rgba(10, 15, 25, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             
             padding: 20px;
             border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.05);
             z-index: 100;
+            color: var(--text-dark);
             width: 320px;
             overflow: hidden;
             
@@ -217,7 +213,7 @@
 
         /* Estado minimizado (Título e Ícone apenas) */
         #themePanel.minimized {
-            max-height: 60px; /* Altura exata para o header */
+            max-height: 60px; /* Altura do header */
             cursor: pointer;
         }
 
@@ -227,10 +223,9 @@
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         
-        /* Esconde a borda quando minimizado */
         #themePanel.minimized .panel-header {
             border-bottom: none;
             margin-bottom: 0;
@@ -245,7 +240,7 @@
             margin: 0;
         }
 
-        /* Ícone de Minimizar (-) que vira (+) */
+        /* Ícone de Minimizar minimalista (-) */
         .minimize-icon {
             font-size: 20px;
             color: var(--text-muted);
@@ -255,9 +250,9 @@
             line-height: 1;
             transition: transform 0.3s;
         }
-        .minimize-icon:hover { color: var(--accent-secondary); }
+        .minimize-icon:hover { color: var(--orange); }
         #themePanel.minimized .minimize-icon {
-            transform: rotate(90deg); /* Faz o traço virar uma cruz */
+            transform: rotate(90deg); /* Faz o traço virar uma cruz ao minimizar */
         }
 
         /* Conteúdo do Painel */
@@ -275,10 +270,10 @@
             display: block;
             width: 100%;
             padding: 10px 16px;
-            border: 1px solid rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 8px;
-            background: #FFFFFF;
-            color: #334155;
+            background: rgba(255,255,255,0.02);
+            color: var(--text-dark);
             font-family: 'Outfit', sans-serif;
             font-size: 14px;
             font-weight: 500;
@@ -286,13 +281,13 @@
             margin-bottom: 8px;
             cursor: pointer;
         }
-        .btn-option:hover { background: #F8FAFC; border-color: #CBD5E1; }
-        .btn-option.active { border-color: var(--cobalt); background: rgba(0, 71, 171, 0.05); color: var(--cobalt); }
+        .btn-option:hover { background: rgba(255,255,255,0.05); border-color: var(--orange); }
+        .btn-option.active { border-color: var(--orange); background: rgba(255, 102, 0, 0.05); color: var(--orange); }
 
         /* Círculos de cor para o painel */
         .color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
-        .dot-vibrant { background: linear-gradient(135deg, #0047AB, #00F0FF, #FF6600); }
-        .dot-electric { background: linear-gradient(135deg, #00F0FF, #FF6600, #0047AB); }
+        .dot-original { background: linear-gradient(135deg, #FFFFFF, #FF6600); border: 1px solid rgba(255,255,255,0.1); }
+        .dot-normal { background: linear-gradient(135deg, #1D4ED8, #FF6600); }
 
     </style>
 </head>
@@ -300,7 +295,7 @@
 
     <header>
         <div class="container">
-            <div id="siteLogo" class="logo-container">
+            <div id="siteLogo" class="logo-container logo-original">
                 renê<span class="hl">_sábio.</span>
             </div>
         </div>
@@ -329,32 +324,44 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 renê_sábio. Especialista na estruturação de ecossistemas de Inbound Marketing.</p>
+            <p>&copy; 2026 renê_sábio. Ecossistemas previsíveis de Inbound Marketing.</p>
         </div>
     </footer>
 
     <div id="themePanel">
         <div class="panel-header" onclick="expandPanelIfMinimized()">
-            <h4>Simulador Renê - Efeitos</h4>
+            <h4>Dark Mode Vibrante</h4>
             <div class="minimize-icon" onclick="togglePanel(event)" id="toggleIcon">−</div>
         </div>
         
         <div id="panelContent">
-            <div class="section-title">Paleta Vibrante B2B</div>
-            <button class="btn-option active" onclick="setTheme('palette-vibrant', this)"><span class="color-dot dot-vibrant"></span> Cobalto, Gelo e Laranja</button>
-            <button class="btn-option" onclick="setTheme('palette-electric', this)"><span class="color-dot dot-electric"></span> Gelo Elétrico, Laranja e Cobalto</button>
+            <div class="section-title">Estilo do Logótipo (Negrito)</div>
+            <button class="btn-option active" onclick="setLogoStyle('original', this)"><span class="color-dot dot-original"></span> 1. Original (renê_sábio.)</button>
+            <button class="btn-option" onclick="setLogoStyle('normal', this)"><span class="color-dot dot-normal"></span> 2. Normal (Renê Sábio)</button>
             
-            <div class="section-title" style="margin-top: 15px;">Sobre o Design</div>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; padding: 0 5px;">Este design utiliza o fundo branco clássico para contraste, texto principal preto e destaca as palavras-chave com a paleta vibrante (laranja e cobalto) com um sutil efeito neon. Os cards possuem animações 3D no hover.</p>
+            <div class="section-title" style="margin-top: 15px;">Destaques do Design</div>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; padding: 0 5px;">Ambiente totalmente escuro para focar a atenção nos destaques neon Laranja Solar. Texto principal branco absoluto. Cards e botões com animações tridimensionais elásticas.</p>
         </div>
     </div>
 
     <script>
-        // Função para mudar a paleta
-        function setTheme(themeClass, btnElement) {
-            document.body.className = themeClass;
+        // Função para mudar o estilo do Logo
+        function setLogoStyle(style, btnElement) {
+            const logo = document.getElementById('siteLogo');
             
-            // Atualiza botões
+            // Limpa classes antigas
+            logo.className = 'logo-container';
+            
+            if (style === 'original') {
+                logo.classList.add('logo-original');
+                logo.innerHTML = 'renê<span class="hl">_sábio.</span>';
+            } else if (style === 'normal') {
+                logo.classList.add('logo-normal');
+                // Aplica Cobalto no Renê e Laranja no Sábio
+                logo.innerHTML = '<span class="fn">Renê</span> <span class="sn">Sábio</span>';
+            }
+
+            // Atualiza botões do painel
             const buttons = document.querySelectorAll('.btn-option');
             buttons.forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -362,7 +369,7 @@
 
         // Função para Minimizar/Expandir o painel
         function togglePanel(event) {
-            // Se o clique for no ícone de fechar, impede a propagação para o header
+            // Impede o clique de ativar a expansão do header
             if (event) event.stopPropagation();
             
             const panel = document.getElementById('themePanel');
@@ -373,7 +380,7 @@
             if (panel.classList.contains('minimized')) {
                 icon.innerText = "+"; // Mostra "+" quando minimizado
             } else {
-                icon.innerText = "−"; // Mostra "-" (m-dash) quando expandido
+                icon.innerText = "−"; // Mostra "−" quando expandido
             }
         }
 
