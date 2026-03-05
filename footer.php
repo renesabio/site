@@ -1,12 +1,13 @@
     <style>
+        /* RODAPÉ ESCURO */
         footer { 
             margin-top: auto; 
+            background-color: var(--bg-dark);
             padding: 40px 0; 
-            border-top: 1px solid var(--border-card);
+            border-top: 1px solid var(--border-dark);
             text-align: center; 
-            background: var(--bg-main);
         }
-        footer p { color: var(--text-muted); font-size: 14px; }
+        footer p { color: #94A3B8; font-size: 14px; }
     </style>
     
     <footer>
