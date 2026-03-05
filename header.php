@@ -3,43 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profissional Inbound Marketing, CRM & RevOps - [Seu Nome]</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Renê Sábio - Inbound Marketing, CRM & RevOps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de Cores Extraída da Foto */
         :root {
-            --cor-fundo: #111317;           /* Azul-preto profundo (fundo da foto) */
-            --cor-fundo-alt: #1a1e26;       /* Fundo secundário, cinza-preto mais claro */
-            --cor-texto-principal: #e1e3e8; /* Branco-acinzentado frio (gotas d'água) */
-            --cor-texto-secundario: #a8adb6; /* Cinza médio (folhas no fundo) */
-            --cor-acento: #c3793e;         /* Laranja cobre queimado (caule) */
-            --cor-acento-hover: #e09257;   /* Laranja cobre mais claro para hover */
-            --cor-borda: rgba(168, 173, 182, 0.1); /* Borda sutil baseada nas cores frias */
+            --bg-main: #050505; 
+            --bg-card: #0F0F0F; 
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #C36F38; /* Conhaque/Cobre vibrante */
+            --accent-hover: #e09257;
+            --border-card: rgba(255, 255, 255, 0.08);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto-principal);
-            margin: 0;
-            line-height: 1.6;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-muted);
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
-        /* Estilo do Cabeçalho */
-        header {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--cor-borda);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background-color: rgba(17, 19, 23, 0.95); /* Semi-transparente com cor de fundo */
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text-main); letter-spacing: -1px; }
+        strong, b { color: var(--accent); font-weight: 700; }
+
+        /* CABEÇALHO E MENU */
+        header { 
+            padding: 20px 0; 
+            border-bottom: 1px solid var(--border-card);
+            background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -49,49 +50,69 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--cor-texto-principal);
+        .logo-container { 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 28px; 
+            font-weight: 800; 
+            color: var(--text-main);
             text-decoration: none;
+            letter-spacing: -1px;
         }
-
-        .logo span {
-            color: var(--cor-acento);
-        }
+        .logo-container span { color: var(--accent); } 
 
         nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 24px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--cor-texto-principal);
+            color: var(--text-main);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 15px;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* MENU HAMBÚRGUER MOBILE */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            color: var(--cor-acento);
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-main);
+                border-bottom: 1px solid var(--border-card);
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+            }
+            nav.active { display: flex; }
+            nav ul { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <div class="header-wrap">
-                <a href="#" class="logo">[Seu <span>Nome</span>]</a>
-                <nav>
-                    <ul>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#sobre">Sobre mim</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <header>
+        <div class="container header-wrap">
+            <a href="/" class="logo-container">Renê<span>Sábio</span></a>
+            <button class="menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#historia">Minha História</a></li>
+                    <li><a href="#atuacao">Como Atuo</a></li>
+                    <li><a href="#comunidade">Inbound Hub</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
