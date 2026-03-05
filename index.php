@@ -1,226 +1,56 @@
 <?php include 'header.php'; ?>
 
     <style>
-        /* Estilos da Seção Hero */
-        .hero {
-            padding: 200px 0 100px; /* Padding superior maior para o header fixo */
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--cor-texto-principal);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--cor-texto-secundario);
-            margin-bottom: 3rem;
-        }
-
-        .hero-subtitle span {
-            font-weight: 700;
-            color: var(--cor-acento);
-        }
-
-        /* Botões Genericamente Estilizados */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--cor-acento);
-            color: var(--cor-fundo);
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: background-color 0.3s, transform 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: var(--cor-acento-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--cor-texto-principal);
-            border: 2px solid var(--cor-borda);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(168, 173, 182, 0.1);
-            border-color: rgba(168, 173, 182, 0.2);
-            color: var(--cor-texto-principal);
-        }
-
-        /* Seção de Serviços/Pilares */
-        .servicos {
-            padding: 100px 0;
-            background-color: var(--cor-fundo-alt);
-        }
-
-        .secao-titulo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--cor-texto-principal);
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .pilares-wrap {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .pilar-item {
-            background-color: rgba(26, 30, 38, 0.5); /* Semi-transparente para profundidade 'glassmorphism' */
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid var(--cor-borda);
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .pilar-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(168, 173, 182, 0.2);
-        }
-
-        .pilar-icon {
-            font-size: 3rem;
-            color: var(--cor-acento);
-            margin-bottom: 1.5rem;
-        }
-
-        .pilar-titulo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--cor-texto-principal);
-            margin-bottom: 1rem;
-        }
-
-        .pilar-texto {
-            color: var(--cor-texto-secundario);
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        /* Seção Sobre Mim */
-        .sobre {
-            padding: 100px 0;
-        }
-        .sobre-content {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-        .sobre-texto {
-            flex: 1;
-        }
-        .sobre-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--cor-texto-principal);
-            margin-bottom: 1rem;
-        }
-        .sobre-sub {
-            font-size: 1.2rem;
-            color: var(--cor-acento);
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        .sobre-paragrafo {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
+        .hero { padding: 80px 0 60px; }
+        .hero h1 { font-size: 56px; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px; }
+        .hero p { font-size: 18px; line-height: 1.6; margin-bottom: 24px; max-width: 800px;}
         
-        /* Seção Contato */
-        .contato {
-            padding: 100px 0;
-            background-color: var(--cor-fundo-alt);
-            text-align: center;
+        .section-title { font-size: 32px; margin-bottom: 40px; border-bottom: 2px solid var(--border-card); padding-bottom: 10px;}
+
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px; }
+        .card { 
+            background-color: var(--bg-card); 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-card);
         }
-        .contato-wrap {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: var(--cor-fundo);
-            padding: 60px;
-            border-radius: 20px;
-            border: 1px solid var(--cor-borda);
-        }
-        
+        .card h3 { font-size: 22px; margin-bottom: 16px; }
+        .card p { margin-bottom: 0; font-size: 15px; line-height: 1.6; }
+
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { font-size: 1.2rem; }
-            .pilares-wrap { grid-template-columns: 1fr; }
-            .sobre-content { flex-direction: column; }
+            .hero h1 { font-size: 40px; }
         }
     </style>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">A unificação perfeita para orquestrar sua receita e alavancar o crescimento</h1>
-                <p class="hero-subtitle">Estratégias escaláveis de <span>Inbound Marketing</span>, <span>CRM</span> e <span>RevOps</span> para resultados previsíveis.</p>
-                <a href="#contato" class="btn">Agendar uma conversa</a>
-                <a href="#servicos" class="btn btn-outline" style="margin-left: 15px;">Conheça meus pilares</a>
-            </div>
+    <main class="container">
+        <section class="hero" id="historia">
+            <h1>Lógica de sistemas.<br>Estratégia de marketing.<br>Foco em <strong>receita.</strong></h1>
+            
+            <p>A minha jornada não começou no marketing. A intenção inicial era atuar com tecnologia, o que me levou a cursar Sistemas de Informação. Mas, entre os códigos e o trabalho, as oportunidades para criar sites, logos e blogs começaram a surgir com frequência. Foi nesse momento que percebi o meu caminho e fiz a transição para Propaganda e Marketing.</p>
+            
+            <p>Passei bastante tempo nas trincheiras operacionais, criando campanhas online e offline, muito focado em design, eventos e relações públicas. No entanto, o digital sempre foi o meu ecossistema natural. Para unir a criatividade à análise de dados, fui buscar uma especialização em Marketing e Mídias Digitais na FGV.</p>
         </section>
 
-        <section id="servicos" class="servicos">
-            <div class="container">
-                <h2 class="secao-titulo">Sua Máquina de Receita Precisamente Alinhada</h2>
-                <div class="pilares-wrap">
-                    <div class="pilar-item">
-                        <div class="pilar-icon">🌱</div> <h3 class="pilar-titulo">Inbound Marketing</h3>
-                        <p class="pilar-texto">Atração qualificada, nutrição inteligente e conversão consistente. Criamos jornadas de compra que geram leads qualificados e prontos para vendas.</p>
-                    </div>
-                    <div class="pilar-item">
-                        <div class="pilar-icon">⚙️</div>
-                        <h3 class="pilar-titulo">CRM & Gestão de Leads</h3>
-                        <p class="pilar-texto">Implementação e otimização de CRM para uma visão 360º. Automatizamos processos para maximizar o LTV e otimizar cada interação.</p>
-                    </div>
-                    <div class="pilar-item">
-                        <div class="pilar-icon">📈</div>
-                        <h3 class="pilar-titulo">RevOps (Revenue Operations)</h3>
-                        <p class="pilar-texto">Alinhamento estratégico e operacional entre Marketing, Vendas e Customer Success. Removemos atritos e otimizamos todo o ciclo de vida do cliente.</p>
-                    </div>
+        <section id="atuacao">
+            <h2 class="section-title">O que faço hoje</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Operação de Receita B2B</h3>
+                    <p>Atualmente, trabalho no maior ecossistema de planejamento financeiro do país. A minha missão diária é operar a máquina de <strong>atração, nutrição e fidelização de leads</strong> dentro do CRM. Utilizo os princípios de RevOps para otimizar funis, reduzir atritos e garantir que as equipas comerciais recebam oportunidades qualificadas.</p>
+                </div>
+                <div class="card">
+                    <h3>Construção de Negócios Digitais</h3>
+                    <p>Em paralelo, ajudo empresários a materializarem as suas empresas no ambiente online. Atuo na construção de <strong>marcas digitais do zero</strong>: desde a concepção do logo, desenvolvimento do site e e-mails profissionais, até à estruturação da apresentação comercial e implementação do CRM para gerir as vendas.</p>
                 </div>
             </div>
         </section>
-        
-        <section id="sobre" class="sobre">
-            <div class="container">
-                <div class="sobre-content">
-                    <div class="sobre-texto">
-                        <h2 class="sobre-title">Eu ajudo sua empresa a parar de perder dinheiro por desalinhamento operacional.</h2>
-                        <p class="sobre-sub">Unificando Processos, Tecnologia e Dados.</p>
-                        <p class="sobre-paragrafo">Sou apaixonado por resultados e viciado em dados. Como especialista em Inbound Marketing, CRM e RevOps, trago uma visão estratégica e prática para unificar os departamentos que geram receita em sua organização. Meu objetivo é criar máquinas de vendas previsíveis e escaláveis, focadas na experiência do cliente e na otimização operacional contínua.</p>
-                        <a href="#contato" class="btn">Vamos conversar sobre seus desafios?</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contato" class="contato">
-            <div class="container">
-                <div class="contato-wrap">
-                    <h2 class="secao-titulo">Pronto para transformar sua operação de receita?</h2>
-                    <p class="sobre-paragrafo">Vamos conversar sobre como Inbound, CRM e RevOps podem trabalhar juntos para acelerar seu crescimento. Agende uma consulta gratuita de 30 minutos.</p>
-                    <a href="#" class="btn btn-outline" style="margin-top: 20px;">Agendar consulta no Calendly</a> </div>
-            </div>
-        </section>
 
+        <section id="comunidade" style="padding-bottom: 80px;">
+            <div class="card" style="border-color: var(--accent); background: linear-gradient(145deg, #0F0F0F, #1a100a);">
+                <h3 style="color: var(--accent); font-size: 28px;">Inbound Hub</h3>
+                <p style="font-size: 18px;">Acredito no crescimento partilhado. Por isso, criei a comunidade <strong>Inbound Hub</strong>. É um espaço dedicado onde profissionais de marketing e empresários se reúnem para aprender, trocar experiências e, acima de tudo, executar projetos de Inbound Marketing com um único foco: <strong>geração de receita previsível.</strong></p>
+            </div>
+        </section>
     </main>
 
 <?php include 'footer.php'; ?>
