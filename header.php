@@ -6,7 +6,9 @@
     <title>Renê Sábio - Consultoria em Inbound Marketing, CRM & RevOps</title>
     
     <!-- ================= GOOGLE ANALYTICS (GA4) ================= -->
-    <!-- Cole o seu script gtag.js abaixo desta linha -->
+    <!-- Cole o seu script gtag.js abaixo desta linha. 
+         Como o site usa PHP para reaproveitar este header, ao colar aqui, 
+         o Google Analytics funcionará em TODAS as páginas (Briefing, Raio-X, etc). -->
     <!-- Exemplo:
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -22,21 +24,21 @@
     <style>
         :root {
             /* Cores e Temas */
-            --bg-dark: #09090b;       /* Preto super profundo */
+            --bg-dark: #09090b;       
             --border-dark: #27272a;
             
-            --bg-light: #ffffff;      /* Branco puro para o conteúdo */
-            --bg-alt: #f8fafc;        /* Fundo super claro para destaque de seções */
+            --bg-light: #ffffff;      
+            --bg-alt: #f8fafc;        
             
-            --text-dark: #0f172a;     /* Texto quase preto (mais elegante) */
-            --text-muted: #475569;    /* Cinza chumbo para leitura */
+            --text-dark: #0f172a;     
+            --text-muted: #475569;    
             --text-light: #f8fafc;
             --border-light: #e2e8f0;
             
-            --accent: #FF6600;        /* Laranja Tech / Ação */
+            --accent: #FF6600;        /* Laranja Tech */
             --accent-hover: #ea580c;
             
-            --hub-indigo: #312e81;    /* Índigo super escuro para o Inbound Hub */
+            --hub-indigo: #312e81;    /* Índigo do Inbound Hub */
             --hub-light: #e0e7ff;
         }
 
@@ -76,7 +78,7 @@
             letter-spacing: -0.04em;
         }
         .logo-rene { color: var(--text-light); font-weight: 800; }
-        .logo-sabio { color: var(--accent); font-weight: 800; margin-left: 2px;}
+        .logo-sabio { color: var(--accent); font-weight: 800; margin-left: 4px;}
 
         nav ul { list-style: none; display: flex; align-items: center; gap: 40px; }
         nav a { color: #a1a1aa; font-weight: 500; font-size: 15px; transition: color 0.2s; }
@@ -111,9 +113,8 @@
             padding: 16px 32px; background-color: var(--accent); color: #FFFFFF !important;
             border: none; font-family: 'Outfit', sans-serif; font-weight: 600;
             border-radius: 8px; font-size: 16px; cursor: pointer; transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
         }
-        .btn-main:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255, 102, 0, 0.3); }
+        .btn-main:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
 
         /* ================= UTILITÁRIOS FORMS ================= */
         .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 56px; border-radius: 16px; border: 1px solid var(--border-light); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);}
@@ -138,7 +139,7 @@
     <header>
         <div class="container header-wrap">
             <a href="index.php" class="logo-container">
-                <span class="logo-rene">Renê</span><span class="logo-sabio">Sábio</span>
+                <span class="logo-rene">Renê</span> <span class="logo-sabio">Sábio</span>
             </a>
             <button class="menu-toggle" onclick="document.getElementById('main-nav').classList.toggle('active')">☰</button>
             <nav id="main-nav">
