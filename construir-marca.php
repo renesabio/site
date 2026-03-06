@@ -1,82 +1,113 @@
 <?php include 'header.php'; ?>
 
-    <main class="container" style="padding: 60px 24px; text-align: center; max-width: 700px;">
-        <h1 style="font-size: 40px; margin-bottom: 16px;">Briefing de Presença Online</h1>
-        <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 16px;">Responda a estas 3 questões rápidas para descobrir exatamente qual a infraestrutura digital que a sua empresa precisa hoje.</p>
+    <style>
+        .form-page { padding: 80px 0; background-color: var(--bg-alt); min-height: calc(100vh - 80px); }
+        .form-header { margin-bottom: 48px; text-align: center; }
+        .form-header h1 { font-size: 40px; margin-bottom: 16px; }
+        .form-header p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
+        
+        .section-title { font-size: 20px; color: var(--accent); margin: 48px 0 24px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px;}
+        
+        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+        .checkbox-item { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-dark); background: #f8fafc; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s;}
+        .checkbox-item:hover { border-color: var(--accent); background: #fff; }
+        .checkbox-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
 
-        <div id="briefing-box" style="background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border-light);">
+        .back-link { display: inline-flex; align-items: center; color: var(--text-muted); font-weight: 500; margin-bottom: 40px; font-size: 15px; transition: color 0.2s;}
+        .back-link:hover { color: var(--accent); }
+    </style>
+
+    <main class="form-page">
+        <div class="container">
+            <a href="index.php" class="back-link">← Voltar para o início</a>
             
-            <div class="form-group">
-                <label class="form-label">1. A sua empresa já possui Logótipo e Identidade Visual profissional?</label>
-                <select id="q1" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="nao">Não, estamos a começar do zero.</option>
-                    <option value="sim">Sim, já temos uma marca definida.</option>
-                </select>
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>Briefing de Construção Digital</h1>
+                    <p>Me ajude a entender o momento da sua empresa para desenharmos a estrutura inicial da sua operação online.</p>
+                </div>
+
+                <form action="https://formsubmit.co/rene.sabio@hotmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Novo Briefing - Construção Digital">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <!-- Altere o value abaixo para a URL do seu site, para onde o cliente volta após enviar -->
+                    <input type="hidden" name="_next" value="https://seusite.com.br"> 
+
+                    <h3 class="section-title">1. Dados de Contato</h3>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">Seu Nome</label>
+                            <input type="text" name="Nome" class="form-control" required placeholder="Como gosta de ser chamado?">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">E-mail Corporativo</label>
+                            <input type="email" name="Email" class="form-control" required placeholder="seu@email.com.br">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp</label>
+                            <input type="tel" name="Celular" class="form-control" required placeholder="(11) 90000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Nome do Negócio</label>
+                            <input type="text" name="Empresa" class="form-control" required placeholder="Nome da Empresa">
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">2. Estrutura Atual</h3>
+                    <div class="form-group">
+                        <label class="form-label">O negócio já existe de forma oficial?</label>
+                        <select name="Momento_Negocio" class="form-control" required>
+                            <option value="" disabled selected>Selecione seu momento atual...</option>
+                            <option value="Ainda é apenas uma ideia">Ainda é apenas uma ideia / Saindo do papel</option>
+                            <option value="Já existe offline">Já existimos fisicamente, mas sem presença digital</option>
+                            <option value="Já atua no digital">Já atuamos no digital de alguma forma</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">O que você já possui bem estruturado hoje? <span>(Marque todas as opções que possuir)</span></label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item"><input type="checkbox" name="Possui[]" value="Logo Profissional"> Logo e Identidade Visual</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Possui[]" value="Site/Landing Page"> Site ou Landing Page</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Possui[]" value="Redes Sociais"> Redes Sociais ativas</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Possui[]" value="Apresentação Comercial"> Apresentação Comercial (PDF)</label>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">3. Atração e Prazos</h3>
+                    <div class="form-group">
+                        <label class="form-label">Como você pretende iniciar a atração de clientes?</label>
+                        <select name="Atracao_Clientes" class="form-control" required>
+                            <option value="" disabled selected>Escolha o canal principal...</option>
+                            <option value="Conteúdo Orgânico">Produzindo conteúdo (Redes Sociais / Blog)</option>
+                            <option value="Tráfego Pago">Anúncios (Google Ads / Meta Ads)</option>
+                            <option value="Prospecção Ativa">Prospecção Ativa (Mensagens / Ligações)</option>
+                            <option value="Ainda não sei">Ainda não sei, preciso de ajuda com isso</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Qual é o nível de urgência da sua operação?</label>
+                        <select name="Urgencia" class="form-control" required>
+                            <option value="" disabled selected>Selecione o prazo ideal...</option>
+                            <option value="Alta (1 mês)">Alta urgência! Preciso iniciar a operação em até 1 mês.</option>
+                            <option value="Média (2-3 meses)">Média. Temos um prazo de 2 a 3 meses para estruturar.</option>
+                            <option value="Baixa (Longo Prazo)">Baixa. Queremos planejar tudo com calma, sem pressa.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Me conte os detalhes do seu objetivo final:</label>
+                        <textarea name="Detalhes" class="form-control" placeholder="Ex: Vamos abrir uma clínica médica no mês que vem e precisamos ter uma marca forte, um site para agendamentos e uma campanha inicial rodando..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-main" style="width: 100%; padding: 20px; font-size: 18px; margin-top: 16px;">Enviar Briefing para Análise</button>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label class="form-label">2. Qual é a sua forma principal de atrair clientes hoje?</label>
-                <select id="q2" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="boca">Indicações e boca a boca.</option>
-                    <option value="redes">Apenas pelo Instagram/WhatsApp.</option>
-                    <option value="anuncios">Já fazemos anúncios online.</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">3. Como gere os seus contactos e vendas?</label>
-                <select id="q3" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="papel">Caderno, cabeça ou Excel básico.</option>
-                    <option value="crm">Já utilizo um sistema de CRM organizado.</option>
-                </select>
-            </div>
-
-            <button onclick="gerarResultadoBriefing()" class="btn" style="width: 100%; margin-top: 20px;">Analisar a Minha Marca</button>
-        </div>
-
-        <div id="resultado-box" style="display: none; background: #EEF2FF; padding: 40px; border-radius: 12px; border: 1px solid var(--accent); margin-top: 40px; text-align: left;">
-            <h3 style="color: var(--accent); margin-bottom: 16px;">O Seu Diagnóstico</h3>
-            <p id="resultado-texto" style="color: var(--text-dark); font-size: 16px; line-height: 1.6; font-weight: 500;"></p>
-            <p style="margin-top: 24px; color: var(--text-muted); font-size: 15px;">Quer construir esta estrutura de forma profissional e orientada para a receita? Vamos conversar.</p>
         </div>
     </main>
-
-    <script>
-        function gerarResultadoBriefing() {
-            const q1 = document.getElementById('q1').value;
-            const q2 = document.getElementById('q2').value;
-            const q3 = document.getElementById('q3').value;
-            
-            if(!q1 || !q2 || !q3) {
-                alert("Por favor, preencha todas as questões para um resultado preciso.");
-                return;
-            }
-
-            let resultado = "";
-
-            if (q1 === 'nao') {
-                resultado += "Como ainda não tem uma identidade visual, o seu projeto tem de começar pela <strong>Base de Branding</strong> (criação de logótipo e identidade). Sem isso, não há como construir confiança na internet. ";
-            } else {
-                resultado += "Com a identidade visual já definida, metade do caminho de branding está feito. ";
-            }
-
-            if (q2 === 'boca' || q2 === 'redes') {
-                resultado += "Depender apenas de indicações ou redes sociais limita o seu crescimento. Precisa de uma <strong>Presença Digital Oficial (Website Corporativo e Landing Pages)</strong> para captar pesquisas no Google e transmitir autoridade. ";
-            }
-
-            if (q3 === 'papel') {
-                resultado += "E o mais crítico: como gere vendas em cadernos ou Excel, está a perder dinheiro todos os dias. A sua prioridade é implementar um <strong>CRM Básico</strong> atrelado ao site para automatizar a captação e follow-up de potenciais clientes.";
-            } else if (q3 === 'crm' && q1 === 'sim' && q2 === 'anuncios') {
-                resultado += "A sua base estrutural já existe! O seu foco não é mais 'construir', mas sim 'escalar'. O seu próximo passo deve ser uma operação de <strong>Inbound Marketing e RevOps</strong> para unificar a inteligência do seu CRM com os seus anúncios.";
-            }
-
-            document.getElementById('briefing-box').style.display = 'none';
-            document.getElementById('resultado-texto').innerHTML = resultado;
-            document.getElementById('resultado-box').style.display = 'block';
-        }
-    </script>
 
 <?php include 'footer.php'; ?>
