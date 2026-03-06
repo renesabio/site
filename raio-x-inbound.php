@@ -1,77 +1,106 @@
 <?php include 'header.php'; ?>
 
-    <main class="container" style="padding: 60px 24px; text-align: center; max-width: 700px;">
-        <h1 style="font-size: 40px; margin-bottom: 16px;">Raio-X da Operação Digital</h1>
-        <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 16px;">Descubra se a sua máquina de vendas está afinada ou se está a desperdiçar leads por falta de alinhamento em Inbound e RevOps.</p>
+    <style>
+        .form-page { padding: 80px 0; background-color: var(--bg-alt); min-height: calc(100vh - 80px); }
+        .form-header { margin-bottom: 48px; text-align: center; }
+        .form-header h1 { font-size: 40px; margin-bottom: 16px; }
+        .form-header p { color: var(--text-muted); font-size: 18px; max-width: 650px; margin: 0 auto; }
+        
+        .section-title { font-size: 20px; color: var(--accent); margin: 48px 0 24px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px;}
 
-        <div id="raiox-box" style="background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border-light);">
+        .back-link { display: inline-flex; align-items: center; color: var(--text-muted); font-weight: 500; margin-bottom: 40px; font-size: 15px; transition: color 0.2s;}
+        .back-link:hover { color: var(--accent); }
+    </style>
+
+    <main class="form-page">
+        <div class="container">
+            <a href="index.php" class="back-link">← Voltar para o início</a>
             
-            <div class="form-group">
-                <label class="form-label">1. Sabe exatamente o Custo de Aquisição (CAC) e o Retorno (ROI) das suas campanhas?</label>
-                <select id="rx1" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="nao">Não faço ideia ou é um cálculo incerto.</option>
-                    <option value="sim">Sim, os dados estão claros no painel.</option>
-                </select>
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>Raio-X de Inbound e RevOps</h1>
+                    <p>Diagnóstico focado para empresas que já possuem uma operação, mas precisam escalar com previsibilidade, alinhando marketing e vendas.</p>
+                </div>
+
+                <form action="https://formsubmit.co/rene.sabio@hotmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Novo Raio-X - Escala e RevOps">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <!-- Altere o value abaixo para a URL do seu site -->
+                    <input type="hidden" name="_next" value="https://seusite.com.br">
+
+                    <h3 class="section-title">1. Dados Básicos</h3>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">Seu Nome</label>
+                            <input type="text" name="Nome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Empresa</label>
+                            <input type="text" name="Empresa" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">E-mail Corporativo</label>
+                            <input type="email" name="Email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp</label>
+                            <input type="tel" name="Celular" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">2. Maturidade da Operação</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Você tem clareza de quanto custa trazer um novo cliente hoje? <span>Conhecido como Custo de Aquisição de Clientes (CAC)</span></label>
+                        <select name="Sabe_CAC" class="form-control" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Sim, exato">Sim, temos esse dado mapeado com precisão no sistema.</option>
+                            <option value="Temos uma base">Temos uma noção aproximada, mas o número não é exato.</option>
+                            <option value="Não fazemos ideia">Sinceramente, não fazemos ideia de quanto nos custa um cliente.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">O que acontece hoje com um potencial cliente que pergunta, mas não compra na hora?</label>
+                        <select name="Processo_Lead" class="form-control" required>
+                            <option value="" disabled selected>Selecione o cenário mais comum...</option>
+                            <option value="Nutrição Inbound">Ele entra em um fluxo automático de e-mails/conteúdos para ser nutrido.</option>
+                            <option value="Follow-up Manual">A equipe de vendas anota para tentar contatar de novo depois.</option>
+                            <option value="Fica esquecido">Basicamente a conversa esfria e o contato fica perdido no WhatsApp.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">O Marketing e as Vendas olham para o mesmo lugar na sua empresa?</label>
+                        <select name="Alinhamento" class="form-control" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="CRM Unificado">Sim, todos usam o mesmo sistema CRM com métricas conectadas.</option>
+                            <option value="Ferramentas Separadas">Não, o marketing usa uma plataforma e vendas usa planilhas/outro sistema.</option>
+                            <option value="Desconectados">Totalmente desconectados. Marketing só passa o contato e vendas se vira.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Sabe se o cliente compra mais de uma vez com você ao longo dos anos? <span>Conhecido como Lifetime Value (LTV)</span></label>
+                        <select name="Sabe_LTV" class="form-control" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="Sim, acompanhamos">Sim, temos programas ou controle de recompra e retenção.</option>
+                            <option value="Não acompanhamos">Não, focamos quase 100% apenas na primeira venda.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Qual é o principal problema que o impede de faturar mais hoje?</label>
+                        <textarea name="Desafio" class="form-control" required placeholder="Ex: Os leads do tráfego pago estão muito ruins, ou a equipe de vendas está perdendo o controle das conversas no WhatsApp..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-main" style="width: 100%; padding: 20px; font-size: 18px; margin-top: 16px;">Enviar Raio-X para Diagnóstico</button>
+                </form>
             </div>
-
-            <div class="form-group">
-                <label class="form-label">2. O que acontece com um lead que entra e não compra de imediato?</label>
-                <select id="rx2" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="perde">Fica esquecido / O vendedor desiste.</option>
-                    <option value="nutricao">Entra num fluxo de nutrição de e-mails automatizado.</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">3. As equipas de Marketing e Vendas usam o mesmo sistema e partilham metas?</label>
-                <select id="rx3" class="form-select">
-                    <option value="" disabled selected>Selecione uma opção...</option>
-                    <option value="separados">Não, trabalham de forma totalmente separada.</option>
-                    <option value="alinhados">Sim, operamos sob a mesma fonte de dados (CRM unificado).</option>
-                </select>
-            </div>
-
-            <button onclick="gerarResultadoRaioX()" class="btn" style="width: 100%; margin-top: 20px;">Processar Raio-X</button>
-        </div>
-
-        <div id="resultado-raiox-box" style="display: none; background: #EEF2FF; padding: 40px; border-radius: 12px; border: 1px solid var(--accent); margin-top: 40px; text-align: left;">
-            <h3 style="color: var(--accent); margin-bottom: 16px;">Diagnóstico da Operação</h3>
-            <p id="resultado-raiox-texto" style="color: var(--text-dark); font-size: 16px; line-height: 1.6; font-weight: 500;"></p>
         </div>
     </main>
-
-    <script>
-        function gerarResultadoRaioX() {
-            const rx1 = document.getElementById('rx1').value;
-            const rx2 = document.getElementById('rx2').value;
-            const rx3 = document.getElementById('rx3').value;
-            
-            if(!rx1 || !rx2 || !rx3) {
-                alert("Preencha todas as opções para o diagnóstico.");
-                return;
-            }
-
-            let score = 0;
-            if (rx1 === 'sim') score++;
-            if (rx2 === 'nutricao') score++;
-            if (rx3 === 'alinhados') score++;
-
-            let resultado = "";
-
-            if (score === 0) {
-                resultado = "<strong>Alerta Vermelho: Ruptura Operacional.</strong> A sua empresa está a gerar tráfego às escuras. O facto de marketing e vendas estarem separados e não existir nutrição significa que está a deitar dinheiro fora com leads que não convertem no primeiro dia. Necessita de uma intervenção urgente de RevOps para alinhar os departamentos e instalar o básico de Inbound Marketing.";
-            } else if (score === 1 || score === 2) {
-                resultado = "<strong>Sinal Amarelo: Fugas no Funil.</strong> A sua operação existe, mas possui vazamentos graves de receita. Alguns processos já estão mapeados, mas a falta de integração total entre automação, CRM e análise de dados (CAC/ROI) impede que o negócio escale de forma previsível. O foco aqui é auditoria de CRM e otimização de fluxos de Inbound.";
-            } else {
-                resultado = "<strong>Sinal Verde: Operação Madura.</strong> A sua máquina está muito bem alinhada. O Marketing atrai, o CRM nutre e as Vendas fecham sob os mesmos dados (RevOps sólido). O seu próximo nível não é criar, mas sim escalar orçamentos com análises preditivas avançadas de retenção (LTV).";
-            }
-
-            document.getElementById('raiox-box').style.display = 'none';
-            document.getElementById('resultado-raiox-texto').innerHTML = resultado;
-            document.getElementById('resultado-raiox-box').style.display = 'block';
-        }
-    </script>
 
 <?php include 'footer.php'; ?>
